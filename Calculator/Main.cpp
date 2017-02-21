@@ -1,4 +1,11 @@
-﻿#include <iostream>//To print to the console.
+﻿//\===========================================================================================
+//\ File: Calculator/main.cpp
+//\ Author: Morgan James
+//\ Date Created: 20/02/2017
+//\ Brief: A recreation of a calculator using c++, with Postfix notation.
+//\===========================================================================================
+
+#include <iostream>//To print to the console.
 #include "RPN Calculation.h"//The actual calculation from RPN to the integer.
 #include "Shunting-yard.h"//Contains the class needed to convert from infix equation notation to postfix.
 

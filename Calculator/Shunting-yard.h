@@ -1,7 +1,20 @@
+//\===========================================================================================
+//\ File: Shunting-Yard.h
+//\ Author: Morgan James
+//\ Date Created: 20/02/2017
+//\ Brief: Contains the ShuntingYard class declarations.
+//\===========================================================================================
+
 #ifndef _SHUNTINGYARD_H_
 #define _SHUNTINGYARD_H_
 
 #include <iostream>//To use strings as arguments.
+
+//\===========================================================================================
+//\ Author: Morgan James
+//\ Class: ShuntingYard
+//\ Brief: Allows for the conversion of infix equation notation to postfix.
+//\===========================================================================================
 
 class ShuntingYard
 {

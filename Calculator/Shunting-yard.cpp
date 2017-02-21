@@ -1,3 +1,10 @@
+//\===========================================================================================
+//\ File: Shunting-Yard.cpp
+//\ Author: Morgan James
+//\ Date Created: 20/02/2017
+//\ Brief: Contains the function information for the class contained in Shunting-Yard.h.
+//\===========================================================================================
+
 #include "Shunting-yard.h"//The header file that includes the class structure.
 #include <iostream>//To use the std library for strings.
 #include <sstream>//To separate one large string into separate strings.

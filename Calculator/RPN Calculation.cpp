@@ -1,3 +1,10 @@
+//\===========================================================================================
+//\ File: RPN Calculation.cpp
+//\ Author: Morgan James
+//\ Date Created: 20/02/2017
+//\ Brief: Contains the function information for the class contained in RPN Calculation.h.
+//\===========================================================================================
+
 #include "RPN Calculation.h"//The header file that includes the class structure.
 #include <iostream>//To use the std library for strings.
 #include <sstream>//To separate one large string into separate strings.

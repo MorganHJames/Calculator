@@ -11,11 +11,11 @@
 #include <stack>//To use a stack as a buffer for the tokens that need to be rearranged.
 #include <vector>//To use vectors for storing separate strings.
 
-bool ShuntingYard::isNumber(const std::string &a_sToken)//Returns true if the last character in the passed in token argument is a digit and false if not. 
+bool ShuntingYard::isNumber(const std::string &a_c_sToken)const//Returns true if the last character in the passed in token argument is a digit and false if not. 
 {
 	//Current operands: 1, 2, 3, 4, 5, 6, 7, 8, 9, 0.
 	bool bIsNumber = false;//A boolean return value for whether or not the token's last character is a digit.
-	for (const auto &i : a_sToken)//Iterates through each character of the token.
+	for (const auto &i : a_c_sToken)//Iterates through each character of the token.
 	{
 		if (!isdigit(i))//Check if token character is not a decimal digit.
 			bIsNumber = false;//Makes the return value false if the token character is not a digit.
@@ -25,21 +25,21 @@ bool ShuntingYard::isNumber(const std::string &a_sToken)//Returns true if the la
 	return bIsNumber;//Returns true if the token's last character is a digit and false if it isn't.
 }
 
-bool  ShuntingYard::isOperation(const std::string &a_sToken)//Returns true if the passed in token matches one of the operations.
+bool  ShuntingYard::isOperation(const std::string &a_c_sToken)const//Returns true if the passed in token matches one of the operations.
 {
 	//Current operations: +, -, *, /, ^, ().
 	
-	return (a_sToken == "+" || a_sToken == "-" || a_sToken == "*" || a_sToken == "/" || a_sToken == "^");//Checks the passed in token to see if it matches one of the operations(+,-,*,/,^) and if so returns true otherwise returns false.
+	return (a_c_sToken == "+" || a_c_sToken == "-" || a_c_sToken == "*" || a_c_sToken == "/" || a_c_sToken == "^");//Checks the passed in token to see if it matches one of the operations(+,-,*,/,^) and if so returns true otherwise returns false.
 }
 
-int  ShuntingYard::operationRank(const std::string &a_sToken)//Returns an int equal to the rank the passed in token operator has over other operators in accordance to BODMAS.
+int  ShuntingYard::operationRank(const std::string &a_c_sToken)const//Returns an int equal to the rank the passed in token operator has over other operators in accordance to BODMAS.
 {
 	//Current operation ranks: 3(^), 2(*,/), 1(+,-).
-	if (a_sToken == "^")//Checks to see if the token is equal to ^.
+	if (a_c_sToken == "^")//Checks to see if the token is equal to ^.
 		return 3;//Returns 3 if the token is equal to ^.
-	if (a_sToken == "*" || a_sToken == "/")//Checks to see if the token is equal to * or /.
+	if (a_c_sToken == "*" || a_c_sToken == "/")//Checks to see if the token is equal to * or /.
 		return 2;//Returns 2 if the token is equal to * or /.
-	if (a_sToken == "+" || a_sToken == "-")//Checks to see if the token is equal to + or -.
+	if (a_c_sToken == "+" || a_c_sToken == "-")//Checks to see if the token is equal to + or -.
 		return 1;//Returns 1 if the token is equal to + or -.
 	else//The token isn't equal to any of the operations.
 		return 0;//Returns 0 if  the token isn't an operation.

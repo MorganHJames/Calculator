@@ -20,7 +20,7 @@ class RPNCalculation
 {
 private:
 public:
-	double rpnEvaluate(const std::string &a_sPostfix);//A function that takes in a string as an argument that should be a postfix equation and returns a double that is the answer.
+	double rpnEvaluate(const std::string &a_c_sPostfix);//A function that takes in a string as an argument that should be a postfix equation and returns a double that is the answer.
 };
 
 #endif

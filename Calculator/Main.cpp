@@ -15,7 +15,7 @@ int main()
 	//add lots of memory functions and keep the values in a separate file
 	//figure out an input method and saving method maybe each function has a function in a class or something.
 	{
-		std::string sInfixEquation = "( -4 + 43.8 ) * 5 / 2"; //Input String the requires spaces between  each component.
+		std::string sInfixEquation = "6 + 9 / 3 - 6 + 6 * 3"; //Input String the requires spaces between  each component.
 		//Creates an object Convert of class ShuntingYard(the infix equation to postfix equation notation class).
 		ShuntingYard Convert;
 		RPNCalculation Calculate;//Creates an object of class RPNCalculation(calculates postfix notation equations).

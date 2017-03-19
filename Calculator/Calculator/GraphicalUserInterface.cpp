@@ -13,8 +13,4 @@ int main(array<String^>^ args)//Allows for garbage collection.
 	Calculator::GraphicalUserInterface form;//Creates an object of the class called form.
 
 	Application::Run(%form);//Makes the form run.
-
-
-
-
 }

@@ -1144,8 +1144,8 @@ private: System::Windows::Forms::Button^  memory9;
     }
     private: System::Void equals_Click(System::Object^  sender, System::EventArgs^  e)
     {
-    	std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
-    	this->display->Text = gcnew String(calculate(unmanaged).c_str());
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+		this->display->Text = gcnew String(calculate(unmanaged).c_str());
     }
     private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  e)
     {

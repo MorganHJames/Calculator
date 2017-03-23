@@ -5,7 +5,13 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Calculator", "Calculator\Calculator.vcxproj", "{6404AE36-6A63-4AC6-804A-3C80B618FD43}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CalculatorLib", "CalculatorLib\CalculatorLib.vcxitems", "{45D41ACC-2C3C-43D2-BC10-02AA73FFC7C7}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		CalculatorLib\CalculatorLib.vcxitems*{45d41acc-2c3c-43d2-bc10-02aa73ffc7c7}*SharedItemsImports = 9
+		CalculatorLib\CalculatorLib.vcxitems*{6404ae36-6a63-4ac6-804a-3c80b618fd43}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86

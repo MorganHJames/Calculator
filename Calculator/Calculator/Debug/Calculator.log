@@ -1,4 +1,5 @@
 ﻿  GraphicalUserInterface.cpp
+d:\unistuff\ct4021 introduction to programming fundamentals (sem1-2 - 201617)\semester 2\calculator\calculator\calculator\GraphicalUserInterface.h(1164): warning C4244: 'argument': conversion from 'double' to 'char', possible loss of data
   GraphicalUserInterface.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
-  Calculator.vcxproj -> D:\unishit\CT4021 Introduction to Programming Fundamentals (Sem1-2 - 201617)\semester 2\Calculator\Calculator\Debug\Calculator.exe
-  Calculator.vcxproj -> D:\unishit\CT4021 Introduction to Programming Fundamentals (Sem1-2 - 201617)\semester 2\Calculator\Calculator\Debug\Calculator.pdb (Partial PDB)
+  Calculator.vcxproj -> D:\unistuff\CT4021 Introduction to Programming Fundamentals (Sem1-2 - 201617)\semester 2\Calculator\Calculator\Debug\Calculator.exe
+  Calculator.vcxproj -> D:\unistuff\CT4021 Introduction to Programming Fundamentals (Sem1-2 - 201617)\semester 2\Calculator\Calculator\Debug\Calculator.pdb (Partial PDB)

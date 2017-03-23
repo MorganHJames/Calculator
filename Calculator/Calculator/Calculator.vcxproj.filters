@@ -18,10 +18,7 @@
     <ClCompile Include="GraphicalUserInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RPN Calculation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Shunting-yard.cpp">
+    <ClCompile Include="CalculatorLib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,11 +26,13 @@
     <ClInclude Include="GraphicalUserInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RPN Calculation.h">
+    <ClInclude Include="CalculatorLib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Shunting-yard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GraphicalUserInterface.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

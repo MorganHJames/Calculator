@@ -132,16 +132,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CalculatorLib.cpp" />
     <ClCompile Include="GraphicalUserInterface.cpp" />
-    <ClCompile Include="RPN Calculation.cpp" />
-    <ClCompile Include="Shunting-yard.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CalculatorLib.h" />
     <ClInclude Include="GraphicalUserInterface.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="RPN Calculation.h" />
-    <ClInclude Include="Shunting-yard.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GraphicalUserInterface.resx">

@@ -1,6 +1,8 @@
 ﻿#pragma once
-#include "RPN Calculation.h"
-#include "Shunting-yard.h"
+#include "CalculatorLib.h"
+#include  <msclr\marshal_cppstd.h>
+using namespace msclr::interop;
+
 namespace Calculator {
 
 	using namespace System;
@@ -273,6 +275,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->plus->TabIndex = 54;
 			this->plus->Text = L"+";
 			this->plus->UseVisualStyleBackColor = false;
+			this->plus->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::plus_Click_1);
 			// 
 			// negative
 			// 
@@ -287,6 +290,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->negative->TabIndex = 55;
 			this->negative->Text = L"-";
 			this->negative->UseVisualStyleBackColor = false;
+			this->negative->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::negative_Click_1);
 			// 
 			// multiply
 			// 
@@ -301,6 +305,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->multiply->TabIndex = 56;
 			this->multiply->Text = L"*";
 			this->multiply->UseVisualStyleBackColor = false;
+			this->multiply->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::multiply_Click_1);
 			// 
 			// divide
 			// 
@@ -315,6 +320,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->divide->TabIndex = 57;
 			this->divide->Text = L"/";
 			this->divide->UseVisualStyleBackColor = false;
+			this->divide->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::divide_Click_1);
 			// 
 			// backspace
 			// 
@@ -329,6 +335,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->backspace->TabIndex = 62;
 			this->backspace->Text = L"⌫";
 			this->backspace->UseVisualStyleBackColor = false;
+			this->backspace->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::backspace_Click);
 			// 
 			// nine
 			// 
@@ -343,6 +350,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->nine->TabIndex = 61;
 			this->nine->Text = L"9";
 			this->nine->UseVisualStyleBackColor = false;
+			this->nine->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::nine_Click_1);
 			// 
 			// six
 			// 
@@ -357,6 +365,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->six->TabIndex = 60;
 			this->six->Text = L"6";
 			this->six->UseVisualStyleBackColor = false;
+			this->six->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::six_Click_1);
 			// 
 			// three
 			// 
@@ -386,6 +395,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->period->TabIndex = 58;
 			this->period->Text = L".";
 			this->period->UseVisualStyleBackColor = false;
+			this->period->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::period_Click_1);
 			// 
 			// clear
 			// 
@@ -414,6 +424,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->eight->TabIndex = 66;
 			this->eight->Text = L"8";
 			this->eight->UseVisualStyleBackColor = false;
+			this->eight->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::eight_Click_1);
 			// 
 			// five
 			// 
@@ -428,6 +439,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->five->TabIndex = 65;
 			this->five->Text = L"5";
 			this->five->UseVisualStyleBackColor = false;
+			this->five->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::five_Click_1);
 			// 
 			// two
 			// 
@@ -472,6 +484,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->clearE->TabIndex = 72;
 			this->clearE->Text = L"CE";
 			this->clearE->UseVisualStyleBackColor = false;
+			this->clearE->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::clearE_Click);
 			// 
 			// seven
 			// 
@@ -486,6 +499,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->seven->TabIndex = 71;
 			this->seven->Text = L"7";
 			this->seven->UseVisualStyleBackColor = false;
+			this->seven->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::seven_Click_1);
 			// 
 			// four
 			// 
@@ -500,6 +514,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->four->TabIndex = 70;
 			this->four->Text = L"4";
 			this->four->UseVisualStyleBackColor = false;
+			this->four->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::four_Click_1);
 			// 
 			// one
 			// 
@@ -529,6 +544,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->rightBrace->TabIndex = 68;
 			this->rightBrace->Text = L")";
 			this->rightBrace->UseVisualStyleBackColor = false;
+			this->rightBrace->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::rightBrace_Click);
 			// 
 			// shift
 			// 
@@ -599,6 +615,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->leftBracket->TabIndex = 73;
 			this->leftBracket->Text = L"(";
 			this->leftBracket->UseVisualStyleBackColor = false;
+			this->leftBracket->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::leftBracket_Click);
 			// 
 			// tan
 			// 
@@ -1079,85 +1096,96 @@ private: System::Windows::Forms::Button^  memory9;
 
 
 
-	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e)
-	{
-		this->display->Text = "Hello World";
-	}
 	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e)
 	{
 	}
 	private: System::Void GraphicalUserInterface_Load(System::Object^  sender, System::EventArgs^  e)
 	{
 	}
-
-private: System::Void xsquared_Click(System::Object^  sender, System::EventArgs^  e)
-{
-}
-private: System::Void zero_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + "0";
-}
-private: System::Void one_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + "1";
-}
-private: System::Void two_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + "2";
-}
-private: System::Void three_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + "3";
-}
-private: System::Void four_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + "4";
-}
-private: System::Void five_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + "5";
-}
-private: System::Void six_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + "6";
-}
-private: System::Void seven_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + "7";
-}
-private: System::Void eight_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + "8";
-}
-private: System::Void nine_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + "9";
-}
-private: System::Void period_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + ".";
-}
-private: System::Void plus_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + " + ";
-}
-private: System::Void negative_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + " - ";
-}
-private: System::Void multiply_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + " * ";
-}
-private: System::Void divide_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	this->display->Text = display->Text + " / ";
-}
-private: System::Void equals_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	RPNCalculation *RPNCalculation1;
-	ShuntingYard *ShuntingYard1;
-	this->display->Text =  RPNCalculation1.rpnEvaluate(ShuntingYard1.infixToPostfix(display->Text))
-}
+    private: System::Void zero_Click(System::Object^  sender, System::EventArgs^  e)
+    {
+    	this->display->Text = display->Text + "0";
+    }
+    private: System::Void one_Click(System::Object^  sender, System::EventArgs^  e)
+    {
+    	this->display->Text = display->Text + "1";
+    }
+    private: System::Void two_Click(System::Object^  sender, System::EventArgs^  e)
+    {
+    	this->display->Text = display->Text + "2";
+    }
+    private: System::Void three_Click(System::Object^  sender, System::EventArgs^  e)
+    {
+    	this->display->Text = display->Text + "3";
+    }
+    private: System::Void four_Click_1(System::Object^  sender, System::EventArgs^  e)
+    {
+    	this->display->Text = display->Text + "4";
+    }
+    private: System::Void five_Click_1(System::Object^  sender, System::EventArgs^  e)
+    {
+    	 this->display->Text = display->Text + "5";
+    }
+    private: System::Void six_Click_1(System::Object^  sender, System::EventArgs^  e)
+    {	
+    	this->display->Text = display->Text + "6";
+    }
+    private: System::Void seven_Click_1(System::Object^  sender, System::EventArgs^  e)
+    {
+    	 this->display->Text = display->Text + "7";
+    }
+    private: System::Void eight_Click_1(System::Object^  sender, System::EventArgs^  e)
+    {
+    	 this->display->Text = display->Text + "8";
+    }
+    private: System::Void nine_Click_1(System::Object^  sender, System::EventArgs^  e)
+    {
+    	this->display->Text = display->Text + "9";
+    }
+    private: System::Void equals_Click(System::Object^  sender, System::EventArgs^  e)
+    {
+    	std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+    	this->display->Text = gcnew String(calculate(unmanaged).c_str());
+    }
+    private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  e)
+    {
+    	this->display->Text = display->Text + " + ";
+    }
+    private: System::Void negative_Click_1(System::Object^  sender, System::EventArgs^  e)
+    {
+    	this->display->Text = display->Text + " - ";
+    }
+    private: System::Void multiply_Click_1(System::Object^  sender, System::EventArgs^  e)
+    {
+    	this->display->Text = display->Text + " * ";
+    }
+    private: System::Void divide_Click_1(System::Object^  sender, System::EventArgs^  e)
+    {
+    	this->display->Text = display->Text + " / ";
+    }
+    private: System::Void period_Click_1(System::Object^  sender, System::EventArgs^  e)
+    {
+    	this->display->Text = display->Text + ".";
+    }
+    
+    private: System::Void rightBrace_Click(System::Object^  sender, System::EventArgs^  e)
+    {
+    	this->display->Text = display->Text + " ) ";
+    }
+    private: System::Void leftBracket_Click(System::Object^  sender, System::EventArgs^  e)
+    {
+    	this->display->Text = display->Text + " ( ";
+    }
+    private: System::Void clearE_Click(System::Object^  sender, System::EventArgs^  e)
+    {
+    	this->display->Text = "";
+    }
+    private: System::Void backspace_Click(System::Object^  sender, System::EventArgs^  e)
+    {
+    	
+    }
+    private: System::Void xsquared_Click(System::Object^  sender, System::EventArgs^  e)
+    {
+    }
 };
 }

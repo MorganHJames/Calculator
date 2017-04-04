@@ -5,123 +5,123 @@ using namespace msclr::interop;
 
 namespace Calculator {
 
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
+    using namespace System;
+    using namespace System::ComponentModel;
+    using namespace System::Collections;
+    using namespace System::Windows::Forms;
+    using namespace System::Data;
+    using namespace System::Drawing;
 
-	/// <summary>
-	/// Summary for GraphicalUserInterface
-	/// </summary>
-	public ref class GraphicalUserInterface : public System::Windows::Forms::Form
-	{
-	public:
-		GraphicalUserInterface(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-		}
-
-
-	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		~GraphicalUserInterface()
-		{
-			if (components)
-			{
-				delete components;
-			}
-		}
-	private: System::Windows::Forms::Button^  equals;
-	private: System::Windows::Forms::Button^  plus;
-	private: System::Windows::Forms::Button^  negative;
-	private: System::Windows::Forms::Button^  multiply;
-	private: System::Windows::Forms::Button^  divide;
-	private: System::Windows::Forms::Button^  backspace;
-	protected:
-
-	protected:
+    /// <summary>
+    /// Summary for GraphicalUserInterface
+    /// </summary>
+    public ref class GraphicalUserInterface : public System::Windows::Forms::Form
+    {
+    public:
+        GraphicalUserInterface(void)
+        {
+            InitializeComponent();
+            //
+            //TODO: Add the constructor code here
+            //
+        }
 
 
+    protected:
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        ~GraphicalUserInterface()
+        {
+            if (components)
+            {
+                delete components;
+            }
+        }
+    private: System::Windows::Forms::Button^  equals;
+    private: System::Windows::Forms::Button^  plus;
+    private: System::Windows::Forms::Button^  negative;
+    private: System::Windows::Forms::Button^  multiply;
+    private: System::Windows::Forms::Button^  divide;
+    private: System::Windows::Forms::Button^  backspace;
+    protected:
+
+    protected:
 
 
 
-	private: System::Windows::Forms::Button^  nine;
-
-	private: System::Windows::Forms::Button^  six;
-
-	private: System::Windows::Forms::Button^  three;
-	private: System::Windows::Forms::Button^  period;
 
 
-	private: System::Windows::Forms::Button^  clear;
+    private: System::Windows::Forms::Button^  nine;
+
+    private: System::Windows::Forms::Button^  six;
+
+    private: System::Windows::Forms::Button^  three;
+    private: System::Windows::Forms::Button^  period;
 
 
-	private: System::Windows::Forms::Button^  eight;
-
-	private: System::Windows::Forms::Button^  five;
-
-	private: System::Windows::Forms::Button^  two;
-
-	private: System::Windows::Forms::Button^  zero;
-	private: System::Windows::Forms::Button^  clearE;
+    private: System::Windows::Forms::Button^  clear;
 
 
-	private: System::Windows::Forms::Button^  seven;
+    private: System::Windows::Forms::Button^  eight;
 
-	private: System::Windows::Forms::Button^  four;
+    private: System::Windows::Forms::Button^  five;
 
-	private: System::Windows::Forms::Button^  one;
+    private: System::Windows::Forms::Button^  two;
 
-	private: System::Windows::Forms::Button^  rightBrace;
-	private: System::Windows::Forms::Button^  shift;
-
-
-	private: System::Windows::Forms::Button^  pi;
-
-	private: System::Windows::Forms::Button^  factorial;
-
-	private: System::Windows::Forms::Button^  plusminus;
-
-	private: System::Windows::Forms::Button^  leftBracket;
-	private: System::Windows::Forms::Button^  tan;
+    private: System::Windows::Forms::Button^  zero;
+    private: System::Windows::Forms::Button^  clearE;
 
 
-	private: System::Windows::Forms::Button^  modulus;
-	private: System::Windows::Forms::Button^  Exp;
-	private: System::Windows::Forms::Button^  cos;
+    private: System::Windows::Forms::Button^  seven;
+
+    private: System::Windows::Forms::Button^  four;
+
+    private: System::Windows::Forms::Button^  one;
+
+    private: System::Windows::Forms::Button^  rightBrace;
+    private: System::Windows::Forms::Button^  shift;
 
 
+    private: System::Windows::Forms::Button^  pi;
 
-	private: System::Windows::Forms::Button^  log;
-	private: System::Windows::Forms::Button^  sin;
+    private: System::Windows::Forms::Button^  factorial;
+
+    private: System::Windows::Forms::Button^  plusminus;
+
+    private: System::Windows::Forms::Button^  leftBracket;
+    private: System::Windows::Forms::Button^  tan;
 
 
-	private: System::Windows::Forms::Button^  tenpowerx;
-	private: System::Windows::Forms::Button^  xtothepowerofy;
-
-
-	private: System::Windows::Forms::Button^  squareroot;
-	private: System::Windows::Forms::Button^  xsquared;
-	private: System::Windows::Forms::TextBox^  display;
+    private: System::Windows::Forms::Button^  modulus;
+    private: System::Windows::Forms::Button^  Exp;
+    private: System::Windows::Forms::Button^  cos;
 
 
 
-	private: System::Windows::Forms::Button^  memoryclear;
+    private: System::Windows::Forms::Button^  log;
+    private: System::Windows::Forms::Button^  sin;
 
-	private: System::Windows::Forms::Button^  memoryrecall;
 
-	private: System::Windows::Forms::Button^  memorysubtract;
+    private: System::Windows::Forms::Button^  tenpowerx;
+    private: System::Windows::Forms::Button^  xtothepowerofy;
 
-	private: System::Windows::Forms::Button^  memorystore;
 
-	private: System::Windows::Forms::Button^  memory;
+    private: System::Windows::Forms::Button^  squareroot;
+    private: System::Windows::Forms::Button^  xsquared;
+    private: System::Windows::Forms::TextBox^  display;
+
+
+
+    private: System::Windows::Forms::Button^  memoryclear;
+
+    private: System::Windows::Forms::Button^  memoryrecall;
+
+    private: System::Windows::Forms::Button^  memorysubtract;
+
+    private: System::Windows::Forms::Button^  memorystore;
+
+    private: System::Windows::Forms::Button^  memory;
 private: System::Windows::Forms::Button^  degrees;
 private: System::Windows::Forms::Button^  hyperbolic;
 
@@ -148,6 +148,7 @@ private: System::Windows::Forms::Button^  memory1;
 
 private: System::Windows::Forms::Button^  memoryadd;
 private: System::Windows::Forms::Button^  memory9;
+private: System::Windows::Forms::Label^  lblShowOp;
 
 
 
@@ -171,26 +172,29 @@ private: System::Windows::Forms::Button^  memory9;
 
 
 
-	protected:
+
+
+
+    protected:
 
 
 
 
-	protected:
+    protected:
 
-	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		System::ComponentModel::Container ^components;
+    private:
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		void InitializeComponent(void)
-		{
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        void InitializeComponent(void)
+        {
 			this->equals = (gcnew System::Windows::Forms::Button());
 			this->plus = (gcnew System::Windows::Forms::Button());
 			this->negative = (gcnew System::Windows::Forms::Button());
@@ -245,6 +249,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->memory1 = (gcnew System::Windows::Forms::Button());
 			this->memoryadd = (gcnew System::Windows::Forms::Button());
 			this->memory9 = (gcnew System::Windows::Forms::Button());
+			this->lblShowOp = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// equals
@@ -350,7 +355,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->nine->TabIndex = 61;
 			this->nine->Text = L"9";
 			this->nine->UseVisualStyleBackColor = false;
-			this->nine->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::nine_Click_1);
+			this->nine->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::button_click);
 			// 
 			// six
 			// 
@@ -365,7 +370,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->six->TabIndex = 60;
 			this->six->Text = L"6";
 			this->six->UseVisualStyleBackColor = false;
-			this->six->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::six_Click_1);
+			this->six->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::button_click);
 			// 
 			// three
 			// 
@@ -380,7 +385,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->three->TabIndex = 59;
 			this->three->Text = L"3";
 			this->three->UseVisualStyleBackColor = false;
-			this->three->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::three_Click);
+			this->three->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::button_click);
 			// 
 			// period
 			// 
@@ -410,6 +415,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->clear->TabIndex = 67;
 			this->clear->Text = L"C";
 			this->clear->UseVisualStyleBackColor = false;
+			this->clear->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::clear_Click);
 			// 
 			// eight
 			// 
@@ -424,7 +430,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->eight->TabIndex = 66;
 			this->eight->Text = L"8";
 			this->eight->UseVisualStyleBackColor = false;
-			this->eight->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::eight_Click_1);
+			this->eight->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::button_click);
 			// 
 			// five
 			// 
@@ -439,7 +445,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->five->TabIndex = 65;
 			this->five->Text = L"5";
 			this->five->UseVisualStyleBackColor = false;
-			this->five->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::five_Click_1);
+			this->five->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::button_click);
 			// 
 			// two
 			// 
@@ -454,7 +460,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->two->TabIndex = 64;
 			this->two->Text = L"2";
 			this->two->UseVisualStyleBackColor = false;
-			this->two->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::two_Click);
+			this->two->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::button_click);
 			// 
 			// zero
 			// 
@@ -469,7 +475,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->zero->TabIndex = 63;
 			this->zero->Text = L"0";
 			this->zero->UseVisualStyleBackColor = false;
-			this->zero->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::zero_Click);
+			this->zero->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::button_click);
 			// 
 			// clearE
 			// 
@@ -499,7 +505,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->seven->TabIndex = 71;
 			this->seven->Text = L"7";
 			this->seven->UseVisualStyleBackColor = false;
-			this->seven->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::seven_Click_1);
+			this->seven->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::button_click);
 			// 
 			// four
 			// 
@@ -514,7 +520,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->four->TabIndex = 70;
 			this->four->Text = L"4";
 			this->four->UseVisualStyleBackColor = false;
-			this->four->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::four_Click_1);
+			this->four->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::button_click);
 			// 
 			// one
 			// 
@@ -529,7 +535,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->one->TabIndex = 69;
 			this->one->Text = L"1";
 			this->one->UseVisualStyleBackColor = false;
-			this->one->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::one_Click);
+			this->one->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::button_click);
 			// 
 			// rightBrace
 			// 
@@ -760,6 +766,7 @@ private: System::Windows::Forms::Button^  memory9;
 			// 
 			// display
 			// 
+			this->display->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->display->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->display->Font = (gcnew System::Drawing::Font(L"Tahoma", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -768,6 +775,8 @@ private: System::Windows::Forms::Button^  memory9;
 			this->display->Name = L"display";
 			this->display->Size = System::Drawing::Size(565, 110);
 			this->display->TabIndex = 0;
+			this->display->Text = L"0";
+			this->display->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			this->display->TextChanged += gcnew System::EventHandler(this, &GraphicalUserInterface::textBox1_TextChanged);
 			// 
 			// memoryclear
@@ -777,12 +786,13 @@ private: System::Windows::Forms::Button^  memory9;
 			this->memoryclear->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memoryclear->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memoryclear->Location = System::Drawing::Point(1, 153);
+			this->memoryclear->Location = System::Drawing::Point(-2, 152);
 			this->memoryclear->Name = L"memoryclear";
 			this->memoryclear->Size = System::Drawing::Size(95, 40);
 			this->memoryclear->TabIndex = 92;
 			this->memoryclear->Text = L"MC";
 			this->memoryclear->UseVisualStyleBackColor = false;
+			this->memoryclear->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::memoryclear_Click);
 			// 
 			// memoryrecall
 			// 
@@ -791,12 +801,13 @@ private: System::Windows::Forms::Button^  memory9;
 			this->memoryrecall->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memoryrecall->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memoryrecall->Location = System::Drawing::Point(96, 153);
+			this->memoryrecall->Location = System::Drawing::Point(93, 152);
 			this->memoryrecall->Name = L"memoryrecall";
 			this->memoryrecall->Size = System::Drawing::Size(95, 40);
 			this->memoryrecall->TabIndex = 91;
 			this->memoryrecall->Text = L"MR";
 			this->memoryrecall->UseVisualStyleBackColor = false;
+			this->memoryrecall->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::memoryrecall_Click);
 			// 
 			// memorysubtract
 			// 
@@ -805,12 +816,13 @@ private: System::Windows::Forms::Button^  memory9;
 			this->memorysubtract->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memorysubtract->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memorysubtract->Location = System::Drawing::Point(286, 153);
+			this->memorysubtract->Location = System::Drawing::Point(283, 152);
 			this->memorysubtract->Name = L"memorysubtract";
 			this->memorysubtract->Size = System::Drawing::Size(95, 40);
 			this->memorysubtract->TabIndex = 90;
 			this->memorysubtract->Text = L"M-";
 			this->memorysubtract->UseVisualStyleBackColor = false;
+			this->memorysubtract->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::memorysubtract_Click);
 			// 
 			// memorystore
 			// 
@@ -819,12 +831,13 @@ private: System::Windows::Forms::Button^  memory9;
 			this->memorystore->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memorystore->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memorystore->Location = System::Drawing::Point(381, 153);
+			this->memorystore->Location = System::Drawing::Point(378, 152);
 			this->memorystore->Name = L"memorystore";
 			this->memorystore->Size = System::Drawing::Size(95, 40);
 			this->memorystore->TabIndex = 89;
 			this->memorystore->Text = L"MS";
 			this->memorystore->UseVisualStyleBackColor = false;
+			this->memorystore->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::memorystore_Click);
 			// 
 			// memory
 			// 
@@ -833,12 +846,13 @@ private: System::Windows::Forms::Button^  memory9;
 			this->memory->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory->Location = System::Drawing::Point(476, 153);
+			this->memory->Location = System::Drawing::Point(473, 152);
 			this->memory->Name = L"memory";
 			this->memory->Size = System::Drawing::Size(95, 40);
 			this->memory->TabIndex = 88;
 			this->memory->Text = L"M⯆";
 			this->memory->UseVisualStyleBackColor = false;
+			this->memory->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::memory_Click);
 			// 
 			// degrees
 			// 
@@ -1001,12 +1015,13 @@ private: System::Windows::Forms::Button^  memory9;
 			this->memoryadd->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memoryadd->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memoryadd->Location = System::Drawing::Point(191, 153);
+			this->memoryadd->Location = System::Drawing::Point(188, 152);
 			this->memoryadd->Name = L"memoryadd";
 			this->memoryadd->Size = System::Drawing::Size(95, 40);
 			this->memoryadd->TabIndex = 104;
 			this->memoryadd->Text = L"M+";
 			this->memoryadd->UseVisualStyleBackColor = false;
+			this->memoryadd->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::memoryadd_Click);
 			// 
 			// memory9
 			// 
@@ -1022,6 +1037,15 @@ private: System::Windows::Forms::Button^  memory9;
 			this->memory9->Text = L"M9";
 			this->memory9->UseVisualStyleBackColor = false;
 			// 
+			// lblShowOp
+			// 
+			this->lblShowOp->AutoSize = true;
+			this->lblShowOp->BackColor = System::Drawing::Color::White;
+			this->lblShowOp->Location = System::Drawing::Point(4, 4);
+			this->lblShowOp->Name = L"lblShowOp";
+			this->lblShowOp->Size = System::Drawing::Size(0, 14);
+			this->lblShowOp->TabIndex = 106;
+			// 
 			// GraphicalUserInterface
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 14);
@@ -1029,6 +1053,7 @@ private: System::Windows::Forms::Button^  memory9;
 			this->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
 			this->ClientSize = System::Drawing::Size(565, 489);
+			this->Controls->Add(this->lblShowOp);
 			this->Controls->Add(this->memory9);
 			this->Controls->Add(this->memoryadd);
 			this->Controls->Add(this->memory1);
@@ -1094,98 +1119,120 @@ private: System::Windows::Forms::Button^  memory9;
 		}
 #pragma endregion
 
+		System::String^ current;
 
+    private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e)
+    {
+    }
+    private: System::Void GraphicalUserInterface_Load(System::Object^  sender, System::EventArgs^  e)
+    {
+    }
 
-	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e)
-	{
-	}
-	private: System::Void GraphicalUserInterface_Load(System::Object^  sender, System::EventArgs^  e)
-	{
-	}
-    private: System::Void zero_Click(System::Object^  sender, System::EventArgs^  e)
-    {
-    	this->display->Text = display->Text + "0";
-    }
-    private: System::Void one_Click(System::Object^  sender, System::EventArgs^  e)
-    {
-    	this->display->Text = display->Text + "1";
-    }
-    private: System::Void two_Click(System::Object^  sender, System::EventArgs^  e)
-    {
-    	this->display->Text = display->Text + "2";
-    }
-    private: System::Void three_Click(System::Object^  sender, System::EventArgs^  e)
-    {
-    	this->display->Text = display->Text + "3";
-    }
-    private: System::Void four_Click_1(System::Object^  sender, System::EventArgs^  e)
-    {
-    	this->display->Text = display->Text + "4";
-    }
-    private: System::Void five_Click_1(System::Object^  sender, System::EventArgs^  e)
-    {
-    	 this->display->Text = display->Text + "5";
-    }
-    private: System::Void six_Click_1(System::Object^  sender, System::EventArgs^  e)
-    {	
-    	this->display->Text = display->Text + "6";
-    }
-    private: System::Void seven_Click_1(System::Object^  sender, System::EventArgs^  e)
-    {
-    	 this->display->Text = display->Text + "7";
-    }
-    private: System::Void eight_Click_1(System::Object^  sender, System::EventArgs^  e)
-    {
-    	 this->display->Text = display->Text + "8";
-    }
-    private: System::Void nine_Click_1(System::Object^  sender, System::EventArgs^  e)
-    {
-    	this->display->Text = display->Text + "9";
-    }
     private: System::Void equals_Click(System::Object^  sender, System::EventArgs^  e)
     {
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
-		this->display->Text = gcnew String(calculate(unmanaged).c_str());
+		try
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+			this->lblShowOp->Text = this->display->Text + " = " + gcnew String(calculate(unmanaged).c_str());
+			current = gcnew String(calculate(unmanaged).c_str());
+			this->display->Text = gcnew String(calculate(unmanaged).c_str());
+		}
+		catch (...)
+		{
+			this->display->Text = "Math Error";
+		}
     }
     private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
-    	this->display->Text = display->Text + " + ";
+        this->display->Text = display->Text + " + ";
     }
     private: System::Void negative_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
-    	this->display->Text = display->Text + " - ";
+		if (this->display->Text->EndsWith(" "))
+		{
+			this->display->Text = display->Text + "-";
+		}
+		else
+		{
+			this->display->Text = display->Text + " - ";
+		}
     }
     private: System::Void multiply_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
-    	this->display->Text = display->Text + " * ";
+        this->display->Text = display->Text + " * ";
     }
     private: System::Void divide_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
-    	this->display->Text = display->Text + " / ";
+        this->display->Text = display->Text + " / ";
     }
     private: System::Void period_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
-    	this->display->Text = display->Text + ".";
+        this->display->Text = display->Text + ".";
     }
-    
     private: System::Void rightBrace_Click(System::Object^  sender, System::EventArgs^  e)
     {
-    	this->display->Text = display->Text + " ) ";
+        this->display->Text = display->Text + " ) ";
     }
     private: System::Void leftBracket_Click(System::Object^  sender, System::EventArgs^  e)
     {
-    	this->display->Text = display->Text + " ( ";
+        this->display->Text = display->Text + " ( ";
     }
     private: System::Void clearE_Click(System::Object^  sender, System::EventArgs^  e)
     {
-    	this->display->Text = "";
+        this->display->Text = current;
     }
     private: System::Void backspace_Click(System::Object^  sender, System::EventArgs^  e)
     {
-    	
+		if (this->display->Text->EndsWith(" "))
+		{
+			this->display->Text = display->Text->Remove(display->Text->Length - 1, 1);
+
+			this->display->Text = display->Text->Remove(display->Text->Length - 1, 1);
+
+			this->display->Text = display->Text->Remove(display->Text->Length - 1, 1);
+		}
+		else
+		{
+			this->display->Text = display->Text->Remove(display->Text->Length - 1, 1);
+		}
     }
     private: System::Void xsquared_Click(System::Object^  sender, System::EventArgs^  e)
     {
     }
+private: System::Void clear_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	this->display->Text = "0";
+	this->lblShowOp->Text = "";
+}
+private: System::Void button_click(System::Object^  sender, System::EventArgs^  e)
+{
+	Button ^ Numbers = safe_cast<Button^>(sender);
+	if (this->display->Text == "0")
+	{
+		this->display->Text = Numbers->Text;
+	}
+	else
+	{
+		this->display->Text = display->Text + Numbers->Text;
+	}
+}
+private: System::Void memory_Click(System::Object^  sender, System::EventArgs^  e)
+{
+}
+private: System::Void memoryclear_Click(System::Object^  sender, System::EventArgs^  e)
+{
+}
+private: System::Void memoryrecall_Click(System::Object^  sender, System::EventArgs^  e)
+{
+}
+private: System::Void memorysubtract_Click(System::Object^  sender, System::EventArgs^  e)
+{
+}
+private: System::Void memorystore_Click(System::Object^  sender, System::EventArgs^  e)
+{
+}
+private: System::Void memoryadd_Click(System::Object^  sender, System::EventArgs^  e)
+{
+}
 };
 }

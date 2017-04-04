@@ -149,6 +149,7 @@ private: System::Windows::Forms::Button^  memory1;
 private: System::Windows::Forms::Button^  memoryadd;
 private: System::Windows::Forms::Button^  memory9;
 private: System::Windows::Forms::Label^  lblShowOp;
+private: System::Windows::Forms::Label^  ree;
 
 
 
@@ -250,6 +251,7 @@ private: System::Windows::Forms::Label^  lblShowOp;
 			this->memoryadd = (gcnew System::Windows::Forms::Button());
 			this->memory9 = (gcnew System::Windows::Forms::Button());
 			this->lblShowOp = (gcnew System::Windows::Forms::Label());
+			this->ree = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// equals
@@ -607,6 +609,7 @@ private: System::Windows::Forms::Label^  lblShowOp;
 			this->plusminus->TabIndex = 74;
 			this->plusminus->Text = L"±";
 			this->plusminus->UseVisualStyleBackColor = false;
+			this->plusminus->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::plusminus_Click);
 			// 
 			// leftBracket
 			// 
@@ -1041,10 +1044,19 @@ private: System::Windows::Forms::Label^  lblShowOp;
 			// 
 			this->lblShowOp->AutoSize = true;
 			this->lblShowOp->BackColor = System::Drawing::Color::White;
-			this->lblShowOp->Location = System::Drawing::Point(4, 4);
+			this->lblShowOp->Location = System::Drawing::Point(6, 67);
 			this->lblShowOp->Name = L"lblShowOp";
 			this->lblShowOp->Size = System::Drawing::Size(0, 14);
 			this->lblShowOp->TabIndex = 106;
+			// 
+			// ree
+			// 
+			this->ree->AutoSize = true;
+			this->ree->BackColor = System::Drawing::Color::White;
+			this->ree->Location = System::Drawing::Point(6, 91);
+			this->ree->Name = L"ree";
+			this->ree->Size = System::Drawing::Size(0, 14);
+			this->ree->TabIndex = 107;
 			// 
 			// GraphicalUserInterface
 			// 
@@ -1053,6 +1065,7 @@ private: System::Windows::Forms::Label^  lblShowOp;
 			this->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
 			this->ClientSize = System::Drawing::Size(565, 489);
+			this->Controls->Add(this->ree);
 			this->Controls->Add(this->lblShowOp);
 			this->Controls->Add(this->memory9);
 			this->Controls->Add(this->memoryadd);
@@ -1119,8 +1132,6 @@ private: System::Windows::Forms::Label^  lblShowOp;
 		}
 #pragma endregion
 
-		System::String^ current;
-
     private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e)
     {
     }
@@ -1132,10 +1143,10 @@ private: System::Windows::Forms::Label^  lblShowOp;
     {
 		try
 		{
-			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
-			this->lblShowOp->Text = this->display->Text + " = " + gcnew String(calculate(unmanaged).c_str());
-			current = gcnew String(calculate(unmanaged).c_str());
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
 			this->display->Text = gcnew String(calculate(unmanaged).c_str());
+			this->lblShowOp->Text = "";
+			this->ree->Text = "";
 		}
 		catch (...)
 		{
@@ -1144,26 +1155,80 @@ private: System::Windows::Forms::Label^  lblShowOp;
     }
     private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
-        this->display->Text = display->Text + " + ";
-    }
-    private: System::Void negative_Click_1(System::Object^  sender, System::EventArgs^  e)
-    {
-		if (this->display->Text->EndsWith(" "))
+		if (this->lblShowOp->Text == "")
 		{
-			this->display->Text = display->Text + "-";
+			this->lblShowOp->Text = this->display->Text + " + ";
+			this->display->Text = "0";
+		}
+		else if (this->display->Text == "0")
+		{
+
 		}
 		else
 		{
-			this->display->Text = display->Text + " - ";
+			this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+			this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+			this->display->Text = "0";
+		}
+
+    }
+    private: System::Void negative_Click_1(System::Object^  sender, System::EventArgs^  e)
+    {
+		if (this->lblShowOp->Text == "")
+		{
+			this->lblShowOp->Text = this->display->Text + " - ";
+			this->display->Text = "0";
+		}
+		else if (this->display->Text == "0")
+		{
+
+		}
+		else
+		{
+			this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+			this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+			this->display->Text = "0";
 		}
     }
     private: System::Void multiply_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
-        this->display->Text = display->Text + " * ";
+		if (this->lblShowOp->Text == "")
+		{
+			this->lblShowOp->Text = this->display->Text + " * ";
+			this->display->Text = "0";
+		}
+		else if (this->display->Text == "0")
+		{
+
+		}
+		else
+		{
+			this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+			this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+			this->display->Text = "0";
+		}
     }
     private: System::Void divide_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
-        this->display->Text = display->Text + " / ";
+		if (this->lblShowOp->Text == "")
+		{
+			this->lblShowOp->Text = this->display->Text + " / ";
+			this->display->Text = "0";
+		}
+		else if (this->display->Text == "0")
+		{
+
+		}
+		else
+		{
+			this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " / ";
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+			this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+			this->display->Text = "0";
+		}
     }
     private: System::Void period_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
@@ -1171,30 +1236,23 @@ private: System::Windows::Forms::Label^  lblShowOp;
     }
     private: System::Void rightBrace_Click(System::Object^  sender, System::EventArgs^  e)
     {
-        this->display->Text = display->Text + " ) ";
+		/*
+		this->lblShowOp->Text = this->lblShowOp->Text + display->Text + " ) ";
+		*/
     }
     private: System::Void leftBracket_Click(System::Object^  sender, System::EventArgs^  e)
     {
-        this->display->Text = display->Text + " ( ";
-    }
+		/*
+		this->lblShowOp->Text = this->lblShowOp->Text + " ( ";
+    */
+	}
     private: System::Void clearE_Click(System::Object^  sender, System::EventArgs^  e)
     {
-        this->display->Text = current;
+        this->display->Text = "0";
     }
     private: System::Void backspace_Click(System::Object^  sender, System::EventArgs^  e)
     {
-		if (this->display->Text->EndsWith(" "))
-		{
-			this->display->Text = display->Text->Remove(display->Text->Length - 1, 1);
-
-			this->display->Text = display->Text->Remove(display->Text->Length - 1, 1);
-
-			this->display->Text = display->Text->Remove(display->Text->Length - 1, 1);
-		}
-		else
-		{
-			this->display->Text = display->Text->Remove(display->Text->Length - 1, 1);
-		}
+		this->display->Text = display->Text->Remove(display->Text->Length - 1, 1);
     }
     private: System::Void xsquared_Click(System::Object^  sender, System::EventArgs^  e)
     {
@@ -1203,6 +1261,7 @@ private: System::Void clear_Click(System::Object^  sender, System::EventArgs^  e
 {
 	this->display->Text = "0";
 	this->lblShowOp->Text = "";
+	this->ree->Text = "";
 }
 private: System::Void button_click(System::Object^  sender, System::EventArgs^  e)
 {
@@ -1234,5 +1293,17 @@ private: System::Void memorystore_Click(System::Object^  sender, System::EventAr
 private: System::Void memoryadd_Click(System::Object^  sender, System::EventArgs^  e)
 {
 }
+private: System::Void plusminus_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	/*std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+	
+	double temp = StringToNumber(unmanaged);
+
+
+
+	this->display->Text = gcnew String(calculate(unmanaged).c_str());
+	*/
+}
+
 };
 }

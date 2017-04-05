@@ -121,7 +121,7 @@ namespace Calculator {
 
     private: System::Windows::Forms::Button^  memorystore;
 
-    private: System::Windows::Forms::Button^  memory;
+
 private: System::Windows::Forms::Button^  degrees;
 private: System::Windows::Forms::Button^  hyperbolic;
 
@@ -236,7 +236,6 @@ private: System::Windows::Forms::Label^  ree;
 			this->memoryrecall = (gcnew System::Windows::Forms::Button());
 			this->memorysubtract = (gcnew System::Windows::Forms::Button());
 			this->memorystore = (gcnew System::Windows::Forms::Button());
-			this->memory = (gcnew System::Windows::Forms::Button());
 			this->degrees = (gcnew System::Windows::Forms::Button());
 			this->hyperbolic = (gcnew System::Windows::Forms::Button());
 			this->exponentialnotation = (gcnew System::Windows::Forms::Button());
@@ -789,9 +788,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->memoryclear->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memoryclear->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memoryclear->Location = System::Drawing::Point(-2, 152);
+			this->memoryclear->Location = System::Drawing::Point(1, 150);
 			this->memoryclear->Name = L"memoryclear";
-			this->memoryclear->Size = System::Drawing::Size(95, 40);
+			this->memoryclear->Size = System::Drawing::Size(113, 40);
 			this->memoryclear->TabIndex = 92;
 			this->memoryclear->Text = L"MC";
 			this->memoryclear->UseVisualStyleBackColor = false;
@@ -804,9 +803,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->memoryrecall->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memoryrecall->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memoryrecall->Location = System::Drawing::Point(93, 152);
+			this->memoryrecall->Location = System::Drawing::Point(114, 150);
 			this->memoryrecall->Name = L"memoryrecall";
-			this->memoryrecall->Size = System::Drawing::Size(95, 40);
+			this->memoryrecall->Size = System::Drawing::Size(113, 40);
 			this->memoryrecall->TabIndex = 91;
 			this->memoryrecall->Text = L"MR";
 			this->memoryrecall->UseVisualStyleBackColor = false;
@@ -819,9 +818,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->memorysubtract->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memorysubtract->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memorysubtract->Location = System::Drawing::Point(283, 152);
+			this->memorysubtract->Location = System::Drawing::Point(340, 150);
 			this->memorysubtract->Name = L"memorysubtract";
-			this->memorysubtract->Size = System::Drawing::Size(95, 40);
+			this->memorysubtract->Size = System::Drawing::Size(113, 40);
 			this->memorysubtract->TabIndex = 90;
 			this->memorysubtract->Text = L"M-";
 			this->memorysubtract->UseVisualStyleBackColor = false;
@@ -834,28 +833,13 @@ private: System::Windows::Forms::Label^  ree;
 			this->memorystore->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memorystore->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memorystore->Location = System::Drawing::Point(378, 152);
+			this->memorystore->Location = System::Drawing::Point(453, 150);
 			this->memorystore->Name = L"memorystore";
-			this->memorystore->Size = System::Drawing::Size(95, 40);
+			this->memorystore->Size = System::Drawing::Size(113, 40);
 			this->memorystore->TabIndex = 89;
 			this->memorystore->Text = L"MS";
 			this->memorystore->UseVisualStyleBackColor = false;
 			this->memorystore->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::memorystore_Click);
-			// 
-			// memory
-			// 
-			this->memory->BackColor = System::Drawing::SystemColors::ControlLightLight;
-			this->memory->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->memory->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->memory->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory->Location = System::Drawing::Point(473, 152);
-			this->memory->Name = L"memory";
-			this->memory->Size = System::Drawing::Size(95, 40);
-			this->memory->TabIndex = 88;
-			this->memory->Text = L"M⯆";
-			this->memory->UseVisualStyleBackColor = false;
-			this->memory->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::memory_Click);
 			// 
 			// degrees
 			// 
@@ -866,7 +850,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->degrees->ForeColor = System::Drawing::SystemColors::MenuHighlight;
 			this->degrees->Location = System::Drawing::Point(1, 111);
 			this->degrees->Name = L"degrees";
-			this->degrees->Size = System::Drawing::Size(77, 41);
+			this->degrees->Size = System::Drawing::Size(75, 41);
 			this->degrees->TabIndex = 95;
 			this->degrees->Text = L"DEG";
 			this->degrees->UseVisualStyleBackColor = false;
@@ -878,9 +862,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->hyperbolic->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->hyperbolic->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->hyperbolic->Location = System::Drawing::Point(78, 111);
+			this->hyperbolic->Location = System::Drawing::Point(76, 111);
 			this->hyperbolic->Name = L"hyperbolic";
-			this->hyperbolic->Size = System::Drawing::Size(77, 41);
+			this->hyperbolic->Size = System::Drawing::Size(75, 41);
 			this->hyperbolic->TabIndex = 94;
 			this->hyperbolic->Text = L"HYP";
 			this->hyperbolic->UseVisualStyleBackColor = false;
@@ -892,9 +876,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->exponentialnotation->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->exponentialnotation->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->exponentialnotation->Location = System::Drawing::Point(155, 111);
+			this->exponentialnotation->Location = System::Drawing::Point(151, 111);
 			this->exponentialnotation->Name = L"exponentialnotation";
-			this->exponentialnotation->Size = System::Drawing::Size(77, 41);
+			this->exponentialnotation->Size = System::Drawing::Size(75, 41);
 			this->exponentialnotation->TabIndex = 93;
 			this->exponentialnotation->Text = L"F-E";
 			this->exponentialnotation->UseVisualStyleBackColor = false;
@@ -906,9 +890,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory8->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory8->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory8->Location = System::Drawing::Point(492, 113);
+			this->memory8->Location = System::Drawing::Point(490, 111);
 			this->memory8->Name = L"memory8";
-			this->memory8->Size = System::Drawing::Size(37, 37);
+			this->memory8->Size = System::Drawing::Size(38, 41);
 			this->memory8->TabIndex = 96;
 			this->memory8->Text = L"M8";
 			this->memory8->UseVisualStyleBackColor = false;
@@ -920,9 +904,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory7->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory7->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory7->Location = System::Drawing::Point(455, 113);
+			this->memory7->Location = System::Drawing::Point(452, 111);
 			this->memory7->Name = L"memory7";
-			this->memory7->Size = System::Drawing::Size(37, 37);
+			this->memory7->Size = System::Drawing::Size(38, 41);
 			this->memory7->TabIndex = 97;
 			this->memory7->Text = L"M7";
 			this->memory7->UseVisualStyleBackColor = false;
@@ -934,9 +918,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory5->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory5->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory5->Location = System::Drawing::Point(381, 113);
+			this->memory5->Location = System::Drawing::Point(376, 111);
 			this->memory5->Name = L"memory5";
-			this->memory5->Size = System::Drawing::Size(37, 37);
+			this->memory5->Size = System::Drawing::Size(38, 41);
 			this->memory5->TabIndex = 99;
 			this->memory5->Text = L"M5";
 			this->memory5->UseVisualStyleBackColor = false;
@@ -948,9 +932,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory6->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory6->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory6->Location = System::Drawing::Point(418, 113);
+			this->memory6->Location = System::Drawing::Point(414, 111);
 			this->memory6->Name = L"memory6";
-			this->memory6->Size = System::Drawing::Size(37, 37);
+			this->memory6->Size = System::Drawing::Size(38, 41);
 			this->memory6->TabIndex = 98;
 			this->memory6->Text = L"M6";
 			this->memory6->UseVisualStyleBackColor = false;
@@ -962,9 +946,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory3->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory3->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory3->Location = System::Drawing::Point(307, 113);
+			this->memory3->Location = System::Drawing::Point(300, 111);
 			this->memory3->Name = L"memory3";
-			this->memory3->Size = System::Drawing::Size(37, 37);
+			this->memory3->Size = System::Drawing::Size(38, 41);
 			this->memory3->TabIndex = 101;
 			this->memory3->Text = L"M3";
 			this->memory3->UseVisualStyleBackColor = false;
@@ -976,9 +960,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory4->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory4->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory4->Location = System::Drawing::Point(344, 113);
+			this->memory4->Location = System::Drawing::Point(338, 111);
 			this->memory4->Name = L"memory4";
-			this->memory4->Size = System::Drawing::Size(37, 37);
+			this->memory4->Size = System::Drawing::Size(38, 41);
 			this->memory4->TabIndex = 100;
 			this->memory4->Text = L"M4";
 			this->memory4->UseVisualStyleBackColor = false;
@@ -990,9 +974,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory2->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory2->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory2->Location = System::Drawing::Point(270, 113);
+			this->memory2->Location = System::Drawing::Point(262, 111);
 			this->memory2->Name = L"memory2";
-			this->memory2->Size = System::Drawing::Size(37, 37);
+			this->memory2->Size = System::Drawing::Size(38, 41);
 			this->memory2->TabIndex = 102;
 			this->memory2->Text = L"M2";
 			this->memory2->UseVisualStyleBackColor = false;
@@ -1004,9 +988,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory1->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory1->Location = System::Drawing::Point(233, 113);
+			this->memory1->Location = System::Drawing::Point(224, 111);
 			this->memory1->Name = L"memory1";
-			this->memory1->Size = System::Drawing::Size(37, 37);
+			this->memory1->Size = System::Drawing::Size(38, 41);
 			this->memory1->TabIndex = 103;
 			this->memory1->Text = L"M1";
 			this->memory1->UseVisualStyleBackColor = false;
@@ -1018,9 +1002,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->memoryadd->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memoryadd->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memoryadd->Location = System::Drawing::Point(188, 152);
+			this->memoryadd->Location = System::Drawing::Point(227, 150);
 			this->memoryadd->Name = L"memoryadd";
-			this->memoryadd->Size = System::Drawing::Size(95, 40);
+			this->memoryadd->Size = System::Drawing::Size(113, 40);
 			this->memoryadd->TabIndex = 104;
 			this->memoryadd->Text = L"M+";
 			this->memoryadd->UseVisualStyleBackColor = false;
@@ -1033,9 +1017,9 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory9->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory9->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory9->Location = System::Drawing::Point(529, 113);
+			this->memory9->Location = System::Drawing::Point(528, 111);
 			this->memory9->Name = L"memory9";
-			this->memory9->Size = System::Drawing::Size(37, 37);
+			this->memory9->Size = System::Drawing::Size(38, 41);
 			this->memory9->TabIndex = 105;
 			this->memory9->Text = L"M9";
 			this->memory9->UseVisualStyleBackColor = false;
@@ -1084,7 +1068,6 @@ private: System::Windows::Forms::Label^  ree;
 			this->Controls->Add(this->memoryrecall);
 			this->Controls->Add(this->memorysubtract);
 			this->Controls->Add(this->memorystore);
-			this->Controls->Add(this->memory);
 			this->Controls->Add(this->squareroot);
 			this->Controls->Add(this->xsquared);
 			this->Controls->Add(this->tenpowerx);
@@ -1395,9 +1378,6 @@ private: System::Void button_click(System::Object^  sender, System::EventArgs^  
 	{
 		this->display->Text = display->Text + Numbers->Text;
 	}
-}
-private: System::Void memory_Click(System::Object^  sender, System::EventArgs^  e)
-{
 }
 private: System::Void memoryclear_Click(System::Object^  sender, System::EventArgs^  e)
 {

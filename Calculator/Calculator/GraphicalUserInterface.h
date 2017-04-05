@@ -1155,78 +1155,174 @@ private: System::Windows::Forms::Label^  ree;
     }
     private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
-		if (this->lblShowOp->Text == "")
-		{
-			this->lblShowOp->Text = this->display->Text + " + ";
-			this->display->Text = "0";
-		}
-		else if (this->display->Text == "0")
-		{
+		int rb = 0, lb = 0;
 
+		std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
+		for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+		{
+			if (*it == '(')
+				lb += 1;
+
+			else if (*it == ')')
+				rb += 1;
+		}
+		if (rb == lb)
+		{
+			if (this->lblShowOp->Text == "")
+			{
+				this->lblShowOp->Text = this->display->Text + " + ";
+				this->display->Text = "0";
+			}
+			else if (this->lblShowOp->Text->EndsWith(") "))
+			{
+
+				this->lblShowOp->Text = this->lblShowOp->Text + " + ";
+			}
+			else if (this->display->Text == "0")
+			{
+
+			}
+			else
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->display->Text = "0";
+			}
 		}
 		else
 		{
 			this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
-			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
-			this->ree->Text = gcnew String(calculate(unmanaged).c_str());
 			this->display->Text = "0";
 		}
 
     }
     private: System::Void negative_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
-		if (this->lblShowOp->Text == "")
-		{
-			this->lblShowOp->Text = this->display->Text + " - ";
-			this->display->Text = "0";
-		}
-		else if (this->display->Text == "0")
-		{
+		int rb = 0, lb = 0;
 
+		std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
+		for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+		{
+			if (*it == '(')
+				lb += 1;
+
+			else if (*it == ')')
+				rb += 1;
+		}
+		if (rb == lb)
+		{
+			if (this->lblShowOp->Text == "")
+			{
+				this->lblShowOp->Text = this->display->Text + " - ";
+				this->display->Text = "0";
+			}
+			else if (this->lblShowOp->Text->EndsWith(") "))
+			{
+
+				this->lblShowOp->Text = this->lblShowOp->Text + " - ";
+			}
+			else if (this->display->Text == "0")
+			{
+
+			}
+			else
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->display->Text = "0";
+			}
 		}
 		else
 		{
 			this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
-			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
-			this->ree->Text = gcnew String(calculate(unmanaged).c_str());
 			this->display->Text = "0";
 		}
     }
     private: System::Void multiply_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
-		if (this->lblShowOp->Text == "")
-		{
-			this->lblShowOp->Text = this->display->Text + " * ";
-			this->display->Text = "0";
-		}
-		else if (this->display->Text == "0")
-		{
+		int rb = 0, lb = 0;
 
+		std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
+		for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+		{
+			if (*it == '(')
+				lb += 1;
+
+			else if (*it == ')')
+				rb += 1;
+		}
+		if (rb == lb)
+		{
+			if (this->lblShowOp->Text == "")
+			{
+				this->lblShowOp->Text = this->display->Text + " * ";
+				this->display->Text = "0";
+			}
+			else if (this->lblShowOp->Text->EndsWith(") "))
+			{
+
+				this->lblShowOp->Text = this->lblShowOp->Text + " * ";
+			}
+			else if (this->display->Text == "0")
+			{
+
+			}
+			else
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->display->Text = "0";
+			}
 		}
 		else
 		{
 			this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
-			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
-			this->ree->Text = gcnew String(calculate(unmanaged).c_str());
 			this->display->Text = "0";
 		}
     }
     private: System::Void divide_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
-		if (this->lblShowOp->Text == "")
-		{
-			this->lblShowOp->Text = this->display->Text + " / ";
-			this->display->Text = "0";
-		}
-		else if (this->display->Text == "0")
-		{
+		int rb = 0, lb = 0;
 
+		std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
+		for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+		{
+			if (*it == '(')
+				lb += 1;
+
+			else if (*it == ')')
+				rb += 1;
+		}
+		if (rb == lb)
+		{
+			if (this->lblShowOp->Text == "")
+			{
+				this->lblShowOp->Text = this->display->Text + " / ";
+				this->display->Text = "0";
+			}
+			else if (this->lblShowOp->Text->EndsWith(") "))
+			{
+
+				this->lblShowOp->Text = this->lblShowOp->Text + " / ";
+			}
+			else if (this->display->Text == "0")
+			{
+
+			}
+			else
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " / ";
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->display->Text = "0";
+			}
 		}
 		else
 		{
 			this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " / ";
-			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
-			this->ree->Text = gcnew String(calculate(unmanaged).c_str());
 			this->display->Text = "0";
 		}
     }
@@ -1236,15 +1332,32 @@ private: System::Windows::Forms::Label^  ree;
     }
     private: System::Void rightBrace_Click(System::Object^  sender, System::EventArgs^  e)
     {
-		/*
-		this->lblShowOp->Text = this->lblShowOp->Text + display->Text + " ) ";
-		*/
+		int rb = 0, lb = 0;
+
+		std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
+		for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+		{
+			if (*it == '(')
+				lb += 1;
+
+			else if (*it == ')')
+				rb += 1;
+		}
+		if (rb != lb)
+		{
+			this->lblShowOp->Text = this->lblShowOp->Text + display->Text + " ) ";
+			this->display->Text = "0";
+		}
+		else
+		{
+
+		}
     }
     private: System::Void leftBracket_Click(System::Object^  sender, System::EventArgs^  e)
     {
-		/*
+		
 		this->lblShowOp->Text = this->lblShowOp->Text + " ( ";
-    */
+    
 	}
     private: System::Void clearE_Click(System::Object^  sender, System::EventArgs^  e)
     {
@@ -1252,7 +1365,15 @@ private: System::Windows::Forms::Label^  ree;
     }
     private: System::Void backspace_Click(System::Object^  sender, System::EventArgs^  e)
     {
-		this->display->Text = display->Text->Remove(display->Text->Length - 1, 1);
+		if (this->display->Text->Length == 1)
+		{
+			this->display->Text = display->Text->Remove(display->Text->Length - 1, 1);
+			this->display->Text = "0";
+		}
+		else
+		{
+			this->display->Text = display->Text->Remove(display->Text->Length - 1, 1);
+		}
     }
     private: System::Void xsquared_Click(System::Object^  sender, System::EventArgs^  e)
     {

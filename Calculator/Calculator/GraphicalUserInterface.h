@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "CalculatorLib.h"
+#include "MemoryFunctions.h"
 #include  <msclr\marshal_cppstd.h>
 using namespace msclr::interop;
 
@@ -150,6 +151,16 @@ private: System::Windows::Forms::Button^  memoryadd;
 private: System::Windows::Forms::Button^  memory9;
 private: System::Windows::Forms::Label^  lblShowOp;
 private: System::Windows::Forms::Label^  ree;
+private: System::Windows::Forms::Label^  label1;
+private: System::Windows::Forms::Label^  label2;
+private: System::Windows::Forms::Label^  label3;
+private: System::Windows::Forms::Label^  label4;
+private: System::Windows::Forms::Label^  label5;
+private: System::Windows::Forms::Label^  label6;
+private: System::Windows::Forms::Label^  label7;
+private: System::Windows::Forms::Label^  label8;
+private: System::Windows::Forms::Label^  label9;
+private: System::Windows::Forms::Label^  label10;
 
 
 
@@ -251,6 +262,16 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory9 = (gcnew System::Windows::Forms::Button());
 			this->lblShowOp = (gcnew System::Windows::Forms::Label());
 			this->ree = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// equals
@@ -557,7 +578,7 @@ private: System::Windows::Forms::Label^  ree;
 			// 
 			this->shift->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->shift->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->shift->Font = (gcnew System::Drawing::Font(L"Tahoma", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->shift->Font = (gcnew System::Drawing::Font(L"Tahoma", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->shift->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->shift->Location = System::Drawing::Point(1, 276);
@@ -566,6 +587,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->shift->TabIndex = 77;
 			this->shift->Text = L"↑";
 			this->shift->UseVisualStyleBackColor = false;
+			this->shift->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::shift_Click);
 			// 
 			// pi
 			// 
@@ -636,7 +658,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->tan->Name = L"tan";
 			this->tan->Size = System::Drawing::Size(113, 43);
 			this->tan->TabIndex = 78;
-			this->tan->Text = L"tan\r\n↑";
+			this->tan->Text = L"tan\r\n";
 			this->tan->UseVisualStyleBackColor = false;
 			// 
 			// modulus
@@ -650,7 +672,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->modulus->Name = L"modulus";
 			this->modulus->Size = System::Drawing::Size(113, 43);
 			this->modulus->TabIndex = 79;
-			this->modulus->Text = L"Mod\r\n↑";
+			this->modulus->Text = L"Mod\r\n";
 			this->modulus->UseVisualStyleBackColor = false;
 			// 
 			// Exp
@@ -664,7 +686,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->Exp->Name = L"Exp";
 			this->Exp->Size = System::Drawing::Size(113, 43);
 			this->Exp->TabIndex = 81;
-			this->Exp->Text = L"Exp\n↑";
+			this->Exp->Text = L"Exp\n";
 			this->Exp->UseVisualStyleBackColor = false;
 			// 
 			// cos
@@ -678,7 +700,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->cos->Name = L"cos";
 			this->cos->Size = System::Drawing::Size(113, 43);
 			this->cos->TabIndex = 80;
-			this->cos->Text = L"cos\r\n↑";
+			this->cos->Text = L"cos\r\n";
 			this->cos->UseVisualStyleBackColor = false;
 			// 
 			// log
@@ -692,7 +714,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->log->Name = L"log";
 			this->log->Size = System::Drawing::Size(113, 43);
 			this->log->TabIndex = 83;
-			this->log->Text = L"log\r\n↑";
+			this->log->Text = L"log\r\n";
 			this->log->UseVisualStyleBackColor = false;
 			// 
 			// sin
@@ -706,7 +728,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->sin->Name = L"sin";
 			this->sin->Size = System::Drawing::Size(113, 43);
 			this->sin->TabIndex = 82;
-			this->sin->Text = L"sin\r\n↑";
+			this->sin->Text = L"sin\r\n";
 			this->sin->UseVisualStyleBackColor = false;
 			// 
 			// tenpowerx
@@ -720,7 +742,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->tenpowerx->Name = L"tenpowerx";
 			this->tenpowerx->Size = System::Drawing::Size(113, 43);
 			this->tenpowerx->TabIndex = 85;
-			this->tenpowerx->Text = L"10^x\r\n↑";
+			this->tenpowerx->Text = L"10^x\r\n";
 			this->tenpowerx->UseVisualStyleBackColor = false;
 			// 
 			// xtothepowerofy
@@ -748,7 +770,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->squareroot->Name = L"squareroot";
 			this->squareroot->Size = System::Drawing::Size(113, 43);
 			this->squareroot->TabIndex = 87;
-			this->squareroot->Text = L"√\r\n↑";
+			this->squareroot->Text = L"√\r\n";
 			this->squareroot->UseVisualStyleBackColor = false;
 			// 
 			// xsquared
@@ -854,6 +876,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->degrees->TabIndex = 95;
 			this->degrees->Text = L"DEG";
 			this->degrees->UseVisualStyleBackColor = false;
+			this->degrees->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::degrees_Click);
 			// 
 			// hyperbolic
 			// 
@@ -868,6 +891,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->hyperbolic->TabIndex = 94;
 			this->hyperbolic->Text = L"HYP";
 			this->hyperbolic->UseVisualStyleBackColor = false;
+			this->hyperbolic->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::hyperbolic_Click);
 			// 
 			// exponentialnotation
 			// 
@@ -882,6 +906,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->exponentialnotation->TabIndex = 93;
 			this->exponentialnotation->Text = L"F-E";
 			this->exponentialnotation->UseVisualStyleBackColor = false;
+			this->exponentialnotation->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::exponentialnotation_Click);
 			// 
 			// memory8
 			// 
@@ -896,6 +921,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory8->TabIndex = 96;
 			this->memory8->Text = L"M8";
 			this->memory8->UseVisualStyleBackColor = false;
+			this->memory8->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::Memory_Click);
 			// 
 			// memory7
 			// 
@@ -910,6 +936,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory7->TabIndex = 97;
 			this->memory7->Text = L"M7";
 			this->memory7->UseVisualStyleBackColor = false;
+			this->memory7->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::Memory_Click);
 			// 
 			// memory5
 			// 
@@ -924,6 +951,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory5->TabIndex = 99;
 			this->memory5->Text = L"M5";
 			this->memory5->UseVisualStyleBackColor = false;
+			this->memory5->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::Memory_Click);
 			// 
 			// memory6
 			// 
@@ -938,6 +966,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory6->TabIndex = 98;
 			this->memory6->Text = L"M6";
 			this->memory6->UseVisualStyleBackColor = false;
+			this->memory6->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::Memory_Click);
 			// 
 			// memory3
 			// 
@@ -952,6 +981,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory3->TabIndex = 101;
 			this->memory3->Text = L"M3";
 			this->memory3->UseVisualStyleBackColor = false;
+			this->memory3->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::Memory_Click);
 			// 
 			// memory4
 			// 
@@ -966,6 +996,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory4->TabIndex = 100;
 			this->memory4->Text = L"M4";
 			this->memory4->UseVisualStyleBackColor = false;
+			this->memory4->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::Memory_Click);
 			// 
 			// memory2
 			// 
@@ -980,6 +1011,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory2->TabIndex = 102;
 			this->memory2->Text = L"M2";
 			this->memory2->UseVisualStyleBackColor = false;
+			this->memory2->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::Memory_Click);
 			// 
 			// memory1
 			// 
@@ -994,6 +1026,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory1->TabIndex = 103;
 			this->memory1->Text = L"M1";
 			this->memory1->UseVisualStyleBackColor = false;
+			this->memory1->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::Memory_Click);
 			// 
 			// memoryadd
 			// 
@@ -1023,6 +1056,7 @@ private: System::Windows::Forms::Label^  ree;
 			this->memory9->TabIndex = 105;
 			this->memory9->Text = L"M9";
 			this->memory9->UseVisualStyleBackColor = false;
+			this->memory9->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::Memory_Click);
 			// 
 			// lblShowOp
 			// 
@@ -1042,6 +1076,116 @@ private: System::Windows::Forms::Label^  ree;
 			this->ree->Size = System::Drawing::Size(0, 14);
 			this->ree->TabIndex = 107;
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::SystemColors::Control;
+			this->label1->ForeColor = System::Drawing::Color::Silver;
+			this->label1->Location = System::Drawing::Point(95, 204);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(13, 14);
+			this->label1->TabIndex = 108;
+			this->label1->Text = L"↑";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::SystemColors::Control;
+			this->label2->ForeColor = System::Drawing::Color::Silver;
+			this->label2->Location = System::Drawing::Point(208, 204);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(13, 14);
+			this->label2->TabIndex = 109;
+			this->label2->Text = L"↑";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->BackColor = System::Drawing::SystemColors::Control;
+			this->label3->ForeColor = System::Drawing::Color::Silver;
+			this->label3->Location = System::Drawing::Point(321, 204);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(13, 14);
+			this->label3->TabIndex = 110;
+			this->label3->Text = L"↑";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->BackColor = System::Drawing::SystemColors::Control;
+			this->label4->ForeColor = System::Drawing::Color::Silver;
+			this->label4->Location = System::Drawing::Point(435, 204);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(13, 14);
+			this->label4->TabIndex = 111;
+			this->label4->Text = L"↑";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->BackColor = System::Drawing::SystemColors::Control;
+			this->label5->ForeColor = System::Drawing::Color::Silver;
+			this->label5->Location = System::Drawing::Point(548, 204);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(13, 14);
+			this->label5->TabIndex = 112;
+			this->label5->Text = L"↑";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->BackColor = System::Drawing::SystemColors::Control;
+			this->label6->ForeColor = System::Drawing::Color::Silver;
+			this->label6->Location = System::Drawing::Point(548, 247);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(13, 14);
+			this->label6->TabIndex = 117;
+			this->label6->Text = L"↑";
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->BackColor = System::Drawing::SystemColors::Control;
+			this->label7->ForeColor = System::Drawing::Color::Silver;
+			this->label7->Location = System::Drawing::Point(435, 247);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(13, 14);
+			this->label7->TabIndex = 116;
+			this->label7->Text = L"↑";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->BackColor = System::Drawing::SystemColors::Control;
+			this->label8->ForeColor = System::Drawing::Color::Silver;
+			this->label8->Location = System::Drawing::Point(321, 247);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(13, 14);
+			this->label8->TabIndex = 115;
+			this->label8->Text = L"↑";
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->BackColor = System::Drawing::SystemColors::Control;
+			this->label9->ForeColor = System::Drawing::Color::Silver;
+			this->label9->Location = System::Drawing::Point(208, 247);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(13, 14);
+			this->label9->TabIndex = 114;
+			this->label9->Text = L"↑";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->BackColor = System::Drawing::SystemColors::Control;
+			this->label10->ForeColor = System::Drawing::Color::Silver;
+			this->label10->Location = System::Drawing::Point(95, 247);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(13, 14);
+			this->label10->TabIndex = 113;
+			this->label10->Text = L"↑";
+			// 
 			// GraphicalUserInterface
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 14);
@@ -1049,6 +1193,16 @@ private: System::Windows::Forms::Label^  ree;
 			this->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
 			this->ClientSize = System::Drawing::Size(565, 489);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->ree);
 			this->Controls->Add(this->lblShowOp);
 			this->Controls->Add(this->memory9);
@@ -1379,20 +1533,226 @@ private: System::Void button_click(System::Object^  sender, System::EventArgs^  
 		this->display->Text = display->Text + Numbers->Text;
 	}
 }
+//Mem0ry functions.
+System::String^ curentMemory = "M1";//Current memory.
+private: System::Void Memory_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	Button ^ Mems = safe_cast<Button^>(sender);
+	//When a memory is selected swaps the current Memory to that one e.g. M1,M2.
+	curentMemory = Mems->Text;
+}
 private: System::Void memoryclear_Click(System::Object^  sender, System::EventArgs^  e)
 {
+	if (curentMemory == "M1")
+	{
+		setMem1("0");
+	}
+	else if (curentMemory == "M2")
+	{
+		setMem2("0");
+	}
+	else if (curentMemory == "M3")
+	{
+		setMem3("0");
+	}
+	else if (curentMemory == "M4")
+	{
+		setMem4("0");
+	}
+	else if (curentMemory == "M5")
+	{
+		setMem5("0");
+	}
+	else if (curentMemory == "M6")
+	{
+		setMem6("0");
+	}
+	else if (curentMemory == "M7")
+	{
+		setMem7("0");
+	}
+	else if (curentMemory == "M8")
+	{
+		setMem8("0");
+	}
+	else
+	{
+		setMem9("0");
+	}
 }
 private: System::Void memoryrecall_Click(System::Object^  sender, System::EventArgs^  e)
 {
+	if (curentMemory == "M1")
+	{
+		this->display->Text = gcnew String(getMem1().c_str());
+	}
+	else if (curentMemory == "M2")
+	{
+		this->display->Text = gcnew String(getMem2().c_str());
+	}
+	else if (curentMemory == "M3")
+	{
+		this->display->Text = gcnew String(getMem3().c_str());
+	}
+	else if (curentMemory == "M4")
+	{
+		this->display->Text = gcnew String(getMem4().c_str());
+	}
+	else if (curentMemory == "M5")
+	{
+		this->display->Text = gcnew String(getMem5().c_str());
+	}
+	else if (curentMemory == "M6")
+	{
+		this->display->Text = gcnew String(getMem6().c_str());
+	}
+	else if (curentMemory == "M7")
+	{
+		this->display->Text = gcnew String(getMem7().c_str());
+	}
+	else if (curentMemory == "M8")
+	{
+		this->display->Text = gcnew String(getMem8().c_str());
+	}
+	else 
+	{
+		this->display->Text = gcnew String(getMem9().c_str());
+	}
 }
 private: System::Void memorysubtract_Click(System::Object^  sender, System::EventArgs^  e)
 {
+	if (curentMemory == "M1")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>( " - " + this->display->Text);
+		setMem1(calculate(getMem1() + unmanaged));
+	}
+	else if (curentMemory == "M2")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+		setMem2(calculate(getMem2() + unmanaged));
+	}
+	else if (curentMemory == "M3")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+		setMem3(calculate(getMem3() + unmanaged));
+	}
+	else if (curentMemory == "M4")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+		setMem4(calculate(getMem4() + unmanaged));
+	}
+	else if (curentMemory == "M5")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+		setMem5(calculate(getMem5() + unmanaged));
+	}
+	else if (curentMemory == "M6")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+		setMem6(calculate(getMem6() + unmanaged));
+	}
+	else if (curentMemory == "M7")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+		setMem7(calculate(getMem7() + unmanaged));
+	}
+	else if (curentMemory == "M8")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+		setMem8(calculate(getMem8() + unmanaged));
+	}
+	else
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+		setMem9(calculate(getMem9() + unmanaged));
+	}
 }
 private: System::Void memorystore_Click(System::Object^  sender, System::EventArgs^  e)
 {
+	if (curentMemory == "M1")
+	{
+		setMem1(msclr::interop::marshal_as<std::string>(this->display->Text));
+	}
+	else if (curentMemory == "M2")
+	{
+		setMem2(msclr::interop::marshal_as<std::string>(this->display->Text));
+	}
+	else if (curentMemory == "M3")
+	{
+		setMem3(msclr::interop::marshal_as<std::string>(this->display->Text));
+	}
+	else if (curentMemory == "M4")
+	{
+		setMem4(msclr::interop::marshal_as<std::string>(this->display->Text));
+	}
+	else if (curentMemory == "M5")
+	{
+		setMem5(msclr::interop::marshal_as<std::string>(this->display->Text));
+	}
+	else if (curentMemory == "M6")
+	{
+		setMem6(msclr::interop::marshal_as<std::string>(this->display->Text));
+	}
+	else if (curentMemory == "M7")
+	{
+		setMem7(msclr::interop::marshal_as<std::string>(this->display->Text));
+	}
+	else if (curentMemory == "M8")
+	{
+		setMem8(msclr::interop::marshal_as<std::string>(this->display->Text));
+	}
+	else
+	{
+		setMem9(msclr::interop::marshal_as<std::string>(this->display->Text));
+	}
 }
 private: System::Void memoryadd_Click(System::Object^  sender, System::EventArgs^  e)
 {
+	if (curentMemory == "M1")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+		setMem1(calculate(getMem1() + unmanaged));
+	}
+	else if (curentMemory == "M2")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+		setMem2(calculate(getMem2() + unmanaged));
+	}
+	else if (curentMemory == "M3")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+		setMem3(calculate(getMem3() + unmanaged));
+	}
+	else if (curentMemory == "M4")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+		setMem4(calculate(getMem4() + unmanaged));
+	}
+	else if (curentMemory == "M5")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+		setMem5(calculate(getMem5() + unmanaged));
+	}
+	else if (curentMemory == "M6")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+		setMem6(calculate(getMem6() + unmanaged));
+	}
+	else if (curentMemory == "M7")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+		setMem7(calculate(getMem7() + unmanaged));
+	}
+	else if (curentMemory == "M8")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+		setMem8(calculate(getMem8() + unmanaged));
+	}
+	else
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+		setMem9(calculate(getMem9() + unmanaged));
+	}
 }
 private: System::Void plusminus_Click(System::Object^  sender, System::EventArgs^  e)
 {
@@ -1406,5 +1766,145 @@ private: System::Void plusminus_Click(System::Object^  sender, System::EventArgs
 	*/
 }
 
+private: System::Void degrees_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	if (this->degrees->Text == "DEG")
+	{
+		this->degrees->Text = "RAD";
+	}
+	else if (this->degrees->Text == "RAD")
+	{
+		this->degrees->Text = "GRAD";
+	}
+	else
+	{
+		this->degrees->Text = "DEG";
+	}
+}
+
+bool shifted = false;
+private: System::Void shift_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	if (shifted == false)
+	{
+		shifted = true;
+		shift->ForeColor = System::Drawing::Color::Blue;
+		label1->ForeColor = System::Drawing::Color::Blue;
+		label2->ForeColor = System::Drawing::Color::Blue;
+		label3->ForeColor = System::Drawing::Color::Blue;
+		label4->ForeColor = System::Drawing::Color::Blue;
+		label5->ForeColor = System::Drawing::Color::Blue;
+		label6->ForeColor = System::Drawing::Color::Blue;
+		label7->ForeColor = System::Drawing::Color::Blue;
+		label8->ForeColor = System::Drawing::Color::Blue;
+		label9->ForeColor = System::Drawing::Color::Blue;
+		label10->ForeColor = System::Drawing::Color::Blue;
+		modulus->Text = "deg";
+		Exp->Text = "dms";
+		log->Text = "Ln";
+		tenpowerx->Text = "e" + u8"\u221A"+ "x";
+		squareroot->Text = "1/x";
+		if (hype)
+		{
+			tan->Text = "tanh^-1";
+			cos->Text = "cosh^-1";
+			sin->Text = "sinh^-1";
+		}
+		else
+		{
+			tan->Text = "tan^-1";
+			cos->Text = "cos^-1";
+			sin->Text = "sin^-1";
+		}
+		xtothepowerofy->Text = "y" + u8"\u221A" + "x";
+		xsquared->Text = "x^3";
+	}
+	else if(shifted)
+	{
+		shifted = false;
+		shift->ForeColor = System::Drawing::Color::Black;
+		label1->ForeColor = System::Drawing::Color::Silver;
+		label2->ForeColor = System::Drawing::Color::Silver;
+		label3->ForeColor = System::Drawing::Color::Silver;
+		label4->ForeColor = System::Drawing::Color::Silver;
+		label5->ForeColor = System::Drawing::Color::Silver;
+		label6->ForeColor = System::Drawing::Color::Silver;
+		label7->ForeColor = System::Drawing::Color::Silver;
+		label8->ForeColor = System::Drawing::Color::Silver;
+		label9->ForeColor = System::Drawing::Color::Silver;
+		label10->ForeColor = System::Drawing::Color::Silver;
+		modulus->Text = "Mod";
+		Exp->Text = "Exp";
+		log->Text = "log";
+		tenpowerx->Text = "10^x";
+		squareroot->Text = u8"\u221A";
+		if (hype)
+		{
+			tan->Text = "tanh";
+			cos->Text = "cosh";
+			sin->Text = "sinh";
+		}
+		else
+		{
+			tan->Text = "tan";
+			cos->Text = "cos";
+			sin->Text = "sin";
+		}
+		xtothepowerofy->Text = "x^y";
+		xsquared->Text = "x^2";
+	}
+}
+bool hype = false;
+private: System::Void hyperbolic_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	if (hype == false)
+	{
+		hype = true;
+		if (shifted)
+		{
+			tan->Text = "tanh^-1";
+			cos->Text = "cosh^-1";
+			sin->Text = "sinh^-1";
+		}
+		else
+		{
+			tan->Text = "tanh";
+			cos->Text = "cosh";
+			sin->Text = "sinh";
+		}
+		hyperbolic->ForeColor = System::Drawing::Color::Blue;
+	}
+	else if (hype == true)
+	{
+		if (shifted)
+		{
+			tan->Text = "tan^-1";
+			cos->Text = "cos^-1";
+			sin->Text = "sin^-1";
+		}
+		else
+		{
+			tan->Text = "tan";
+			cos->Text = "cos";
+			sin->Text = "sin";
+		}
+		hype = false;
+		hyperbolic->ForeColor = System::Drawing::Color::Black;
+	}
+}
+bool shifted2 = false;
+private: System::Void exponentialnotation_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	if (shifted2 == false)
+	{
+		shifted2 = true;
+		exponentialnotation->ForeColor = System::Drawing::Color::Blue;
+	}
+	else if (shifted2 == true)
+	{
+		shifted2 = false;
+		exponentialnotation->ForeColor = System::Drawing::Color::Black;
+	}
+}
 };
 }

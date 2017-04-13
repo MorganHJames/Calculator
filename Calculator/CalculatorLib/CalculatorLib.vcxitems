@@ -15,8 +15,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CalculatorLib.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MemoryFunctions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)CalculatorLib.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MemoryFunctions.cpp" />
   </ItemGroup>
 </Project>

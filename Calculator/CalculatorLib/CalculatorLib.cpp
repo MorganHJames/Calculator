@@ -25,11 +25,14 @@ bool isNumber(const std::string &a_c_sToken)//Returns true if the last character
 	return bIsNumber;//Returns true if the token's last character is a digit and false if it isn't.
 }
 
-bool isOperation(const std::string &a_c_sToken)//Returns true if the passed in token matches one of the operations.
+bool isOperation(const std::string &a_c_sToken)//Returns true if the passed in token matches on of the operations.
 {
-	//Current operations: +, -, *, /, ^, ().
-
-	return (a_c_sToken == "+" || a_c_sToken == "-" || a_c_sToken == "*" || a_c_sToken == "/" || a_c_sToken == "^");//Checks the passed in token to see if it matches one of the operations(+,-,*,/,^) and if so returns true otherwise returns false.
+	return (
+		a_c_sToken == "+" 
+		|| a_c_sToken == "-" 
+		|| a_c_sToken == "*" 
+		|| a_c_sToken == "/" 
+		|| a_c_sToken == "^");//Checks the passed in token to see if it matches one of the operations(+,-,*,/,^) and if so returns true otherwise returns false.
 }
 
 int operationRank(const std::string &a_c_sToken)//Returns an int equal to the rank the passed in token operator has over other operators in accordance to BODMAS.
@@ -37,10 +40,17 @@ int operationRank(const std::string &a_c_sToken)//Returns an int equal to the ra
 	//Current operation ranks: 3(^), 2(*,/), 1(+,-).
 	if (a_c_sToken == "^")//Checks to see if the token is equal to ^.
 		return 3;//Returns 3 if the token is equal to ^.
-	if (a_c_sToken == "*" || a_c_sToken == "/")//Checks to see if the token is equal to * or /.
+
+	if (
+		a_c_sToken == "*" 
+		|| a_c_sToken == "/")//Checks to see if the token is equal to * or /.
 		return 2;//Returns 2 if the token is equal to * or /.
-	if (a_c_sToken == "+" || a_c_sToken == "-")//Checks to see if the token is equal to + or -.
+
+	if (
+		a_c_sToken == "+" 
+		|| a_c_sToken == "-")//Checks to see if the token is equal to + or -.
 		return 1;//Returns 1 if the token is equal to + or -.
+
 	else//The token isn't equal to any of the operations.
 		return 0;//Returns 0 if  the token isn't an operation.
 }

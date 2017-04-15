@@ -2,6 +2,7 @@
 #include "CalculatorLib.h"
 #include "MemoryFunctions.h"
 #include  <msclr\marshal_cppstd.h>
+#include <cmath>
 using namespace msclr::interop;
 
 namespace Calculator {
@@ -602,6 +603,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->pi->TabIndex = 76;
 			this->pi->Text = L"PI";
 			this->pi->UseVisualStyleBackColor = false;
+			this->pi->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::pi_Click);
 			// 
 			// factorial
 			// 
@@ -616,6 +618,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->factorial->TabIndex = 75;
 			this->factorial->Text = L"n!";
 			this->factorial->UseVisualStyleBackColor = false;
+			this->factorial->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::factorial_Click);
 			// 
 			// plusminus
 			// 
@@ -660,6 +663,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->tan->TabIndex = 78;
 			this->tan->Text = L"tan\r\n";
 			this->tan->UseVisualStyleBackColor = false;
+			this->tan->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::tan_Click);
 			// 
 			// modulus
 			// 
@@ -674,6 +678,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->modulus->TabIndex = 79;
 			this->modulus->Text = L"Mod\r\n";
 			this->modulus->UseVisualStyleBackColor = false;
+			this->modulus->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::modulus_Click);
 			// 
 			// Exp
 			// 
@@ -688,6 +693,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->Exp->TabIndex = 81;
 			this->Exp->Text = L"Exp\n";
 			this->Exp->UseVisualStyleBackColor = false;
+			this->Exp->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::Exp_Click);
 			// 
 			// cos
 			// 
@@ -702,6 +708,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->cos->TabIndex = 80;
 			this->cos->Text = L"cos\r\n";
 			this->cos->UseVisualStyleBackColor = false;
+			this->cos->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::cos_Click);
 			// 
 			// log
 			// 
@@ -716,6 +723,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->log->TabIndex = 83;
 			this->log->Text = L"log\r\n";
 			this->log->UseVisualStyleBackColor = false;
+			this->log->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::log_Click);
 			// 
 			// sin
 			// 
@@ -728,8 +736,9 @@ private: System::Windows::Forms::Label^  label10;
 			this->sin->Name = L"sin";
 			this->sin->Size = System::Drawing::Size(113, 43);
 			this->sin->TabIndex = 82;
-			this->sin->Text = L"sin\r\n";
+			this->sin->Text = L"sin";
 			this->sin->UseVisualStyleBackColor = false;
+			this->sin->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::sin_Click);
 			// 
 			// tenpowerx
 			// 
@@ -744,6 +753,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->tenpowerx->TabIndex = 85;
 			this->tenpowerx->Text = L"10^x\r\n";
 			this->tenpowerx->UseVisualStyleBackColor = false;
+			this->tenpowerx->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::tenpowerx_Click);
 			// 
 			// xtothepowerofy
 			// 
@@ -758,6 +768,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->xtothepowerofy->TabIndex = 84;
 			this->xtothepowerofy->Text = L"x^y";
 			this->xtothepowerofy->UseVisualStyleBackColor = false;
+			this->xtothepowerofy->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::xtothepowerofy_Click);
 			// 
 			// squareroot
 			// 
@@ -772,6 +783,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->squareroot->TabIndex = 87;
 			this->squareroot->Text = L"√\r\n";
 			this->squareroot->UseVisualStyleBackColor = false;
+			this->squareroot->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::squareroot_Click);
 			// 
 			// xsquared
 			// 
@@ -790,7 +802,6 @@ private: System::Windows::Forms::Label^  label10;
 			// 
 			// display
 			// 
-			this->display->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->display->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->display->Font = (gcnew System::Drawing::Font(L"Tahoma", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -1086,6 +1097,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->label1->Size = System::Drawing::Size(13, 14);
 			this->label1->TabIndex = 108;
 			this->label1->Text = L"↑";
+			this->label1->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::label1_Click);
 			// 
 			// label2
 			// 
@@ -1097,6 +1109,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->label2->Size = System::Drawing::Size(13, 14);
 			this->label2->TabIndex = 109;
 			this->label2->Text = L"↑";
+			this->label2->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::label2_Click);
 			// 
 			// label3
 			// 
@@ -1108,6 +1121,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->label3->Size = System::Drawing::Size(13, 14);
 			this->label3->TabIndex = 110;
 			this->label3->Text = L"↑";
+			this->label3->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::label3_Click);
 			// 
 			// label4
 			// 
@@ -1119,6 +1133,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->label4->Size = System::Drawing::Size(13, 14);
 			this->label4->TabIndex = 111;
 			this->label4->Text = L"↑";
+			this->label4->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::label4_Click);
 			// 
 			// label5
 			// 
@@ -1130,6 +1145,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->label5->Size = System::Drawing::Size(13, 14);
 			this->label5->TabIndex = 112;
 			this->label5->Text = L"↑";
+			this->label5->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::label5_Click);
 			// 
 			// label6
 			// 
@@ -1141,6 +1157,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->label6->Size = System::Drawing::Size(13, 14);
 			this->label6->TabIndex = 117;
 			this->label6->Text = L"↑";
+			this->label6->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::label6_Click);
 			// 
 			// label7
 			// 
@@ -1152,6 +1169,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->label7->Size = System::Drawing::Size(13, 14);
 			this->label7->TabIndex = 116;
 			this->label7->Text = L"↑";
+			this->label7->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::label7_Click);
 			// 
 			// label8
 			// 
@@ -1163,6 +1181,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->label8->Size = System::Drawing::Size(13, 14);
 			this->label8->TabIndex = 115;
 			this->label8->Text = L"↑";
+			this->label8->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::label8_Click);
 			// 
 			// label9
 			// 
@@ -1174,6 +1193,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->label9->Size = System::Drawing::Size(13, 14);
 			this->label9->TabIndex = 114;
 			this->label9->Text = L"↑";
+			this->label9->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::label9_Click);
 			// 
 			// label10
 			// 
@@ -1185,6 +1205,7 @@ private: System::Windows::Forms::Label^  label10;
 			this->label10->Size = System::Drawing::Size(13, 14);
 			this->label10->TabIndex = 113;
 			this->label10->Text = L"↑";
+			this->label10->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::label10_Click);
 			// 
 			// GraphicalUserInterface
 			// 
@@ -1280,10 +1301,24 @@ private: System::Windows::Forms::Label^  label10;
     {
 		try
 		{
-			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
-			this->display->Text = gcnew String(calculate(unmanaged).c_str());
-			this->lblShowOp->Text = "";
-			this->ree->Text = "";
+			if (this->display->Text->EndsWith("0") && this->lblShowOp->Text == "")
+			{
+
+			}
+			else if (this->display->Text == "0" && this->lblShowOp->Text->EndsWith(") "))
+			{
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
+				this->display->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = "";
+				this->ree->Text = "";
+			}
+			else
+			{
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->display->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = "";
+				this->ree->Text = "";
+			}
 		}
 		catch (...)
 		{
@@ -1305,7 +1340,20 @@ private: System::Windows::Forms::Label^  label10;
 		}
 		if (rb == lb)
 		{
-			if (this->lblShowOp->Text == "")
+		    if (this->lblShowOp->Text->EndsWith(") "))
+		    {
+		    
+		    	this->lblShowOp->Text = this->lblShowOp->Text + " + ";
+		    }
+			else if (this->display->Text == "0")
+		    {
+		    
+		    }
+		    else if (this->display->Text->EndsWith(" ^ "))
+		    {
+		    
+		    }
+		    else if (this->lblShowOp->Text == "")
 			{
 				this->lblShowOp->Text = this->display->Text + " + ";
 				this->display->Text = "0";
@@ -1314,10 +1362,6 @@ private: System::Windows::Forms::Label^  label10;
 			{
 
 				this->lblShowOp->Text = this->lblShowOp->Text + " + ";
-			}
-			else if (this->display->Text == "0")
-			{
-
 			}
 			else
 			{
@@ -1349,17 +1393,28 @@ private: System::Windows::Forms::Label^  label10;
 		}
 		if (rb == lb)
 		{
-			if (this->lblShowOp->Text == "")
+		    if (this->lblShowOp->Text->EndsWith(") "))
+		    {
+		        this->lblShowOp->Text = this->lblShowOp->Text + " - ";
+		    }
+		    else if (this->display->Text == "0")
+			{
+
+			}
+			else if (this->display->Text->EndsWith(" ^ "))
+			{
+				this->display->Text = this->display->Text + "-";
+			}
+			else if (this->lblShowOp->Text == "")
 			{
 				this->lblShowOp->Text = this->display->Text + " - ";
 				this->display->Text = "0";
 			}
-			else if (this->lblShowOp->Text->EndsWith(") "))
+			else if (this->display->Text == "0")
 			{
 
-				this->lblShowOp->Text = this->lblShowOp->Text + " - ";
 			}
-			else if (this->display->Text == "0")
+			else if (this->display->Text->EndsWith(" ^ "))
 			{
 
 			}
@@ -1392,7 +1447,19 @@ private: System::Windows::Forms::Label^  label10;
 		}
 		if (rb == lb)
 		{
-			if (this->lblShowOp->Text == "")
+		    if (this->lblShowOp->Text->EndsWith(") "))
+		    {
+		    	this->lblShowOp->Text = this->lblShowOp->Text + " * ";
+		    }
+		    else if (this->display->Text == "0")
+			{
+
+			}
+			else if (this->display->Text->EndsWith(" ^ "))
+			{
+
+			}
+			else if (this->lblShowOp->Text == "")
 			{
 				this->lblShowOp->Text = this->display->Text + " * ";
 				this->display->Text = "0";
@@ -1403,6 +1470,10 @@ private: System::Windows::Forms::Label^  label10;
 				this->lblShowOp->Text = this->lblShowOp->Text + " * ";
 			}
 			else if (this->display->Text == "0")
+			{
+
+			}
+			else if (this->display->Text->EndsWith(" ^ "))
 			{
 
 			}
@@ -1435,17 +1506,28 @@ private: System::Windows::Forms::Label^  label10;
 		}
 		if (rb == lb)
 		{
-			if (this->lblShowOp->Text == "")
+		    if (this->lblShowOp->Text->EndsWith(") "))
+		    {
+		    	this->lblShowOp->Text = this->lblShowOp->Text + " / ";
+		    }
+		    else if (this->display->Text == "0")
+			{
+
+			}
+			else if (this->display->Text->EndsWith(" ^ "))
+			{
+
+			}
+			else if (this->lblShowOp->Text == "")
 			{
 				this->lblShowOp->Text = this->display->Text + " / ";
 				this->display->Text = "0";
 			}
-			else if (this->lblShowOp->Text->EndsWith(") "))
+			else if (this->display->Text == "0")
 			{
 
-				this->lblShowOp->Text = this->lblShowOp->Text + " / ";
 			}
-			else if (this->display->Text == "0")
+			else if (this->display->Text->EndsWith(" ^ "))
 			{
 
 			}
@@ -1465,7 +1547,14 @@ private: System::Windows::Forms::Label^  label10;
     }
     private: System::Void period_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
-        this->display->Text = display->Text + ".";
+        if (this->display->Text->EndsWith(" ^ ") || this->display->Text->EndsWith(") ") || this->display->Text->EndsWith("-"))
+        {
+        
+        }
+		else
+		{
+            this->display->Text = display->Text + ".";
+		}
     }
     private: System::Void rightBrace_Click(System::Object^  sender, System::EventArgs^  e)
     {
@@ -1514,6 +1603,7 @@ private: System::Windows::Forms::Label^  label10;
     }
     private: System::Void xsquared_Click(System::Object^  sender, System::EventArgs^  e)
     {
+	    this->display->Text = this->display->Text + " ^ 2";
     }
 private: System::Void clear_Click(System::Object^  sender, System::EventArgs^  e)
 {
@@ -1756,32 +1846,30 @@ private: System::Void memoryadd_Click(System::Object^  sender, System::EventArgs
 }
 private: System::Void plusminus_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	/*std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
-	
-	double temp = StringToNumber(unmanaged);
-
-
+	std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text + " * -1");
 
 	this->display->Text = gcnew String(calculate(unmanaged).c_str());
-	*/
 }
-
+int drg = 1;
 private: System::Void degrees_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	if (this->degrees->Text == "DEG")
 	{
+		drg = 2;
 		this->degrees->Text = "RAD";
 	}
 	else if (this->degrees->Text == "RAD")
 	{
+		drg = 3;
 		this->degrees->Text = "GRAD";
 	}
 	else
 	{
+		drg = 1;
 		this->degrees->Text = "DEG";
 	}
 }
-
+		 
 bool shifted = false;
 private: System::Void shift_Click(System::Object^  sender, System::EventArgs^  e)
 {
@@ -1892,19 +1980,502 @@ private: System::Void hyperbolic_Click(System::Object^  sender, System::EventArg
 		hyperbolic->ForeColor = System::Drawing::Color::Black;
 	}
 }
-bool shifted2 = false;
+bool exp = false;
 private: System::Void exponentialnotation_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (shifted2 == false)
+	if (exp == false)
 	{
-		shifted2 = true;
+		exp = true;
 		exponentialnotation->ForeColor = System::Drawing::Color::Blue;
 	}
-	else if (shifted2 == true)
+	else if (exp == true)
 	{
-		shifted2 = false;
+		exp = false;
 		exponentialnotation->ForeColor = System::Drawing::Color::Black;
 	}
+}
+
+
+private: System::Void factorial_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text + " * -1");
+
+	float i = std::stof(unmanaged);
+
+	this->display->Text = gcnew String(std::to_string(std::tgamma(i + 1)).c_str());
+}
+private: System::Void pi_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	this->display->Text = "3.1415926535897932384626433832795";
+}
+
+private: System::Void xtothepowerofy_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	if (this->display->Text == "0")
+	{
+	}
+	else if (this->display->Text->EndsWith("^ "))
+	{
+	}
+	else
+	{
+		this->display->Text = this->display->Text + " ^ ";
+	}
+}
+private: System::Void tenpowerx_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	this->display->Text = "10 ^ " + this->display->Text;
+}
+private: System::Void sin_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	if (drg == 1)
+	{
+		if (sin->Text == "sin")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::sinf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+		
+		}
+		else if (sin->Text == "sinh")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::sinhf(i)).c_str());
+
+		}
+		else if (sin->Text == "sin^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::asinf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+		}
+		else if (sin->Text == "sinh^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::asinhf(i)).c_str());
+		}
+	}
+	else if (drg == 2)
+	{
+		
+		if (sin->Text == "sin")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::sinf(i)).c_str());
+
+		}
+		else if (sin->Text == "sinh")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::sinhf(i)).c_str());
+
+		}
+		else if (sin->Text == "sin^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::asinf(i)).c_str());
+		}
+		else if (sin->Text == "sinh^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::asinhf(i)).c_str());
+		}
+	}
+	else if (drg ==3)
+	{
+		if (sin->Text == "sin")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::sinf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+
+		}
+		else if (sin->Text == "sinh")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::sinhf(i)).c_str());
+
+		}
+		else if (sin->Text == "sin^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::asinf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+		}
+		else if (sin->Text == "sinh^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::asinhf(i)).c_str());
+		}
+	}
+}
+
+private: System::Void tan_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	if (drg == 1)
+	{
+		if (tan->Text == "tan")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::tanf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+
+		}
+		else if (tan->Text == "tanh")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::tanhf(i)).c_str());
+
+		}
+		else if (tan->Text == "tan^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::atanf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+		}
+		else if (tan->Text == "tanh^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::atanhf(i)).c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::tanf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+
+		}
+	}
+	else if (drg == 2)
+	{
+
+		if (tan->Text == "tan")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::tanf(i)).c_str());
+
+		}
+		else if (tan->Text == "tanh")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::tanhf(i)).c_str());
+
+		}
+		else if (tan->Text == "tan^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::atanf(i)).c_str());
+		}
+		else if (tan->Text == "tanh^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::atanhf(i)).c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::tanf(i)).c_str());
+		}
+	}
+	else if (drg == 3)
+	{
+		if (tan->Text == "tan")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::tanf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+
+		}
+		else if (tan->Text == "tanh")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::tanhf(i)).c_str());
+
+		}
+		else if (tan->Text == "tan^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::atanf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+		}
+		else if (tan->Text == "tanh^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::atanhf(i)).c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::tanf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+		}
+	}
+}
+private: System::Void squareroot_Click(System::Object^  sender, System::EventArgs^  e)
+{
+
+}
+private: System::Void log_Click(System::Object^  sender, System::EventArgs^  e)
+{
+
+}
+private: System::Void Exp_Click(System::Object^  sender, System::EventArgs^  e)
+{
+
+}
+private: System::Void cos_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	if (drg == 1)
+	{
+		if (cos->Text == "cos")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::cosf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+
+		}
+		else if (cos->Text == "cosh")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::coshf(i)).c_str());
+
+		}
+		else if (cos->Text == "cos^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::acosf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+		}
+		else if (cos->Text == "cosh^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::acoshf(i)).c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::cosf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+		}
+	}
+	else if (drg == 2)
+	{
+
+		if (cos->Text == "cos")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::cosf(i)).c_str());
+
+		}
+		else if (cos->Text == "cosh")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::coshf(i)).c_str());
+
+		}
+		else if (cos->Text == "cos^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::acosf(i)).c_str());
+		}
+		else if (cos->Text == "cosh^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::acoshf(i)).c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::cosf(i)).c_str());
+		}
+	}
+	else if (drg == 3)
+	{
+		if (cos->Text == "cos")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::cosf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+
+		}
+		else if (cos->Text == "cosh")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::coshf(i)).c_str());
+
+		}
+		else if (cos->Text == "cos^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::acosf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+		}
+		else if (cos->Text == "cosh^-1")
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::acoshf(i)).c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+			float i = std::stof(unmanaged);
+
+			this->display->Text = gcnew String(std::to_string(std::cosf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+		}
+	}
+}
+private: System::Void modulus_Click(System::Object^  sender, System::EventArgs^  e)
+{
+
+}
+private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	xtothepowerofy->PerformClick();
+}
+private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	xsquared->PerformClick();
+}
+private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	cos->PerformClick();
+}
+private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	sin->PerformClick();
+}
+private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	tan->PerformClick();
+}
+private: System::Void label10_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	modulus->PerformClick();
+}
+private: System::Void label9_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	Exp->PerformClick();
+}
+private: System::Void label8_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	log->PerformClick();
+}
+private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	tenpowerx->PerformClick();
+}
+private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	squareroot->PerformClick();
 }
 };
 }

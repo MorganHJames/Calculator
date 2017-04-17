@@ -1872,66 +1872,284 @@ private: System::Windows::Forms::TextBox^  display;
 	private: System::Void GraphicalUserInterface_Load(System::Object^  sender, System::EventArgs^  e)
 	{
 	}
-	
-	float modnum1 = 9;
+
+			 float modnum1 = 0;
 private: System::Void modulus_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	this->modlog->Text = this->display->Text + " Mod";
-	std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
-	modnum1 = std::stof(unmanaged);
-	this->display->Text = "0";
-}
-void modCalc()
+	if (this->modlog->Text->Contains("Mod") || this->modlog->Text->Contains("yroot") )
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
-		float modnum2 = std::stof(unmanaged);
-		this->display->Text = gcnew String(std::to_string(std::fmod(modnum1, modnum2)).c_str());
-		this->modlog->Text = "";
+
+
 	}
-private: System::Void equals_Click(System::Object^  sender, System::EventArgs^  e)
-    {
-		
-		try
+	else
+	{
+		this->modlog->Text = this->display->Text + " Mod";
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+		modnum1 = std::stof(unmanaged);
+		this->display->Text = "0";
+	}
+}
+		 void yrootxCalc()
+		 {
+			 std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+			 float modnum2 = std::stof(unmanaged);
+			 this->display->Text = gcnew String(std::to_string(pow(modnum2, 1 / modnum1)).c_str());
+			 this->modlog->Text = "";
+		 }
+		 void modCalc()
+		 {
+			 std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+			 float modnum2 = std::stof(unmanaged);
+			 this->display->Text = gcnew String(std::to_string(std::fmod(modnum1, modnum2)).c_str());
+			 this->modlog->Text = "";
+		 }
+private: System::Void xtothepowerofy_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	if (xtothepowerofy->Text == "x^y")
+	{
+		int rb = 0, lb = 0;
+
+		std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
+		for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+		{
+			if (*it == '(')
+				lb += 1;
+
+			else if (*it == ')')
+				rb += 1;
+		}
+		if (rb == lb)
 		{
 			if (this->modlog->Text->Contains("Mod"))
 			{
 				modCalc();
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
-				this->display->Text = gcnew String(calculate(unmanaged).c_str());
-				this->lblShowOp->Text = "";
-				this->ree->Text = "";
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
+				this->display->Text = "0";
 			}
-			else if (this->display->Text->EndsWith("0") && this->lblShowOp->Text == "")
+			else if (this->modlog->Text->Contains("yroot"))
+			{
+				yrootxCalc();
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
+				this->display->Text = "0";
+			}
+			else if (this->lblShowOp->Text->EndsWith(") "))
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + " ^ ";
+			}
+			else if (this->display->Text == "0")
 			{
 
 			}
-			else if (this->display->Text == "0" && this->lblShowOp->Text->EndsWith(") "))
-			{
-				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
-				this->display->Text = gcnew String(calculate(unmanaged).c_str());
-				this->lblShowOp->Text = "";
-				this->ree->Text = "";
-			}
-			else if (this->display->Text->EndsWith("e+"))
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
 			{
 				this->display->Text = this->display->Text + "0";
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
-				this->display->Text = gcnew String(calculate(unmanaged).c_str());
-				this->lblShowOp->Text = "";
-				this->ree->Text = "";
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
+				this->display->Text = "0";
 			}
 			else
 			{
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
+				this->display->Text = "0";
+			}
+		}
+		else
+		{
+			if (this->modlog->Text->Contains("Mod"))
+			{
+				modCalc();
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
+				this->display->Text = "0";
+			}
+			else if (this->modlog->Text->Contains("yroot"))
+			{
+				yrootxCalc();
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
+				this->display->Text = "0";
+			}
+			else if (this->display->Text == "0")
+			{
+
+			}
+			else if (this->lblShowOp->Text->EndsWith(") "))
+			{
+
+				this->lblShowOp->Text = this->lblShowOp->Text + " ^ ";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			{
+				this->display->Text = this->display->Text + "0";
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
+				this->display->Text = "0";
+			}
+			else
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
+				this->display->Text = "0";
+			}
+		}
+	}
+	else if (xtothepowerofy->Text == "y" + u8"\u221A" + "x")
+	{
+		if (this->modlog->Text->Contains("Mod") || this->modlog->Text->Contains("yroot"))
+		{
+
+
+		}
+		else
+		{
+			this->modlog->Text = this->display->Text + " yroot";
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+			modnum1 = std::stof(unmanaged);
+			this->display->Text = "0";
+		}
+	}
+	else
+	{
+		int rb = 0, lb = 0;
+
+		std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
+		for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+		{
+			if (*it == '(')
+				lb += 1;
+
+			else if (*it == ')')
+				rb += 1;
+		}
+		if (rb == lb)
+		{
+			if (this->modlog->Text->Contains("Mod"))
+			{
+				modCalc();
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
+				this->display->Text = "0";
+			}
+			else if (this->lblShowOp->Text->EndsWith(") "))
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + " ^ ";
+			}
+			else if (this->display->Text == "0")
+			{
+
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			{
+				this->display->Text = this->display->Text + "0";
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
+				this->display->Text = "0";
+			}
+			else
+			{
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
+				this->display->Text = "0";
+			}
+		}
+		else
+		{
+			if (this->modlog->Text->Contains("Mod"))
+			{
+				modCalc();
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
+				this->display->Text = "0";
+			}
+			else if (this->display->Text == "0")
+			{
+
+			}
+			else if (this->lblShowOp->Text->EndsWith(") "))
+			{
+
+				this->lblShowOp->Text = this->lblShowOp->Text + " ^ ";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			{
+				this->display->Text = this->display->Text + "0";
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
+				this->display->Text = "0";
+			}
+			else
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
+				this->display->Text = "0";
+			}
+		}
+	}
+}
+	
+
+private: System::Void equals_Click(System::Object^  sender, System::EventArgs^  e)
+    {
+	    int rb = 0, lb = 0;
+	    
+	    std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
+	    for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+	    {
+	    	if (*it == '(')
+	    		lb += 1;
+	    
+	    	else if (*it == ')')
+	    		rb += 1;
+	    }
+	    if (rb == lb)
+	    {
+	    	if (this->modlog->Text->Contains("Mod"))
+	    	{
+	    		modCalc();
+	    		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+	    		this->display->Text = gcnew String(calculate(unmanaged).c_str());
+	    		this->lblShowOp->Text = "";
+	    		this->ree->Text = "";
+	    	}
+			else if (this->modlog->Text->Contains("yroot"))
+			{
+				yrootxCalc();
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
 				this->display->Text = gcnew String(calculate(unmanaged).c_str());
 				this->lblShowOp->Text = "";
 				this->ree->Text = "";
 			}
-		}
-		catch (...)
-		{
-			this->display->Text = "Math Error";
-		}
+	    	else if (this->display->Text->EndsWith("0") && this->lblShowOp->Text == "")
+	    	{
+	    
+	    	}
+	    	else if (this->display->Text == "0" && this->lblShowOp->Text->EndsWith(") "))
+	    	{
+	    		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
+	    		this->display->Text = gcnew String(calculate(unmanaged).c_str());
+	    		this->lblShowOp->Text = "";
+	    		this->ree->Text = "";
+	    	}
+	    	else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+	    	{
+	    		this->display->Text = this->display->Text + "0";
+	    		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+	    		this->display->Text = gcnew String(calculate(unmanaged).c_str());
+	    		this->lblShowOp->Text = "";
+	    		this->ree->Text = "";
+	    	}
+	    	else
+	    	{
+	    		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+	    		this->display->Text = gcnew String(calculate(unmanaged).c_str());
+	    		this->lblShowOp->Text = "";
+	    		this->ree->Text = "";
+	    	}
+	    }
+	
     }
 private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
@@ -1956,6 +2174,14 @@ private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
 				this->display->Text = "0";
 			}
+			else if (this->modlog->Text->Contains("yroot"))
+			{
+				yrootxCalc();
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
+				this->display->Text = "0";
+			}
 			else if (this->lblShowOp->Text->EndsWith(") "))
 		    {
 		    
@@ -1965,11 +2191,7 @@ private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  
 		    {
 		    
 		    }
-		    else if (this->display->Text->EndsWith(" ^ ") )
-		    {
-		    
-		    }
-			else if (this->display->Text->EndsWith("+"))
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
 			{
 				this->display->Text = this->display->Text + "0";
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
@@ -1997,8 +2219,38 @@ private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  
 		}
 		else
 		{
-			this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
-			this->display->Text = "0";
+			if (this->modlog->Text->Contains("Mod"))
+			{
+				modCalc();
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
+				this->display->Text = "0";
+			}
+			else if (this->modlog->Text->Contains("yroot"))
+			{
+				yrootxCalc();
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
+				this->display->Text = "0";
+			}
+			else if (this->display->Text == "0")
+			{
+
+			}
+			else if (this->lblShowOp->Text->EndsWith(") "))
+			{
+
+				this->lblShowOp->Text = this->lblShowOp->Text + " + ";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			{
+				this->display->Text = this->display->Text + "0";
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
+				this->display->Text = "0";
+			}
+			else
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
+				this->display->Text = "0";
+			}
 		}
 
     }
@@ -2025,6 +2277,14 @@ private: System::Void negative_Click_1(System::Object^  sender, System::EventArg
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
 				this->display->Text = "0";
 			}
+			else if (this->modlog->Text->Contains("yroot"))
+			{
+				yrootxCalc();
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
+				this->display->Text = "0";
+			}
 			else if (this->lblShowOp->Text->EndsWith(") "))
 		    {
 		        this->lblShowOp->Text = this->lblShowOp->Text + " - ";
@@ -2033,17 +2293,13 @@ private: System::Void negative_Click_1(System::Object^  sender, System::EventArg
 			{
 
 			}
-			else if (this->display->Text->EndsWith("e+"))
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
 			{
 				this->display->Text = this->display->Text + "0";
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
 				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
 				this->display->Text = "0";
-			}
-			else if (this->display->Text->EndsWith(" ^ "))
-			{
-				this->display->Text = this->display->Text + "-";
 			}
 			else if (this->lblShowOp->Text == "")
 			{
@@ -2060,8 +2316,38 @@ private: System::Void negative_Click_1(System::Object^  sender, System::EventArg
 		}
 		else
 		{
-			this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
-			this->display->Text = "0";
+			if (this->modlog->Text->Contains("Mod"))
+			{
+				modCalc();
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
+				this->display->Text = "0";
+			}
+			else if (this->modlog->Text->Contains("yroot"))
+			{
+				yrootxCalc();
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
+				this->display->Text = "0";
+			}
+			else if (this->display->Text == "0")
+			{
+
+			}
+			else if (this->lblShowOp->Text->EndsWith(") "))
+			{
+
+				this->lblShowOp->Text = this->lblShowOp->Text + " - ";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			{
+				this->display->Text = this->display->Text + "0";
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
+				this->display->Text = "0";
+			}
+			else
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
+				this->display->Text = "0";
+			}
 		}
     }
 private: System::Void multiply_Click_1(System::Object^  sender, System::EventArgs^  e)
@@ -2087,6 +2373,14 @@ private: System::Void multiply_Click_1(System::Object^  sender, System::EventArg
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
 				this->display->Text = "0";
 			}
+			else if (this->modlog->Text->Contains("yroot"))
+			{
+				yrootxCalc();
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
+				this->display->Text = "0";
+			}
 			else if (this->lblShowOp->Text->EndsWith(") "))
 		    {
 		    	this->lblShowOp->Text = this->lblShowOp->Text + " * ";
@@ -2095,17 +2389,13 @@ private: System::Void multiply_Click_1(System::Object^  sender, System::EventArg
 			{
 
 			}
-			else if (this->display->Text->EndsWith("e+"))
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
 			{
 				this->display->Text = this->display->Text + "0";
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
 				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
 				this->display->Text = "0";
-			}
-			else if (this->display->Text->EndsWith(" ^ "))
-			{
-
 			}
 			else if (this->lblShowOp->Text == "")
 			{
@@ -2128,8 +2418,38 @@ private: System::Void multiply_Click_1(System::Object^  sender, System::EventArg
 		}
 		else
 		{
-			this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
-			this->display->Text = "0";
+			if (this->modlog->Text->Contains("Mod"))
+			{
+				modCalc();
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
+				this->display->Text = "0";
+			}
+			else if (this->modlog->Text->Contains("yroot"))
+			{
+				yrootxCalc();
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
+				this->display->Text = "0";
+			}
+			else if (this->display->Text == "0")
+			{
+
+			}
+			else if (this->lblShowOp->Text->EndsWith(") "))
+			{
+
+				this->lblShowOp->Text = this->lblShowOp->Text + " * ";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			{
+				this->display->Text = this->display->Text + "0";
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
+				this->display->Text = "0";
+			}
+			else
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
+				this->display->Text = "0";
+			}
 		}
     }
 private: System::Void divide_Click_1(System::Object^  sender, System::EventArgs^  e)
@@ -2155,6 +2475,14 @@ private: System::Void divide_Click_1(System::Object^  sender, System::EventArgs^
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " / ";
 				this->display->Text = "0";
 			}
+			else if (this->modlog->Text->Contains("yroot"))
+			{
+				yrootxCalc();
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " / ";
+				this->display->Text = "0";
+			}
 			else if (this->lblShowOp->Text->EndsWith(") "))
 		    {
 		    	this->lblShowOp->Text = this->lblShowOp->Text + " / ";
@@ -2163,17 +2491,13 @@ private: System::Void divide_Click_1(System::Object^  sender, System::EventArgs^
 			{
 
 			}
-			else if (this->display->Text->EndsWith("e+"))
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
 			{
 				this->display->Text = this->display->Text + "0";
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
 				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " / ";
 				this->display->Text = "0";
-			}
-			else if (this->display->Text->EndsWith(" ^ "))
-			{
-
 			}
 			else if (this->lblShowOp->Text == "")
 			{
@@ -2191,25 +2515,67 @@ private: System::Void divide_Click_1(System::Object^  sender, System::EventArgs^
 		}
 		else
 		{
-			this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " / ";
-			this->display->Text = "0";
+			if (this->modlog->Text->Contains("Mod"))
+			{
+				modCalc();
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " / ";
+				this->display->Text = "0";
+			}
+			else if (this->modlog->Text->Contains("yroot"))
+			{
+				yrootxCalc();
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " / ";
+				this->display->Text = "0";
+			}
+			else if (this->display->Text == "0")
+			{
+
+			}
+			else if (this->lblShowOp->Text->EndsWith(") "))
+			{
+
+				this->lblShowOp->Text = this->lblShowOp->Text + " / ";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			{
+				this->display->Text = this->display->Text + "0";
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " / ";
+				this->display->Text = "0";
+			}
+			else
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " / ";
+				this->display->Text = "0";
+			}
 		}
     }
 private: System::Void period_Click_1(System::Object^  sender, System::EventArgs^  e)
     {
-        if (this->display->Text->EndsWith(" ^ ") || this->display->Text->EndsWith(") ") || this->display->Text->EndsWith("-"))
-        {
+	    int ip = 0;
         
+        std::string str = msclr::interop::marshal_as<std::string>(this->display->Text);
+        for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+        {
+        	if (*it == '.')
+        		ip += 1;
         }
-		else if (this->display->Text->EndsWith("e+"))
+		if (ip == 0)
 		{
-			
-			this->display->Text = this->display->Text +"0.";
+			if (this->display->Text->EndsWith(") ") || this->display->Text->EndsWith("-"))
+			{
+
+			}
+			else if (this->display->Text->EndsWith("e+"))
+			{
+
+				this->display->Text = this->display->Text + "0.";
+			}
+			else
+			{
+				this->display->Text = display->Text + ".";
+			}
 		}
-		else
-		{
-            this->display->Text = display->Text + ".";
-		}
+        
     }
 private: System::Void rightBrace_Click(System::Object^  sender, System::EventArgs^  e)
     {
@@ -2226,12 +2592,19 @@ private: System::Void rightBrace_Click(System::Object^  sender, System::EventArg
 		}
 		if (rb != lb)
 		{
-			this->lblShowOp->Text = this->lblShowOp->Text + display->Text + " ) ";
-			this->display->Text = "0";
+			if (this->lblShowOp->Text->EndsWith(") ") && this->display->Text == ("0"))
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + " ) ";
+			}
+			else
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + display->Text + " ) ";
+				this->display->Text = "0";
+			}
 		}
 		else
 		{
-
+			
 		}
     }
 private: System::Void leftBracket_Click(System::Object^  sender, System::EventArgs^  e)
@@ -2258,7 +2631,18 @@ private: System::Void backspace_Click(System::Object^  sender, System::EventArgs
     }
 private: System::Void xsquared_Click(System::Object^  sender, System::EventArgs^  e)
     {
-	    this->display->Text = this->display->Text + " ^ 2";
+        if (xsquared->Text == "x^2")
+        {
+			this->display->Text = this->display->Text + " ^ 2";
+        }
+        else if (xsquared->Text == "x^3")
+        {
+			this->display->Text = this->display->Text + " ^ 3";
+        }
+        else
+		{
+			this->display->Text = this->display->Text + " ^ 2";
+        }
     }
 private: System::Void clear_Click(System::Object^  sender, System::EventArgs^  e)
 {
@@ -2665,19 +3049,6 @@ private: System::Void pi_Click(System::Object^  sender, System::EventArgs^  e)
 	this->display->Text = "3.1415926535897932384626433832795";
 }
 
-private: System::Void xtothepowerofy_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	if (this->display->Text == "0")
-	{
-	}
-	else if (this->display->Text->EndsWith("^ "))
-	{
-	}
-	else
-	{
-		this->display->Text = this->display->Text + " ^ ";
-	}
-}
 private: System::Void tenpowerx_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	this->display->Text = "10 ^ " + this->display->Text;
@@ -3729,4 +4100,5 @@ private: System::Void label26_Click(System::Object^  sender, System::EventArgs^ 
 	memory9->PerformClick();
 }
 };
+
 }

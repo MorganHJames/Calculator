@@ -225,6 +225,7 @@ private: System::Windows::Forms::TextBox^  display;
 
 
 
+
     protected:
 
 
@@ -1724,7 +1725,6 @@ private: System::Windows::Forms::TextBox^  display;
 			// 
 			// modlog
 			// 
-			this->modlog->Anchor = System::Windows::Forms::AnchorStyles::Right;
 			this->modlog->AutoSize = true;
 			this->modlog->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->modlog->ForeColor = System::Drawing::SystemColors::AppWorkspace;
@@ -1736,9 +1736,10 @@ private: System::Windows::Forms::TextBox^  display;
 			// display
 			// 
 			this->display->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->display->Dock = System::Windows::Forms::DockStyle::Top;
 			this->display->Font = (gcnew System::Drawing::Font(L"Tahoma", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->display->Location = System::Drawing::Point(1, 0);
+			this->display->Location = System::Drawing::Point(0, 0);
 			this->display->Multiline = true;
 			this->display->Name = L"display";
 			this->display->Size = System::Drawing::Size(565, 110);
@@ -1748,6 +1749,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->display->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			this->display->TextChanged += gcnew System::EventHandler(this, &GraphicalUserInterface::textBox1_TextChanged);
 			this->display->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &GraphicalUserInterface::key);
+			this->display->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &GraphicalUserInterface::display_KeyUp);
 			// 
 			// GraphicalUserInterface
 			// 
@@ -1876,18 +1878,54 @@ private: System::Windows::Forms::TextBox^  display;
 			 float modnum1 = 0;
 private: System::Void modulus_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (this->modlog->Text->Contains("Mod") || this->modlog->Text->Contains("yroot") )
+	if (modulus->Text == "mod")
 	{
+		if (this->modlog->Text->Contains("Mod") || this->modlog->Text->Contains("yroot"))
+		{
 
 
+		}
+		else
+		{
+			this->modlog->Text = this->display->Text + " Mod";
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+			modnum1 = std::stof(unmanaged);
+			this->display->Text = "0";
+		}
+	}
+	else if (modulus->Text == "deg")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+		float i = std::stof(unmanaged);//11.11
+
+		int n = static_cast<int>(i);//11
+
+		float p = i - n;//11.11-11 = 0.11
+
+		p = p / 0.60f;//0.11 / 60
+
+		float a = n + p;//11 + 0.11/60
+
+		this->display->Text = gcnew String(std::to_string(a).c_str());
 	}
 	else
 	{
-		this->modlog->Text = this->display->Text + " Mod";
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
-		modnum1 = std::stof(unmanaged);
-		this->display->Text = "0";
+		if (this->modlog->Text->Contains("Mod") || this->modlog->Text->Contains("yroot"))
+		{
+
+
+		}
+		else
+		{
+			this->modlog->Text = this->display->Text + " Mod";
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+			modnum1 = std::stof(unmanaged);
+			this->display->Text = "0";
+		}
 	}
+
+	
 }
 		 void yrootxCalc()
 		 {
@@ -2929,7 +2967,7 @@ private: System::Void shift_Click(System::Object^  sender, System::EventArgs^  e
 		label10->ForeColor = System::Drawing::Color::Blue;
 		modulus->Text = "deg";
 		Exp->Text = "dms";
-		log->Text = "Ln";
+		log->Text = "ln";
 		tenpowerx->Text = "e" + u8"\u221A"+ "x";
 		squareroot->Text = "1/x";
 		if (hype)
@@ -3051,7 +3089,30 @@ private: System::Void pi_Click(System::Object^  sender, System::EventArgs^  e)
 
 private: System::Void tenpowerx_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	this->display->Text = "10 ^ " + this->display->Text;
+	if (tenpowerx->Text == "10^x")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+		float i = std::stof(unmanaged);
+
+		this->display->Text = gcnew String(std::to_string(std::powf(10 , i)).c_str());
+	}
+	else if (tenpowerx->Text ==  "e" + u8"\u221A" + "x")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+		float i = std::stof(unmanaged);
+
+		this->display->Text = gcnew String(std::to_string(std::powf(2.71828182845904523536028747f, i)).c_str());
+	}
+	else
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+		float i = std::stof(unmanaged);
+
+		this->display->Text = gcnew String(std::to_string(std::powf(10, i)).c_str());
+	}
 }
 private: System::Void sin_Click(System::Object^  sender, System::EventArgs^  e)
 {
@@ -3311,29 +3372,98 @@ private: System::Void tan_Click(System::Object^  sender, System::EventArgs^  e)
 }
 private: System::Void squareroot_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
-
-	float i = std::stof(unmanaged);
-
-	this->display->Text = gcnew String(std::to_string(std::sqrtf(i)).c_str());
-}
-private: System::Void log_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
-
-	float i = std::stof(unmanaged);
-
-	this->display->Text = gcnew String(std::to_string(std::log10f(i)).c_str());
-}
-private: System::Void Exp_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	if (this->display->Text->Contains("e+"))
+	if (squareroot->Text == u8"\u221A")
 	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+		float i = std::stof(unmanaged);
+
+		this->display->Text = gcnew String(std::to_string(std::sqrtf(i)).c_str());
+	}
+	else if (squareroot->Text == "1/x")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+		float i = std::stof(unmanaged);
+
+		this->display->Text = gcnew String(std::to_string(1 / i).c_str());
 	}
 	else
 	{
-		this->display->Text = this->display->Text + "e+";
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+		float i = std::stof(unmanaged);
+
+		this->display->Text = gcnew String(std::to_string(std::sqrtf(i)).c_str());
 	}
+}
+private: System::Void log_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	if (log->Text == "log")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+		float i = std::stof(unmanaged);
+
+		this->display->Text = gcnew String(std::to_string(std::log10f(i)).c_str());
+	}
+	else if (log->Text == "ln")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+		float i = std::stof(unmanaged);
+
+		this->display->Text = gcnew String(std::to_string(std::logf(i)).c_str());
+	}
+	else
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+		float i = std::stof(unmanaged);
+
+		this->display->Text = gcnew String(std::to_string(std::log10f(i)).c_str());
+	}
+}
+private: System::Void Exp_Click(System::Object^  sender, System::EventArgs^  e)
+{
+
+	if (Exp->Text == "Exp")
+	{
+		if (this->display->Text->Contains("e+"))
+		{
+		}
+		else
+		{
+			this->display->Text = this->display->Text + "e+";
+		}
+	}
+	else if (Exp->Text == "dms")
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
+
+		float i = std::stof(unmanaged);//11.11
+
+		int n = static_cast<int>(i);//11
+
+		float p = i - n;//11.11-11 = 0.11
+
+		p = p * 0.60f;//0.11 / 60
+
+		float a = n + p;//11 + 0.11/60
+
+		this->display->Text = gcnew String(std::to_string(a).c_str());
+	}
+	else
+	{
+		if (this->display->Text->Contains("e+"))
+		{
+		}
+		else
+		{
+			this->display->Text = this->display->Text + "e+";
+		}
+	}
+
 }
 private: System::Void cos_Click(System::Object^  sender, System::EventArgs^  e)
 {
@@ -4098,6 +4228,10 @@ private: System::Void label22_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void label26_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	memory9->PerformClick();
+}
+private: System::Void display_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e)
+{
+	
 }
 };
 

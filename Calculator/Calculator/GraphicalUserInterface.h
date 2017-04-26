@@ -246,6 +246,7 @@ private: System::Windows::Forms::TextBox^  display;
         /// </summary>
         void InitializeComponent(void)
         {
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(GraphicalUserInterface::typeid));
 			this->equals = (gcnew System::Windows::Forms::Button());
 			this->plus = (gcnew System::Windows::Forms::Button());
 			this->negative = (gcnew System::Windows::Forms::Button());
@@ -1859,8 +1860,14 @@ private: System::Windows::Forms::TextBox^  display;
 			this->Controls->Add(this->display);
 			this->Font = (gcnew System::Drawing::Font(L"Tahoma", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(581, 528);
+			this->MinimizeBox = false;
+			this->MinimumSize = System::Drawing::Size(581, 528);
 			this->Name = L"GraphicalUserInterface";
-			this->Text = L"GraphicalUserInterface";
+			this->Text = L"Calculator";
 			this->Load += gcnew System::EventHandler(this, &GraphicalUserInterface::GraphicalUserInterface_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

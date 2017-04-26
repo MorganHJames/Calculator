@@ -1875,7 +1875,7 @@ private: System::Windows::Forms::TextBox^  display;
 	{
 	}
 
-			 float modnum1 = 0;
+    long double modnum1 = 0;
 private: System::Void modulus_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	if (modulus->Text == "mod")
@@ -1889,7 +1889,7 @@ private: System::Void modulus_Click(System::Object^  sender, System::EventArgs^ 
 		{
 			this->modlog->Text = this->display->Text + " Mod";
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
-			modnum1 = std::stof(unmanaged);
+			modnum1 = std::stold(unmanaged);
 			this->display->Text = "0";
 		}
 	}
@@ -1897,15 +1897,15 @@ private: System::Void modulus_Click(System::Object^  sender, System::EventArgs^ 
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-		float i = std::stof(unmanaged);//11.11
+		long double i = std::stold(unmanaged);//11.11
 
 		int n = static_cast<int>(i);//11
 
-		float p = i - n;//11.11-11 = 0.11
+		long double p = i - n;//11.11-11 = 0.11
 
 		p = p / 0.60f;//0.11 / 60
 
-		float a = n + p;//11 + 0.11/60
+		long double a = n + p;//11 + 0.11/60
 
 		this->display->Text = gcnew String(std::to_string(a).c_str());
 	}
@@ -1920,7 +1920,7 @@ private: System::Void modulus_Click(System::Object^  sender, System::EventArgs^ 
 		{
 			this->modlog->Text = this->display->Text + " Mod";
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
-			modnum1 = std::stof(unmanaged);
+			modnum1 = std::stold(unmanaged);
 			this->display->Text = "0";
 		}
 	}
@@ -1930,14 +1930,14 @@ private: System::Void modulus_Click(System::Object^  sender, System::EventArgs^ 
 		 void yrootxCalc()
 		 {
 			 std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
-			 float modnum2 = std::stof(unmanaged);
+			 long double modnum2 = std::stold(unmanaged);
 			 this->display->Text = gcnew String(std::to_string(pow(modnum2, 1 / modnum1)).c_str());
 			 this->modlog->Text = "";
 		 }
 		 void modCalc()
 		 {
 			 std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
-			 float modnum2 = std::stof(unmanaged);
+			 long double modnum2 = std::stold(unmanaged);
 			 this->display->Text = gcnew String(std::to_string(std::fmod(modnum1, modnum2)).c_str());
 			 this->modlog->Text = "";
 		 }
@@ -2045,7 +2045,7 @@ private: System::Void xtothepowerofy_Click(System::Object^  sender, System::Even
 		{
 			this->modlog->Text = this->display->Text + " yroot";
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
-			modnum1 = std::stof(unmanaged);
+			modnum1 = std::stold(unmanaged);
 			this->display->Text = "0";
 		}
 	}
@@ -2924,6 +2924,10 @@ private: System::Void memoryadd_Click(System::Object^  sender, System::EventArgs
 }
 private: System::Void plusminus_Click(System::Object^  sender, System::EventArgs^  e)
 {
+	if (this->display->Text->EndsWith("."))
+	{
+		this->display->Text = this->display->Text + "0";
+	}
 	std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text + " * -1");
 
 	this->display->Text = gcnew String(calculate(unmanaged).c_str());
@@ -3078,7 +3082,7 @@ private: System::Void factorial_Click(System::Object^  sender, System::EventArgs
 {
 	std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text + " * -1");
 
-	float i = std::stof(unmanaged);
+	long double i = std::stold(unmanaged);
 
 	this->display->Text = gcnew String(std::to_string(std::tgamma(i + 1)).c_str());
 }
@@ -3093,25 +3097,25 @@ private: System::Void tenpowerx_Click(System::Object^  sender, System::EventArgs
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-		float i = std::stof(unmanaged);
+		long double i = std::stold(unmanaged);
 
-		this->display->Text = gcnew String(std::to_string(std::powf(10 , i)).c_str());
+		this->display->Text = gcnew String(std::to_string(std::pow(10 , i)).c_str());
 	}
 	else if (tenpowerx->Text ==  "e" + u8"\u221A" + "x")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-		float i = std::stof(unmanaged);
+		long double i = std::stold(unmanaged);
 
-		this->display->Text = gcnew String(std::to_string(std::powf(2.71828182845904523536028747f, i)).c_str());
+		this->display->Text = gcnew String(std::to_string(std::pow(2.71828182845904523536028747, i)).c_str());
 	}
 	else
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-		float i = std::stof(unmanaged);
+		long double i = std::stold(unmanaged);
 
-		this->display->Text = gcnew String(std::to_string(std::powf(10, i)).c_str());
+		this->display->Text = gcnew String(std::to_string(std::pow(10, i)).c_str());
 	}
 }
 private: System::Void sin_Click(System::Object^  sender, System::EventArgs^  e)
@@ -3122,35 +3126,35 @@ private: System::Void sin_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::sinf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::sin(i) * 180 / 3.1415926535897932384626433832795).c_str());
 		
 		}
 		else if (sin->Text == "sinh")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::sinhf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::sinh(i)).c_str());
 
 		}
 		else if (sin->Text == "sin^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::asinf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::asin(i) * 180 / 3.1415926535897932384626433832795).c_str());
 		}
 		else if (sin->Text == "sinh^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::asinhf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::asinh(i)).c_str());
 		}
 	}
 	else if (drg == 2)
@@ -3160,35 +3164,35 @@ private: System::Void sin_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::sinf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::sin(i)).c_str());
 
 		}
 		else if (sin->Text == "sinh")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::sinhf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::sinh(i)).c_str());
 
 		}
 		else if (sin->Text == "sin^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::asinf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::asin(i)).c_str());
 		}
 		else if (sin->Text == "sinh^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::asinhf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::asinh(i)).c_str());
 		}
 	}
 	else if (drg ==3)
@@ -3197,35 +3201,35 @@ private: System::Void sin_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::sinf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::sin(i) * 200 / 3.1415926535897932384626433832795).c_str());
 
 		}
 		else if (sin->Text == "sinh")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::sinhf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::sinh(i)).c_str());
 
 		}
 		else if (sin->Text == "sin^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::asinf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::asin(i) * 200 / 3.1415926535897932384626433832795).c_str());
 		}
 		else if (sin->Text == "sinh^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::asinhf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::asinh(i)).c_str());
 		}
 	}
 }
@@ -3238,43 +3242,43 @@ private: System::Void tan_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::tanf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::tan(i) * 180 / 3.1415926535897932384626433832795).c_str());
 
 		}
 		else if (tan->Text == "tanh")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::tanhf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::tanh(i)).c_str());
 
 		}
 		else if (tan->Text == "tan^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::atanf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::atan(i) * 180 / 3.1415926535897932384626433832795).c_str());
 		}
 		else if (tan->Text == "tanh^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::atanhf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::atanh(i)).c_str());
 		}
 		else
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::tanf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::tan(i) * 180 / 3.1415926535897932384626433832795).c_str());
 
 		}
 	}
@@ -3285,43 +3289,43 @@ private: System::Void tan_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::tanf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::tan(i)).c_str());
 
 		}
 		else if (tan->Text == "tanh")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::tanhf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::tanh(i)).c_str());
 
 		}
 		else if (tan->Text == "tan^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::atanf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::atan(i)).c_str());
 		}
 		else if (tan->Text == "tanh^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::atanhf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::atanh(i)).c_str());
 		}
 		else
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::tanf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::tan(i)).c_str());
 		}
 	}
 	else if (drg == 3)
@@ -3330,43 +3334,43 @@ private: System::Void tan_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::tanf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::tan(i) * 200 / 3.1415926535897932384626433832795).c_str());
 
 		}
 		else if (tan->Text == "tanh")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::tanhf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::tanh(i)).c_str());
 
 		}
 		else if (tan->Text == "tan^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::atanf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::atan(i) * 200 / 3.1415926535897932384626433832795).c_str());
 		}
 		else if (tan->Text == "tanh^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::atanhf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::atanh(i)).c_str());
 		}
 		else
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::tanf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::tan(i) * 200 / 3.1415926535897932384626433832795).c_str());
 		}
 	}
 }
@@ -3376,15 +3380,15 @@ private: System::Void squareroot_Click(System::Object^  sender, System::EventArg
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-		float i = std::stof(unmanaged);
+		long double i = std::stold(unmanaged);
 
-		this->display->Text = gcnew String(std::to_string(std::sqrtf(i)).c_str());
+		this->display->Text = gcnew String(std::to_string(std::sqrt(i)).c_str());
 	}
 	else if (squareroot->Text == "1/x")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-		float i = std::stof(unmanaged);
+		long double i = std::stold(unmanaged);
 
 		this->display->Text = gcnew String(std::to_string(1 / i).c_str());
 	}
@@ -3392,9 +3396,9 @@ private: System::Void squareroot_Click(System::Object^  sender, System::EventArg
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-		float i = std::stof(unmanaged);
+		long double i = std::stold(unmanaged);
 
-		this->display->Text = gcnew String(std::to_string(std::sqrtf(i)).c_str());
+		this->display->Text = gcnew String(std::to_string(std::sqrt(i)).c_str());
 	}
 }
 private: System::Void log_Click(System::Object^  sender, System::EventArgs^  e)
@@ -3403,25 +3407,25 @@ private: System::Void log_Click(System::Object^  sender, System::EventArgs^  e)
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-		float i = std::stof(unmanaged);
+		long double i = std::stold(unmanaged);
 
-		this->display->Text = gcnew String(std::to_string(std::log10f(i)).c_str());
+		this->display->Text = gcnew String(std::to_string(std::log10(i)).c_str());
 	}
 	else if (log->Text == "ln")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-		float i = std::stof(unmanaged);
+		long double i = std::stold(unmanaged);
 
-		this->display->Text = gcnew String(std::to_string(std::logf(i)).c_str());
+		this->display->Text = gcnew String(std::to_string(std::log(i)).c_str());
 	}
 	else
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-		float i = std::stof(unmanaged);
+		long double i = std::stold(unmanaged);
 
-		this->display->Text = gcnew String(std::to_string(std::log10f(i)).c_str());
+		this->display->Text = gcnew String(std::to_string(std::log10(i)).c_str());
 	}
 }
 private: System::Void Exp_Click(System::Object^  sender, System::EventArgs^  e)
@@ -3441,15 +3445,15 @@ private: System::Void Exp_Click(System::Object^  sender, System::EventArgs^  e)
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-		float i = std::stof(unmanaged);//11.11
+		long double i = std::stold(unmanaged);//11.11
 
 		int n = static_cast<int>(i);//11
 
-		float p = i - n;//11.11-11 = 0.11
+		long double p = i - n;//11.11-11 = 0.11
 
 		p = p * 0.60f;//0.11 / 60
 
-		float a = n + p;//11 + 0.11/60
+		long double a = n + p;//11 + 0.11/60
 
 		this->display->Text = gcnew String(std::to_string(a).c_str());
 	}
@@ -3473,43 +3477,43 @@ private: System::Void cos_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::cosf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::cos(i) * 180 / 3.1415926535897932384626433832795).c_str());
 
 		}
 		else if (cos->Text == "cosh")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::coshf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::cosh(i)).c_str());
 
 		}
 		else if (cos->Text == "cos^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::acosf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::acos(i) * 180 / 3.1415926535897932384626433832795).c_str());
 		}
 		else if (cos->Text == "cosh^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::acoshf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::acosh(i)).c_str());
 		}
 		else
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::cosf(i) * 180 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::cos(i) * 180 / 3.1415926535897932384626433832795).c_str());
 		}
 	}
 	else if (drg == 2)
@@ -3519,43 +3523,43 @@ private: System::Void cos_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::cosf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::cos(i)).c_str());
 
 		}
 		else if (cos->Text == "cosh")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::coshf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::cosh(i)).c_str());
 
 		}
 		else if (cos->Text == "cos^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::acosf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::acos(i)).c_str());
 		}
 		else if (cos->Text == "cosh^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::acoshf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::acosh(i)).c_str());
 		}
 		else
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::cosf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::cos(i)).c_str());
 		}
 	}
 	else if (drg == 3)
@@ -3564,43 +3568,43 @@ private: System::Void cos_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::cosf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::cos(i) * 200 / 3.1415926535897932384626433832795).c_str());
 
 		}
 		else if (cos->Text == "cosh")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::coshf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::cosh(i)).c_str());
 
 		}
 		else if (cos->Text == "cos^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::acosf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::acos(i) * 200 / 3.1415926535897932384626433832795).c_str());
 		}
 		else if (cos->Text == "cosh^-1")
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::acoshf(i)).c_str());
+			this->display->Text = gcnew String(std::to_string(std::acosh(i)).c_str());
 		}
 		else
 		{
 			std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
-			float i = std::stof(unmanaged);
+			long double i = std::stold(unmanaged);
 
-			this->display->Text = gcnew String(std::to_string(std::cosf(i) * 200 / 3.1415926535897932384626433832795).c_str());
+			this->display->Text = gcnew String(std::to_string(std::cos(i) * 200 / 3.1415926535897932384626433832795).c_str());
 		}
 	}
 }
@@ -4231,7 +4235,8 @@ private: System::Void label26_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void display_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e)
 {
-	
+	display->Text = String::Format("At {0}, the temperature is {1}°C.", DateTime::Now, 20.4);
+
 }
 };
 

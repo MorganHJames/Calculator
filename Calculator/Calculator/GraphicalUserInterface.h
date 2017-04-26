@@ -7,121 +7,121 @@ using namespace msclr::interop;
 
 namespace Calculator {
 
-    using namespace System;
-    using namespace System::ComponentModel;
-    using namespace System::Collections;
-    using namespace System::Windows::Forms;
-    using namespace System::Data;
-    using namespace System::Drawing;
+	using namespace System;
+	using namespace System::ComponentModel;
+	using namespace System::Collections;
+	using namespace System::Windows::Forms;
+	using namespace System::Data;
+	using namespace System::Drawing;
 
-    /// <summary>
-    /// Summary for GraphicalUserInterface
-    /// </summary>
-    public ref class GraphicalUserInterface : public System::Windows::Forms::Form
-    {
-    public:
-        GraphicalUserInterface(void)
-        {
-            InitializeComponent();
-            //
-            //TODO: Add the constructor code here
-            //
-        }
-
-
-    protected:
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        ~GraphicalUserInterface()
-        {
-            if (components)
-            {
-                delete components;
-            }
-        }
-    private: System::Windows::Forms::Button^  equals;
-    private: System::Windows::Forms::Button^  plus;
-    private: System::Windows::Forms::Button^  negative;
-    private: System::Windows::Forms::Button^  multiply;
-    private: System::Windows::Forms::Button^  divide;
-    private: System::Windows::Forms::Button^  backspace;
-    protected:
-
-    protected:
+	/// <summary>
+	/// Summary for GraphicalUserInterface
+	/// </summary>
+	public ref class GraphicalUserInterface : public System::Windows::Forms::Form
+	{
+	public:
+		GraphicalUserInterface(void)
+		{
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
 
 
+	protected:
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		~GraphicalUserInterface()
+		{
+			if (components)
+			{
+				delete components;
+			}
+		}
+	private: System::Windows::Forms::Button^  equals;
+	private: System::Windows::Forms::Button^  plus;
+	private: System::Windows::Forms::Button^  negative;
+	private: System::Windows::Forms::Button^  multiply;
+	private: System::Windows::Forms::Button^  divide;
+	private: System::Windows::Forms::Button^  backspace;
+	protected:
 
-
-
-    private: System::Windows::Forms::Button^  nine;
-
-    private: System::Windows::Forms::Button^  six;
-
-    private: System::Windows::Forms::Button^  three;
-    private: System::Windows::Forms::Button^  period;
-
-
-    private: System::Windows::Forms::Button^  clear;
-
-
-    private: System::Windows::Forms::Button^  eight;
-
-    private: System::Windows::Forms::Button^  five;
-
-    private: System::Windows::Forms::Button^  two;
-
-    private: System::Windows::Forms::Button^  zero;
-    private: System::Windows::Forms::Button^  clearE;
-
-
-    private: System::Windows::Forms::Button^  seven;
-
-    private: System::Windows::Forms::Button^  four;
-
-    private: System::Windows::Forms::Button^  one;
-
-    private: System::Windows::Forms::Button^  rightBrace;
-    private: System::Windows::Forms::Button^  shift;
-
-
-    private: System::Windows::Forms::Button^  pi;
-
-    private: System::Windows::Forms::Button^  factorial;
-
-    private: System::Windows::Forms::Button^  plusminus;
-
-    private: System::Windows::Forms::Button^  leftBracket;
-    private: System::Windows::Forms::Button^  tan;
-
-
-    private: System::Windows::Forms::Button^  modulus;
-    private: System::Windows::Forms::Button^  Exp;
-    private: System::Windows::Forms::Button^  cos;
-
-
-
-    private: System::Windows::Forms::Button^  log;
-    private: System::Windows::Forms::Button^  sin;
-
-
-    private: System::Windows::Forms::Button^  tenpowerx;
-    private: System::Windows::Forms::Button^  xtothepowerofy;
-
-
-    private: System::Windows::Forms::Button^  squareroot;
-    private: System::Windows::Forms::Button^  xsquared;
+	protected:
 
 
 
 
-    private: System::Windows::Forms::Button^  memoryclear;
 
-    private: System::Windows::Forms::Button^  memoryrecall;
+	private: System::Windows::Forms::Button^  nine;
 
-    private: System::Windows::Forms::Button^  memorysubtract;
+	private: System::Windows::Forms::Button^  six;
 
-    private: System::Windows::Forms::Button^  memorystore;
+	private: System::Windows::Forms::Button^  three;
+	private: System::Windows::Forms::Button^  period;
+
+
+	private: System::Windows::Forms::Button^  clear;
+
+
+	private: System::Windows::Forms::Button^  eight;
+
+	private: System::Windows::Forms::Button^  five;
+
+	private: System::Windows::Forms::Button^  two;
+
+	private: System::Windows::Forms::Button^  zero;
+	private: System::Windows::Forms::Button^  clearE;
+
+
+	private: System::Windows::Forms::Button^  seven;
+
+	private: System::Windows::Forms::Button^  four;
+
+	private: System::Windows::Forms::Button^  one;
+
+	private: System::Windows::Forms::Button^  rightBrace;
+	private: System::Windows::Forms::Button^  shift;
+
+
+	private: System::Windows::Forms::Button^  pi;
+
+	private: System::Windows::Forms::Button^  factorial;
+
+	private: System::Windows::Forms::Button^  plusminus;
+
+	private: System::Windows::Forms::Button^  leftBracket;
+	private: System::Windows::Forms::Button^  tan;
+
+
+	private: System::Windows::Forms::Button^  modulus;
+	private: System::Windows::Forms::Button^  Exp;
+	private: System::Windows::Forms::Button^  cos;
+
+
+
+	private: System::Windows::Forms::Button^  log;
+	private: System::Windows::Forms::Button^  sin;
+
+
+	private: System::Windows::Forms::Button^  tenpowerx;
+	private: System::Windows::Forms::Button^  xtothepowerofy;
+
+
+	private: System::Windows::Forms::Button^  squareroot;
+	private: System::Windows::Forms::Button^  xsquared;
+
+
+
+
+	private: System::Windows::Forms::Button^  memoryclear;
+
+	private: System::Windows::Forms::Button^  memoryrecall;
+
+	private: System::Windows::Forms::Button^  memorysubtract;
+
+	private: System::Windows::Forms::Button^  memorystore;
 
 
 private: System::Windows::Forms::Button^  degrees;
@@ -130,7 +130,7 @@ private: System::Windows::Forms::Button^  hyperbolic;
 
 
 
-private: System::Windows::Forms::Button^  exponentialnotation;
+
 
 private: System::Windows::Forms::Button^  memory8;
 private: System::Windows::Forms::Button^  memory7;
@@ -186,7 +186,7 @@ private: System::Windows::Forms::Label^  label13;
 private: System::Windows::Forms::Label^  label14;
 private: System::Windows::Forms::Label^  label15;
 private: System::Windows::Forms::Label^  label16;
-private: System::Windows::Forms::Label^  label17;
+
 private: System::Windows::Forms::Label^  label18;
 private: System::Windows::Forms::Label^  label19;
 private: System::Windows::Forms::Label^  label20;
@@ -226,26 +226,26 @@ private: System::Windows::Forms::TextBox^  display;
 
 
 
-    protected:
+	protected:
 
 
 
 
-    protected:
+	protected:
 
-    private:
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        System::ComponentModel::Container ^components;
+	private:
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        void InitializeComponent(void)
-        {
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		void InitializeComponent(void)
+		{
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(GraphicalUserInterface::typeid));
 			this->equals = (gcnew System::Windows::Forms::Button());
 			this->plus = (gcnew System::Windows::Forms::Button());
@@ -288,7 +288,6 @@ private: System::Windows::Forms::TextBox^  display;
 			this->memorystore = (gcnew System::Windows::Forms::Button());
 			this->degrees = (gcnew System::Windows::Forms::Button());
 			this->hyperbolic = (gcnew System::Windows::Forms::Button());
-			this->exponentialnotation = (gcnew System::Windows::Forms::Button());
 			this->memory8 = (gcnew System::Windows::Forms::Button());
 			this->memory7 = (gcnew System::Windows::Forms::Button());
 			this->memory5 = (gcnew System::Windows::Forms::Button());
@@ -334,7 +333,6 @@ private: System::Windows::Forms::TextBox^  display;
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->label16 = (gcnew System::Windows::Forms::Label());
-			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->label20 = (gcnew System::Windows::Forms::Label());
@@ -982,7 +980,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->degrees->ForeColor = System::Drawing::SystemColors::MenuHighlight;
 			this->degrees->Location = System::Drawing::Point(1, 111);
 			this->degrees->Name = L"degrees";
-			this->degrees->Size = System::Drawing::Size(75, 41);
+			this->degrees->Size = System::Drawing::Size(113, 40);
 			this->degrees->TabIndex = 51;
 			this->degrees->Text = L"DEG";
 			this->degrees->UseVisualStyleBackColor = false;
@@ -996,30 +994,14 @@ private: System::Windows::Forms::TextBox^  display;
 			this->hyperbolic->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->hyperbolic->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->hyperbolic->Location = System::Drawing::Point(76, 111);
+			this->hyperbolic->Location = System::Drawing::Point(114, 111);
 			this->hyperbolic->Name = L"hyperbolic";
-			this->hyperbolic->Size = System::Drawing::Size(75, 41);
+			this->hyperbolic->Size = System::Drawing::Size(113, 40);
 			this->hyperbolic->TabIndex = 50;
 			this->hyperbolic->Text = L"HYP";
 			this->hyperbolic->UseVisualStyleBackColor = false;
 			this->hyperbolic->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::hyperbolic_Click);
 			this->hyperbolic->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &GraphicalUserInterface::key);
-			// 
-			// exponentialnotation
-			// 
-			this->exponentialnotation->BackColor = System::Drawing::SystemColors::ControlLightLight;
-			this->exponentialnotation->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->exponentialnotation->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->exponentialnotation->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->exponentialnotation->Location = System::Drawing::Point(151, 111);
-			this->exponentialnotation->Name = L"exponentialnotation";
-			this->exponentialnotation->Size = System::Drawing::Size(75, 41);
-			this->exponentialnotation->TabIndex = 49;
-			this->exponentialnotation->Text = L"F-E";
-			this->exponentialnotation->UseVisualStyleBackColor = false;
-			this->exponentialnotation->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::exponentialnotation_Click);
-			this->exponentialnotation->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &GraphicalUserInterface::key);
 			// 
 			// memory8
 			// 
@@ -1028,7 +1010,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->memory8->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory8->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory8->Location = System::Drawing::Point(490, 111);
+			this->memory8->Location = System::Drawing::Point(493, 111);
 			this->memory8->Name = L"memory8";
 			this->memory8->Size = System::Drawing::Size(38, 41);
 			this->memory8->TabIndex = 41;
@@ -1044,7 +1026,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->memory7->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory7->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory7->Location = System::Drawing::Point(452, 111);
+			this->memory7->Location = System::Drawing::Point(455, 111);
 			this->memory7->Name = L"memory7";
 			this->memory7->Size = System::Drawing::Size(38, 41);
 			this->memory7->TabIndex = 42;
@@ -1060,7 +1042,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->memory5->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory5->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory5->Location = System::Drawing::Point(376, 111);
+			this->memory5->Location = System::Drawing::Point(379, 111);
 			this->memory5->Name = L"memory5";
 			this->memory5->Size = System::Drawing::Size(38, 41);
 			this->memory5->TabIndex = 44;
@@ -1076,7 +1058,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->memory6->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory6->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory6->Location = System::Drawing::Point(414, 111);
+			this->memory6->Location = System::Drawing::Point(417, 111);
 			this->memory6->Name = L"memory6";
 			this->memory6->Size = System::Drawing::Size(38, 41);
 			this->memory6->TabIndex = 43;
@@ -1092,7 +1074,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->memory3->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory3->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory3->Location = System::Drawing::Point(300, 111);
+			this->memory3->Location = System::Drawing::Point(303, 111);
 			this->memory3->Name = L"memory3";
 			this->memory3->Size = System::Drawing::Size(38, 41);
 			this->memory3->TabIndex = 46;
@@ -1108,7 +1090,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->memory4->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory4->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory4->Location = System::Drawing::Point(338, 111);
+			this->memory4->Location = System::Drawing::Point(341, 111);
 			this->memory4->Name = L"memory4";
 			this->memory4->Size = System::Drawing::Size(38, 41);
 			this->memory4->TabIndex = 45;
@@ -1124,7 +1106,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->memory2->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory2->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory2->Location = System::Drawing::Point(262, 111);
+			this->memory2->Location = System::Drawing::Point(265, 111);
 			this->memory2->Name = L"memory2";
 			this->memory2->Size = System::Drawing::Size(38, 41);
 			this->memory2->TabIndex = 47;
@@ -1140,7 +1122,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->memory1->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory1->Location = System::Drawing::Point(224, 111);
+			this->memory1->Location = System::Drawing::Point(227, 111);
 			this->memory1->Name = L"memory1";
 			this->memory1->Size = System::Drawing::Size(38, 41);
 			this->memory1->TabIndex = 48;
@@ -1172,7 +1154,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->memory9->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memory9->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->memory9->Location = System::Drawing::Point(528, 111);
+			this->memory9->Location = System::Drawing::Point(531, 111);
 			this->memory9->Name = L"memory9";
 			this->memory9->Size = System::Drawing::Size(38, 41);
 			this->memory9->TabIndex = 40;
@@ -1588,24 +1570,12 @@ private: System::Windows::Forms::TextBox^  display;
 			this->label16->AutoSize = true;
 			this->label16->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->label16->ForeColor = System::Drawing::SystemColors::AppWorkspace;
-			this->label16->Location = System::Drawing::Point(82, 124);
+			this->label16->Location = System::Drawing::Point(120, 124);
 			this->label16->Name = L"label16";
 			this->label16->Size = System::Drawing::Size(14, 14);
 			this->label16->TabIndex = 140;
 			this->label16->Text = L"x";
 			this->label16->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::label16_Click);
-			// 
-			// label17
-			// 
-			this->label17->AutoSize = true;
-			this->label17->BackColor = System::Drawing::SystemColors::ControlLightLight;
-			this->label17->ForeColor = System::Drawing::SystemColors::AppWorkspace;
-			this->label17->Location = System::Drawing::Point(157, 124);
-			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(14, 14);
-			this->label17->TabIndex = 141;
-			this->label17->Text = L"y";
-			this->label17->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::label17_Click);
 			// 
 			// label18
 			// 
@@ -1613,7 +1583,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->label18->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->label18->Font = (gcnew System::Drawing::Font(L"Tahoma", 7, System::Drawing::FontStyle::Bold));
 			this->label18->ForeColor = System::Drawing::SystemColors::AppWorkspace;
-			this->label18->Location = System::Drawing::Point(235, 115);
+			this->label18->Location = System::Drawing::Point(238, 115);
 			this->label18->Name = L"label18";
 			this->label18->Size = System::Drawing::Size(8, 12);
 			this->label18->TabIndex = 142;
@@ -1626,7 +1596,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->label19->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->label19->Font = (gcnew System::Drawing::Font(L"Tahoma", 7, System::Drawing::FontStyle::Bold));
 			this->label19->ForeColor = System::Drawing::SystemColors::AppWorkspace;
-			this->label19->Location = System::Drawing::Point(273, 115);
+			this->label19->Location = System::Drawing::Point(276, 115);
 			this->label19->Name = L"label19";
 			this->label19->Size = System::Drawing::Size(14, 12);
 			this->label19->TabIndex = 143;
@@ -1639,7 +1609,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->label20->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->label20->Font = (gcnew System::Drawing::Font(L"Tahoma", 7, System::Drawing::FontStyle::Bold));
 			this->label20->ForeColor = System::Drawing::SystemColors::AppWorkspace;
-			this->label20->Location = System::Drawing::Point(351, 115);
+			this->label20->Location = System::Drawing::Point(354, 115);
 			this->label20->Name = L"label20";
 			this->label20->Size = System::Drawing::Size(11, 12);
 			this->label20->TabIndex = 145;
@@ -1652,7 +1622,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->label21->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->label21->Font = (gcnew System::Drawing::Font(L"Tahoma", 7, System::Drawing::FontStyle::Bold));
 			this->label21->ForeColor = System::Drawing::SystemColors::AppWorkspace;
-			this->label21->Location = System::Drawing::Point(311, 115);
+			this->label21->Location = System::Drawing::Point(314, 115);
 			this->label21->Name = L"label21";
 			this->label21->Size = System::Drawing::Size(11, 12);
 			this->label21->TabIndex = 144;
@@ -1665,7 +1635,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->label22->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->label22->Font = (gcnew System::Drawing::Font(L"Tahoma", 7, System::Drawing::FontStyle::Bold));
 			this->label22->ForeColor = System::Drawing::SystemColors::AppWorkspace;
-			this->label22->Location = System::Drawing::Point(502, 115);
+			this->label22->Location = System::Drawing::Point(505, 115);
 			this->label22->Name = L"label22";
 			this->label22->Size = System::Drawing::Size(11, 12);
 			this->label22->TabIndex = 149;
@@ -1678,7 +1648,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->label23->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->label23->Font = (gcnew System::Drawing::Font(L"Tahoma", 7, System::Drawing::FontStyle::Bold));
 			this->label23->ForeColor = System::Drawing::SystemColors::AppWorkspace;
-			this->label23->Location = System::Drawing::Point(465, 115);
+			this->label23->Location = System::Drawing::Point(468, 115);
 			this->label23->Name = L"label23";
 			this->label23->Size = System::Drawing::Size(9, 12);
 			this->label23->TabIndex = 148;
@@ -1691,7 +1661,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->label24->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->label24->Font = (gcnew System::Drawing::Font(L"Tahoma", 7, System::Drawing::FontStyle::Bold));
 			this->label24->ForeColor = System::Drawing::SystemColors::AppWorkspace;
-			this->label24->Location = System::Drawing::Point(427, 115);
+			this->label24->Location = System::Drawing::Point(430, 115);
 			this->label24->Name = L"label24";
 			this->label24->Size = System::Drawing::Size(10, 12);
 			this->label24->TabIndex = 147;
@@ -1704,7 +1674,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->label25->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->label25->Font = (gcnew System::Drawing::Font(L"Tahoma", 7, System::Drawing::FontStyle::Bold));
 			this->label25->ForeColor = System::Drawing::SystemColors::AppWorkspace;
-			this->label25->Location = System::Drawing::Point(388, 115);
+			this->label25->Location = System::Drawing::Point(391, 115);
 			this->label25->Name = L"label25";
 			this->label25->Size = System::Drawing::Size(10, 12);
 			this->label25->TabIndex = 146;
@@ -1717,7 +1687,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->label26->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->label26->Font = (gcnew System::Drawing::Font(L"Tahoma", 7, System::Drawing::FontStyle::Bold));
 			this->label26->ForeColor = System::Drawing::SystemColors::AppWorkspace;
-			this->label26->Location = System::Drawing::Point(540, 115);
+			this->label26->Location = System::Drawing::Point(543, 115);
 			this->label26->Name = L"label26";
 			this->label26->Size = System::Drawing::Size(11, 12);
 			this->label26->TabIndex = 150;
@@ -1750,7 +1720,6 @@ private: System::Windows::Forms::TextBox^  display;
 			this->display->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			this->display->TextChanged += gcnew System::EventHandler(this, &GraphicalUserInterface::textBox1_TextChanged);
 			this->display->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &GraphicalUserInterface::key);
-			this->display->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &GraphicalUserInterface::display_KeyUp);
 			// 
 			// GraphicalUserInterface
 			// 
@@ -1769,7 +1738,6 @@ private: System::Windows::Forms::TextBox^  display;
 			this->Controls->Add(this->label21);
 			this->Controls->Add(this->label19);
 			this->Controls->Add(this->label18);
-			this->Controls->Add(this->label17);
 			this->Controls->Add(this->label16);
 			this->Controls->Add(this->label15);
 			this->Controls->Add(this->label14);
@@ -1817,7 +1785,6 @@ private: System::Windows::Forms::TextBox^  display;
 			this->Controls->Add(this->memory8);
 			this->Controls->Add(this->degrees);
 			this->Controls->Add(this->hyperbolic);
-			this->Controls->Add(this->exponentialnotation);
 			this->Controls->Add(this->memoryclear);
 			this->Controls->Add(this->memoryrecall);
 			this->Controls->Add(this->memorysubtract);
@@ -1875,14 +1842,14 @@ private: System::Windows::Forms::TextBox^  display;
 		}
 #pragma endregion
 
-    private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e)
-    {
-    }
+	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e)
+	{
+	}
 	private: System::Void GraphicalUserInterface_Load(System::Object^  sender, System::EventArgs^  e)
 	{
 	}
 
-    long double modnum1 = 0;
+	long double modnum1 = 0;
 private: System::Void modulus_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	if (modulus->Text == "mod")
@@ -1965,7 +1932,11 @@ private: System::Void xtothepowerofy_Click(System::Object^  sender, System::Even
 		}
 		if (rb == lb)
 		{
-			if (this->modlog->Text->Contains("Mod"))
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->modlog->Text->Contains("Mod"))
 			{
 				modCalc();
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
@@ -2007,7 +1978,11 @@ private: System::Void xtothepowerofy_Click(System::Object^  sender, System::Even
 		}
 		else
 		{
-			if (this->modlog->Text->Contains("Mod"))
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->modlog->Text->Contains("Mod"))
 			{
 				modCalc();
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
@@ -2043,7 +2018,11 @@ private: System::Void xtothepowerofy_Click(System::Object^  sender, System::Even
 	}
 	else if (xtothepowerofy->Text == "y" + u8"\u221A" + "x")
 	{
-		if (this->modlog->Text->Contains("Mod") || this->modlog->Text->Contains("yroot"))
+		if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+		{
+
+		}
+		else if (this->modlog->Text->Contains("Mod") || this->modlog->Text->Contains("yroot"))
 		{
 
 
@@ -2071,7 +2050,11 @@ private: System::Void xtothepowerofy_Click(System::Object^  sender, System::Even
 		}
 		if (rb == lb)
 		{
-			if (this->modlog->Text->Contains("Mod"))
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->modlog->Text->Contains("Mod"))
 			{
 				modCalc();
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
@@ -2105,7 +2088,11 @@ private: System::Void xtothepowerofy_Click(System::Object^  sender, System::Even
 		}
 		else
 		{
-			if (this->modlog->Text->Contains("Mod"))
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->modlog->Text->Contains("Mod"))
 			{
 				modCalc();
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " ^ ";
@@ -2137,28 +2124,32 @@ private: System::Void xtothepowerofy_Click(System::Object^  sender, System::Even
 	
 
 private: System::Void equals_Click(System::Object^  sender, System::EventArgs^  e)
-    {
-	    int rb = 0, lb = 0;
-	    
-	    std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
-	    for (std::string::iterator it = str.begin(); it != str.end(); ++it)
-	    {
-	    	if (*it == '(')
-	    		lb += 1;
-	    
-	    	else if (*it == ')')
-	    		rb += 1;
-	    }
-	    if (rb == lb)
-	    {
-	    	if (this->modlog->Text->Contains("Mod"))
-	    	{
-	    		modCalc();
-	    		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
-	    		this->display->Text = gcnew String(calculate(unmanaged).c_str());
-	    		this->lblShowOp->Text = "";
-	    		this->ree->Text = "";
-	    	}
+	{
+		int rb = 0, lb = 0;
+		
+		std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
+		for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+		{
+			if (*it == '(')
+				lb += 1;
+		
+			else if (*it == ')')
+				rb += 1;
+		}
+		if (rb == lb)
+		{
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d")|| this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->modlog->Text->Contains("Mod"))
+			{
+				modCalc();
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->display->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = "";
+				this->ree->Text = "";
+			}
 			else if (this->modlog->Text->Contains("yroot"))
 			{
 				yrootxCalc();
@@ -2167,37 +2158,37 @@ private: System::Void equals_Click(System::Object^  sender, System::EventArgs^  
 				this->lblShowOp->Text = "";
 				this->ree->Text = "";
 			}
-	    	else if (this->display->Text->EndsWith("0") && this->lblShowOp->Text == "")
-	    	{
-	    
-	    	}
-	    	else if (this->display->Text == "0" && this->lblShowOp->Text->EndsWith(") "))
-	    	{
-	    		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
-	    		this->display->Text = gcnew String(calculate(unmanaged).c_str());
-	    		this->lblShowOp->Text = "";
-	    		this->ree->Text = "";
-	    	}
-	    	else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
-	    	{
-	    		this->display->Text = this->display->Text + "0";
-	    		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
-	    		this->display->Text = gcnew String(calculate(unmanaged).c_str());
-	    		this->lblShowOp->Text = "";
-	    		this->ree->Text = "";
-	    	}
-	    	else
-	    	{
-	    		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
-	    		this->display->Text = gcnew String(calculate(unmanaged).c_str());
-	    		this->lblShowOp->Text = "";
-	    		this->ree->Text = "";
-	    	}
-	    }
+			else if (this->display->Text->EndsWith("0") && this->lblShowOp->Text == "")
+			{
+		
+			}
+			else if (this->display->Text == "0" && this->lblShowOp->Text->EndsWith(") "))
+			{
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
+				this->display->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = "";
+				this->ree->Text = "";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			{
+				this->display->Text = this->display->Text + "0";
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->display->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = "";
+				this->ree->Text = "";
+			}
+			else
+			{
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->display->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = "";
+				this->ree->Text = "";
+			}
+		}
 	
-    }
+	}
 private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  e)
-    {
+	{
 		int rb = 0, lb = 0;
 
 		std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
@@ -2211,7 +2202,11 @@ private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  
 		}
 		if (rb == lb)
 		{
-			if (this->modlog->Text->Contains("Mod"))
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->modlog->Text->Contains("Mod"))
 			{
 				modCalc();
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
@@ -2228,14 +2223,14 @@ private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  
 				this->display->Text = "0";
 			}
 			else if (this->lblShowOp->Text->EndsWith(") "))
-		    {
-		    
-		    	this->lblShowOp->Text = this->lblShowOp->Text + " + ";
-		    }
+			{
+			
+				this->lblShowOp->Text = this->lblShowOp->Text + " + ";
+			}
 			else if (this->display->Text == "0")
-		    {
-		    
-		    }
+			{
+			
+			}
 			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
 			{
 				this->display->Text = this->display->Text + "0";
@@ -2244,7 +2239,7 @@ private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
 				this->display->Text = "0";
 			}
-		    else if (this->lblShowOp->Text == "" && this->display->Text->EndsWith("+"))
+			else if (this->lblShowOp->Text == "" && this->display->Text->EndsWith("+"))
 			{
 				this->lblShowOp->Text = this->display->Text + " + ";
 				this->display->Text = "0";
@@ -2264,7 +2259,11 @@ private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  
 		}
 		else
 		{
-			if (this->modlog->Text->Contains("Mod"))
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->modlog->Text->Contains("Mod"))
 			{
 				modCalc();
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
@@ -2298,9 +2297,9 @@ private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  
 			}
 		}
 
-    }
+	}
 private: System::Void negative_Click_1(System::Object^  sender, System::EventArgs^  e)
-    {
+	{
 		int rb = 0, lb = 0;
 
 		std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
@@ -2314,7 +2313,11 @@ private: System::Void negative_Click_1(System::Object^  sender, System::EventArg
 		}
 		if (rb == lb)
 		{
-			if (this->modlog->Text->Contains("Mod"))
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->modlog->Text->Contains("Mod"))
 			{
 				modCalc();
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
@@ -2331,10 +2334,10 @@ private: System::Void negative_Click_1(System::Object^  sender, System::EventArg
 				this->display->Text = "0";
 			}
 			else if (this->lblShowOp->Text->EndsWith(") "))
-		    {
-		        this->lblShowOp->Text = this->lblShowOp->Text + " - ";
-		    }
-		    else if (this->display->Text == "0")
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + " - ";
+			}
+			else if (this->display->Text == "0")
 			{
 
 			}
@@ -2361,7 +2364,11 @@ private: System::Void negative_Click_1(System::Object^  sender, System::EventArg
 		}
 		else
 		{
-			if (this->modlog->Text->Contains("Mod"))
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->modlog->Text->Contains("Mod"))
 			{
 				modCalc();
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
@@ -2394,9 +2401,9 @@ private: System::Void negative_Click_1(System::Object^  sender, System::EventArg
 				this->display->Text = "0";
 			}
 		}
-    }
+	}
 private: System::Void multiply_Click_1(System::Object^  sender, System::EventArgs^  e)
-    {
+	{
 		int rb = 0, lb = 0;
 
 		std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
@@ -2410,7 +2417,11 @@ private: System::Void multiply_Click_1(System::Object^  sender, System::EventArg
 		}
 		if (rb == lb)
 		{
-			if (this->modlog->Text->Contains("Mod"))
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->modlog->Text->Contains("Mod"))
 			{
 				modCalc();
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
@@ -2427,10 +2438,10 @@ private: System::Void multiply_Click_1(System::Object^  sender, System::EventArg
 				this->display->Text = "0";
 			}
 			else if (this->lblShowOp->Text->EndsWith(") "))
-		    {
-		    	this->lblShowOp->Text = this->lblShowOp->Text + " * ";
-		    }
-		    else if (this->display->Text == "0")
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + " * ";
+			}
+			else if (this->display->Text == "0")
 			{
 
 			}
@@ -2463,7 +2474,11 @@ private: System::Void multiply_Click_1(System::Object^  sender, System::EventArg
 		}
 		else
 		{
-			if (this->modlog->Text->Contains("Mod"))
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->modlog->Text->Contains("Mod"))
 			{
 				modCalc();
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
@@ -2496,9 +2511,9 @@ private: System::Void multiply_Click_1(System::Object^  sender, System::EventArg
 				this->display->Text = "0";
 			}
 		}
-    }
+	}
 private: System::Void divide_Click_1(System::Object^  sender, System::EventArgs^  e)
-    {
+	{
 		int rb = 0, lb = 0;
 
 		std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
@@ -2512,7 +2527,11 @@ private: System::Void divide_Click_1(System::Object^  sender, System::EventArgs^
 		}
 		if (rb == lb)
 		{
-			if (this->modlog->Text->Contains("Mod"))
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->modlog->Text->Contains("Mod"))
 			{
 				modCalc();
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
@@ -2529,10 +2548,10 @@ private: System::Void divide_Click_1(System::Object^  sender, System::EventArgs^
 				this->display->Text = "0";
 			}
 			else if (this->lblShowOp->Text->EndsWith(") "))
-		    {
-		    	this->lblShowOp->Text = this->lblShowOp->Text + " / ";
-		    }
-		    else if (this->display->Text == "0")
+			{
+				this->lblShowOp->Text = this->lblShowOp->Text + " / ";
+			}
+			else if (this->display->Text == "0")
 			{
 
 			}
@@ -2560,7 +2579,11 @@ private: System::Void divide_Click_1(System::Object^  sender, System::EventArgs^
 		}
 		else
 		{
-			if (this->modlog->Text->Contains("Mod"))
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->modlog->Text->Contains("Mod"))
 			{
 				modCalc();
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " / ";
@@ -2593,20 +2616,24 @@ private: System::Void divide_Click_1(System::Object^  sender, System::EventArgs^
 				this->display->Text = "0";
 			}
 		}
-    }
+	}
 private: System::Void period_Click_1(System::Object^  sender, System::EventArgs^  e)
-    {
-	    int ip = 0;
-        
-        std::string str = msclr::interop::marshal_as<std::string>(this->display->Text);
-        for (std::string::iterator it = str.begin(); it != str.end(); ++it)
-        {
-        	if (*it == '.')
-        		ip += 1;
-        }
+	{
+		int ip = 0;
+		
+		std::string str = msclr::interop::marshal_as<std::string>(this->display->Text);
+		for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+		{
+			if (*it == '.')
+				ip += 1;
+		}
 		if (ip == 0)
 		{
-			if (this->display->Text->EndsWith(") ") || this->display->Text->EndsWith("-"))
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->display->Text->EndsWith(") ") || this->display->Text->EndsWith("-"))
 			{
 
 			}
@@ -2620,10 +2647,10 @@ private: System::Void period_Click_1(System::Object^  sender, System::EventArgs^
 				this->display->Text = display->Text + ".";
 			}
 		}
-        
-    }
+		
+	}
 private: System::Void rightBrace_Click(System::Object^  sender, System::EventArgs^  e)
-    {
+	{
 		int rb = 0, lb = 0;
 
 		std::string str = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text);
@@ -2637,7 +2664,11 @@ private: System::Void rightBrace_Click(System::Object^  sender, System::EventArg
 		}
 		if (rb != lb)
 		{
-			if (this->lblShowOp->Text->EndsWith(") ") && this->display->Text == ("0"))
+			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+			{
+
+			}
+			else if (this->lblShowOp->Text->EndsWith(") ") && this->display->Text == ("0"))
 			{
 				this->lblShowOp->Text = this->lblShowOp->Text + " ) ";
 			}
@@ -2651,20 +2682,24 @@ private: System::Void rightBrace_Click(System::Object^  sender, System::EventArg
 		{
 			
 		}
-    }
+	}
 private: System::Void leftBracket_Click(System::Object^  sender, System::EventArgs^  e)
-    {
+	{
 		
 		this->lblShowOp->Text = this->lblShowOp->Text + " ( ";
-    
+	
 	}
 private: System::Void clearE_Click(System::Object^  sender, System::EventArgs^  e)
-    {
-        this->display->Text = "0";
-    }
+	{
+		this->display->Text = "0";
+	}
 private: System::Void backspace_Click(System::Object^  sender, System::EventArgs^  e)
-    {
-		if (this->display->Text->Length == 1)
+	{
+		if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+		{
+		
+		}
+		else if (this->display->Text->Length == 1)
 		{
 			this->display->Text = display->Text->Remove(display->Text->Length - 1, 1);
 			this->display->Text = "0";
@@ -2673,22 +2708,26 @@ private: System::Void backspace_Click(System::Object^  sender, System::EventArgs
 		{
 			this->display->Text = display->Text->Remove(display->Text->Length - 1, 1);
 		}
-    }
+	}
 private: System::Void xsquared_Click(System::Object^  sender, System::EventArgs^  e)
-    {
-        if (xsquared->Text == "x^2")
-        {
-			this->display->Text = this->display->Text + " ^ 2";
-        }
-        else if (xsquared->Text == "x^3")
-        {
-			this->display->Text = this->display->Text + " ^ 3";
-        }
-        else
+	{
+		if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+		{
+		
+		}
+		else if (xsquared->Text == "x^2")
 		{
 			this->display->Text = this->display->Text + " ^ 2";
-        }
-    }
+		}
+		else if (xsquared->Text == "x^3")
+		{
+			this->display->Text = this->display->Text + " ^ 3";
+		}
+		else
+		{
+			this->display->Text = this->display->Text + " ^ 2";
+		}
+	}
 private: System::Void clear_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	this->display->Text = "0";
@@ -2699,7 +2738,7 @@ private: System::Void clear_Click(System::Object^  sender, System::EventArgs^  e
 private: System::Void button_click(System::Object^  sender, System::EventArgs^  e)
 {
 	Button ^ Numbers = safe_cast<Button^>(sender);
-	if (this->display->Text == "0")
+	if (this->display->Text == "0" || this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
 	{
 		this->display->Text = Numbers->Text;
 	}
@@ -2757,7 +2796,11 @@ private: System::Void memoryclear_Click(System::Object^  sender, System::EventAr
 }
 private: System::Void memoryrecall_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (curentMemory == "M1")
+	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+	{
+
+	}
+	else if (curentMemory == "M1")
 	{
 		this->display->Text = gcnew String(getMem1().c_str());
 	}
@@ -2796,7 +2839,11 @@ private: System::Void memoryrecall_Click(System::Object^  sender, System::EventA
 }
 private: System::Void memorysubtract_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (curentMemory == "M1")
+	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+	{
+
+	}
+	else if (curentMemory == "M1")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>( " - " + this->display->Text);
 		setMem1(calculate(getMem1() + unmanaged));
@@ -2844,7 +2891,11 @@ private: System::Void memorysubtract_Click(System::Object^  sender, System::Even
 }
 private: System::Void memorystore_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (curentMemory == "M1")
+	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+	{
+
+	}
+	else if (curentMemory == "M1")
 	{
 		setMem1(msclr::interop::marshal_as<std::string>(this->display->Text));
 	}
@@ -2883,7 +2934,11 @@ private: System::Void memorystore_Click(System::Object^  sender, System::EventAr
 }
 private: System::Void memoryadd_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (curentMemory == "M1")
+	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+	{
+
+	}
+	else if (curentMemory == "M1")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
 		setMem1(calculate(getMem1() + unmanaged));
@@ -2931,7 +2986,11 @@ private: System::Void memoryadd_Click(System::Object^  sender, System::EventArgs
 }
 private: System::Void plusminus_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (this->display->Text->EndsWith("."))
+	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+	{
+
+	}
+	else if (this->display->Text->EndsWith("."))
 	{
 		this->display->Text = this->display->Text + "0";
 	}
@@ -3069,29 +3128,20 @@ private: System::Void hyperbolic_Click(System::Object^  sender, System::EventArg
 		hyperbolic->ForeColor = System::Drawing::Color::Black;
 	}
 }
-bool exp = false;
-private: System::Void exponentialnotation_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	if (exp == false)
-	{
-		exp = true;
-		exponentialnotation->ForeColor = System::Drawing::Color::Blue;
-	}
-	else if (exp == true)
-	{
-		exp = false;
-		exponentialnotation->ForeColor = System::Drawing::Color::Black;
-	}
-}
-
-
 private: System::Void factorial_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text + " * -1");
+	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+	{
 
-	long double i = std::stold(unmanaged);
+	}
+	else
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text + " * -1");
 
-	this->display->Text = gcnew String(std::to_string(std::tgamma(i + 1)).c_str());
+		long double i = std::stold(unmanaged);
+
+		this->display->Text = gcnew String(std::to_string(std::tgamma(i + 1)).c_str());
+	}
 }
 private: System::Void pi_Click(System::Object^  sender, System::EventArgs^  e)
 {
@@ -3100,7 +3150,11 @@ private: System::Void pi_Click(System::Object^  sender, System::EventArgs^  e)
 
 private: System::Void tenpowerx_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (tenpowerx->Text == "10^x")
+	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+	{
+
+	}
+	else if (tenpowerx->Text == "10^x")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
@@ -3127,7 +3181,11 @@ private: System::Void tenpowerx_Click(System::Object^  sender, System::EventArgs
 }
 private: System::Void sin_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (drg == 1)
+	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+	{
+
+	}
+	else if (drg == 1)
 	{
 		if (sin->Text == "sin")
 		{
@@ -3243,7 +3301,11 @@ private: System::Void sin_Click(System::Object^  sender, System::EventArgs^  e)
 
 private: System::Void tan_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (drg == 1)
+	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+	{
+
+	}
+	else if (drg == 1)
 	{
 		if (tan->Text == "tan")
 		{
@@ -3383,7 +3445,11 @@ private: System::Void tan_Click(System::Object^  sender, System::EventArgs^  e)
 }
 private: System::Void squareroot_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (squareroot->Text == u8"\u221A")
+	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+	{
+
+	}
+	else if (squareroot->Text == u8"\u221A")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
@@ -3410,7 +3476,11 @@ private: System::Void squareroot_Click(System::Object^  sender, System::EventArg
 }
 private: System::Void log_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (log->Text == "log")
+	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+	{
+
+	}
+	else if (log->Text == "log")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text);
 
@@ -3438,7 +3508,11 @@ private: System::Void log_Click(System::Object^  sender, System::EventArgs^  e)
 private: System::Void Exp_Click(System::Object^  sender, System::EventArgs^  e)
 {
 
-	if (Exp->Text == "Exp")
+	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+	{
+
+	}
+	else if (Exp->Text == "Exp")
 	{
 		if (this->display->Text->Contains("e+"))
 		{
@@ -3478,7 +3552,11 @@ private: System::Void Exp_Click(System::Object^  sender, System::EventArgs^  e)
 }
 private: System::Void cos_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	if (drg == 1)
+	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
+	{
+
+	}
+	else if (drg == 1)
 	{
 		if (cos->Text == "cos")
 		{
@@ -4003,7 +4081,7 @@ private: System::Void key(System::Object^  sender, System::Windows::Forms::KeyPr
 
 	case 'S':
 
-	    memory6->PerformClick();
+		memory6->PerformClick();
 
 		break;
 
@@ -4061,12 +4139,6 @@ private: System::Void key(System::Object^  sender, System::Windows::Forms::KeyPr
 
 		break;
 
-	case 'y':
-
-		exponentialnotation->PerformClick();
-
-		break;
-
 	case 'W':
 
 		degrees->PerformClick();
@@ -4076,12 +4148,6 @@ private: System::Void key(System::Object^  sender, System::Windows::Forms::KeyPr
 	case 'X':
 
 		hyperbolic->PerformClick();
-
-		break;
-
-	case 'Y':
-
-		exponentialnotation->PerformClick();
 
 		break;
 
@@ -4180,10 +4246,6 @@ private: System::Void label12_Click_1(System::Object^  sender, System::EventArgs
 {
 	memoryadd->PerformClick();
 }
-private: System::Void label17_Click(System::Object^  sender, System::EventArgs^  e)
-{
-	exponentialnotation->PerformClick();
-}
 private: System::Void label18_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	memory1->PerformClick();
@@ -4240,11 +4302,7 @@ private: System::Void label26_Click(System::Object^  sender, System::EventArgs^ 
 {
 	memory9->PerformClick();
 }
-private: System::Void display_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e)
-{
-	display->Text = String::Format("At {0}, the temperature is {1}°C.", DateTime::Now, 20.4);
 
-}
 };
 
 }

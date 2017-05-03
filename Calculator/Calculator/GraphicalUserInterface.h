@@ -198,6 +198,7 @@ private: System::Windows::Forms::Label^  label25;
 private: System::Windows::Forms::Label^  label26;
 private: System::Windows::Forms::Label^  modlog;
 private: System::Windows::Forms::TextBox^  display;
+private: System::Windows::Forms::Label^  memoryLabel;
 
 
 
@@ -344,6 +345,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->label26 = (gcnew System::Windows::Forms::Label());
 			this->modlog = (gcnew System::Windows::Forms::Label());
 			this->display = (gcnew System::Windows::Forms::TextBox());
+			this->memoryLabel = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// equals
@@ -1718,8 +1720,17 @@ private: System::Windows::Forms::TextBox^  display;
 			this->display->TabStop = false;
 			this->display->Text = L"0";
 			this->display->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
-			this->display->TextChanged += gcnew System::EventHandler(this, &GraphicalUserInterface::textBox1_TextChanged);
 			this->display->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &GraphicalUserInterface::key);
+			// 
+			// memoryLabel
+			// 
+			this->memoryLabel->AutoSize = true;
+			this->memoryLabel->BackColor = System::Drawing::Color::White;
+			this->memoryLabel->Location = System::Drawing::Point(232, 91);
+			this->memoryLabel->Name = L"memoryLabel";
+			this->memoryLabel->Size = System::Drawing::Size(0, 14);
+			this->memoryLabel->TabIndex = 152;
+			this->memoryLabel->Click += gcnew System::EventHandler(this, &GraphicalUserInterface::memoryLabel_Click);
 			// 
 			// GraphicalUserInterface
 			// 
@@ -1728,6 +1739,7 @@ private: System::Windows::Forms::TextBox^  display;
 			this->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
 			this->ClientSize = System::Drawing::Size(565, 489);
+			this->Controls->Add(this->memoryLabel);
 			this->Controls->Add(this->modlog);
 			this->Controls->Add(this->label26);
 			this->Controls->Add(this->label22);
@@ -1842,9 +1854,6 @@ private: System::Windows::Forms::TextBox^  display;
 		}
 #pragma endregion
 
-	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e)
-	{
-	}
 	private: System::Void GraphicalUserInterface_Load(System::Object^  sender, System::EventArgs^  e)
 	{
 	}
@@ -2754,44 +2763,98 @@ private: System::Void Memory_Click(System::Object^  sender, System::EventArgs^  
 	Button ^ Mems = safe_cast<Button^>(sender);
 	//When a memory is selected swaps the current Memory to that one e.g. M1,M2.
 	curentMemory = Mems->Text;
+	if (Mems->Text == "M1")
+	{
+		this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
+	}
+	else if (Mems->Text == "M2")
+	{
+		this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
+	}
+	else if (Mems->Text == "M3")
+	{
+		this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
+	}
+	else if (Mems->Text == "M4")
+	{
+		this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
+	}
+	else if (Mems->Text == "M5")
+	{
+		this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
+	}
+	else if (Mems->Text == "M6")
+	{
+		this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
+	}
+	else if (Mems->Text == "M7")
+	{
+		this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
+	}
+	else if (Mems->Text == "M8")
+	{
+		this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
+	}
+	else if (Mems->Text == "M9")
+	{
+		this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
+	}
 }
 private: System::Void memoryclear_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	if (curentMemory == "M1")
 	{
 		setMem1("0");
+
+		this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
 	}
 	else if (curentMemory == "M2")
 	{
 		setMem2("0");
+
+		this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
 	}
 	else if (curentMemory == "M3")
 	{
 		setMem3("0");
+
+		this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
 	}
 	else if (curentMemory == "M4")
 	{
 		setMem4("0");
+
+		this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
 	}
 	else if (curentMemory == "M5")
 	{
 		setMem5("0");
+		
+		this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
 	}
 	else if (curentMemory == "M6")
 	{
 		setMem6("0");
+
+		this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
 	}
 	else if (curentMemory == "M7")
 	{
 		setMem7("0");
+
+		this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
 	}
 	else if (curentMemory == "M8")
 	{
 		setMem8("0");
+
+		this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
 	}
 	else
 	{
 		setMem9("0");
+
+		this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
 	}
 }
 private: System::Void memoryrecall_Click(System::Object^  sender, System::EventArgs^  e)
@@ -2847,46 +2910,55 @@ private: System::Void memorysubtract_Click(System::Object^  sender, System::Even
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>( " - " + this->display->Text);
 		setMem1(calculate(getMem1() + unmanaged));
+		this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
 	}
 	else if (curentMemory == "M2")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
 		setMem2(calculate(getMem2() + unmanaged));
+		this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
 	}
 	else if (curentMemory == "M3")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
 		setMem3(calculate(getMem3() + unmanaged));
+		this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
 	}
 	else if (curentMemory == "M4")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
 		setMem4(calculate(getMem4() + unmanaged));
+		this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
 	}
 	else if (curentMemory == "M5")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
 		setMem5(calculate(getMem5() + unmanaged));
+		this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
 	}
 	else if (curentMemory == "M6")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
 		setMem6(calculate(getMem6() + unmanaged));
+		this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
 	}
 	else if (curentMemory == "M7")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
 		setMem7(calculate(getMem7() + unmanaged));
+		this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
 	}
 	else if (curentMemory == "M8")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
 		setMem8(calculate(getMem8() + unmanaged));
+		this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
 	}
 	else
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
 		setMem9(calculate(getMem9() + unmanaged));
+		this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
 	}
 }
 private: System::Void memorystore_Click(System::Object^  sender, System::EventArgs^  e)
@@ -2898,38 +2970,47 @@ private: System::Void memorystore_Click(System::Object^  sender, System::EventAr
 	else if (curentMemory == "M1")
 	{
 		setMem1(msclr::interop::marshal_as<std::string>(this->display->Text));
+		this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
 	}
 	else if (curentMemory == "M2")
 	{
 		setMem2(msclr::interop::marshal_as<std::string>(this->display->Text));
+		this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
 	}
 	else if (curentMemory == "M3")
 	{
 		setMem3(msclr::interop::marshal_as<std::string>(this->display->Text));
+		this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
 	}
 	else if (curentMemory == "M4")
 	{
 		setMem4(msclr::interop::marshal_as<std::string>(this->display->Text));
+		this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
 	}
 	else if (curentMemory == "M5")
 	{
 		setMem5(msclr::interop::marshal_as<std::string>(this->display->Text));
+		this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
 	}
 	else if (curentMemory == "M6")
 	{
 		setMem6(msclr::interop::marshal_as<std::string>(this->display->Text));
+		this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
 	}
 	else if (curentMemory == "M7")
 	{
 		setMem7(msclr::interop::marshal_as<std::string>(this->display->Text));
+		this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
 	}
 	else if (curentMemory == "M8")
 	{
 		setMem8(msclr::interop::marshal_as<std::string>(this->display->Text));
+		this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
 	}
 	else
 	{
 		setMem9(msclr::interop::marshal_as<std::string>(this->display->Text));
+		this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
 	}
 }
 private: System::Void memoryadd_Click(System::Object^  sender, System::EventArgs^  e)
@@ -2942,46 +3023,55 @@ private: System::Void memoryadd_Click(System::Object^  sender, System::EventArgs
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
 		setMem1(calculate(getMem1() + unmanaged));
+		this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
 	}
 	else if (curentMemory == "M2")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
 		setMem2(calculate(getMem2() + unmanaged));
+		this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
 	}
 	else if (curentMemory == "M3")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
 		setMem3(calculate(getMem3() + unmanaged));
+		this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
 	}
 	else if (curentMemory == "M4")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
 		setMem4(calculate(getMem4() + unmanaged));
+		this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
 	}
 	else if (curentMemory == "M5")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
 		setMem5(calculate(getMem5() + unmanaged));
+		this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
 	}
 	else if (curentMemory == "M6")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
 		setMem6(calculate(getMem6() + unmanaged));
+		this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
 	}
 	else if (curentMemory == "M7")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
 		setMem7(calculate(getMem7() + unmanaged));
+		this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
 	}
 	else if (curentMemory == "M8")
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
 		setMem8(calculate(getMem8() + unmanaged));
+		this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
 	}
 	else
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
 		setMem9(calculate(getMem9() + unmanaged));
+		this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
 	}
 }
 private: System::Void plusminus_Click(System::Object^  sender, System::EventArgs^  e)
@@ -4303,6 +4393,9 @@ private: System::Void label26_Click(System::Object^  sender, System::EventArgs^ 
 	memory9->PerformClick();
 }
 
+private: System::Void memoryLabel_Click(System::Object^  sender, System::EventArgs^  e)
+{
+}
 };
 
 }

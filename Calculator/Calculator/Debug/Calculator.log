@@ -1,4 +1,3 @@
-﻿  GraphicalUserInterface.cpp
-  CalculatorLib.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
+﻿  CalculatorLib.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
   Calculator.vcxproj -> D:\unistuff\CT4021 Introduction to Programming Fundamentals (Sem1-2 - 201617)\semester 2\Calculator\Calculator\Debug\Calculator.exe
   Calculator.vcxproj -> D:\unistuff\CT4021 Introduction to Programming Fundamentals (Sem1-2 - 201617)\semester 2\Calculator\Calculator\Debug\Calculator.pdb (Partial PDB)

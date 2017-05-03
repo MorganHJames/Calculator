@@ -139,11 +139,18 @@
     <ClInclude Include="GraphicalUserInterface.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GraphicalUserInterface.resx">
       <DependentUpon>GraphicalUserInterface.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Calculator.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\calc icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

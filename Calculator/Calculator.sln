@@ -7,8 +7,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Calculator", "Calculator\Ca
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CalculatorLib", "CalculatorLib\CalculatorLib.vcxitems", "{45D41ACC-2C3C-43D2-BC10-02AA73FFC7C7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Testing", "..\..\Testing\Testing.vcxproj", "{0A883449-BFB4-4BDB-B3B1-8E31171C5188}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		CalculatorLib\CalculatorLib.vcxitems*{0a883449-bfb4-4bdb-b3b1-8e31171c5188}*SharedItemsImports = 4
 		CalculatorLib\CalculatorLib.vcxitems*{45d41acc-2c3c-43d2-bc10-02aa73ffc7c7}*SharedItemsImports = 9
 		CalculatorLib\CalculatorLib.vcxitems*{6404ae36-6a63-4ac6-804a-3c80b618fd43}*SharedItemsImports = 4
 	EndGlobalSection
@@ -27,6 +30,14 @@ Global
 		{6404AE36-6A63-4AC6-804A-3C80B618FD43}.Release|x64.Build.0 = Release|x64
 		{6404AE36-6A63-4AC6-804A-3C80B618FD43}.Release|x86.ActiveCfg = Release|Win32
 		{6404AE36-6A63-4AC6-804A-3C80B618FD43}.Release|x86.Build.0 = Release|Win32
+		{0A883449-BFB4-4BDB-B3B1-8E31171C5188}.Debug|x64.ActiveCfg = Debug|x64
+		{0A883449-BFB4-4BDB-B3B1-8E31171C5188}.Debug|x64.Build.0 = Debug|x64
+		{0A883449-BFB4-4BDB-B3B1-8E31171C5188}.Debug|x86.ActiveCfg = Debug|Win32
+		{0A883449-BFB4-4BDB-B3B1-8E31171C5188}.Debug|x86.Build.0 = Debug|Win32
+		{0A883449-BFB4-4BDB-B3B1-8E31171C5188}.Release|x64.ActiveCfg = Release|x64
+		{0A883449-BFB4-4BDB-B3B1-8E31171C5188}.Release|x64.Build.0 = Release|x64
+		{0A883449-BFB4-4BDB-B3B1-8E31171C5188}.Release|x86.ActiveCfg = Release|Win32
+		{0A883449-BFB4-4BDB-B3B1-8E31171C5188}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

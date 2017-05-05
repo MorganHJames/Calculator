@@ -1715,6 +1715,7 @@ private: System::Windows::Forms::Label^  memoryLabel;
 			this->display->Location = System::Drawing::Point(0, 0);
 			this->display->Multiline = true;
 			this->display->Name = L"display";
+			this->display->ReadOnly = true;
 			this->display->Size = System::Drawing::Size(565, 110);
 			this->display->TabIndex = 0;
 			this->display->TabStop = false;
@@ -1861,6 +1862,14 @@ private: System::Windows::Forms::Label^  memoryLabel;
 	long double modnum1 = 0;
 private: System::Void modulus_Click(System::Object^  sender, System::EventArgs^  e)
 {
+	if (this->display->Text->EndsWith("^"))
+	{
+		this->display->Text = this->display->Text + " 0";
+	}
+	else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+	{
+		this->display->Text = this->display->Text + "0";
+	}
 	if (modulus->Text == "mod")
 	{
 		if (this->modlog->Text->Contains("Mod") || this->modlog->Text->Contains("yroot"))
@@ -1941,6 +1950,14 @@ private: System::Void xtothepowerofy_Click(System::Object^  sender, System::Even
 		}
 		if (rb == lb)
 		{
+			if (this->display->Text->EndsWith("^"))
+			{
+				this->display->Text = this->display->Text + " 0";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+			{
+				this->display->Text = this->display->Text + "0";
+			}
 			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
 			{
 
@@ -1986,7 +2003,14 @@ private: System::Void xtothepowerofy_Click(System::Object^  sender, System::Even
 			}
 		}
 		else
-		{
+		{	if (this->display->Text->EndsWith("^"))
+			{
+				this->display->Text = this->display->Text + " 0";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+			{
+				this->display->Text = this->display->Text + "0";
+			}
 			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
 			{
 
@@ -2027,6 +2051,14 @@ private: System::Void xtothepowerofy_Click(System::Object^  sender, System::Even
 	}
 	else if (xtothepowerofy->Text == "y" + u8"\u221A" + "x")
 	{
+		if (this->display->Text->EndsWith("^"))
+		{
+			this->display->Text = this->display->Text + " 0";
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			this->display->Text = this->display->Text + "0";
+		}
 		if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
 		{
 
@@ -2059,6 +2091,14 @@ private: System::Void xtothepowerofy_Click(System::Object^  sender, System::Even
 		}
 		if (rb == lb)
 		{
+			if (this->display->Text->EndsWith("^"))
+			{
+				this->display->Text = this->display->Text + " 0";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+			{
+				this->display->Text = this->display->Text + "0";
+			}
 			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
 			{
 
@@ -2097,6 +2137,14 @@ private: System::Void xtothepowerofy_Click(System::Object^  sender, System::Even
 		}
 		else
 		{
+			if (this->display->Text->EndsWith("^"))
+			{
+				this->display->Text = this->display->Text + " 0";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+			{
+				this->display->Text = this->display->Text + "0";
+			}
 			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
 			{
 
@@ -2178,7 +2226,16 @@ private: System::Void equals_Click(System::Object^  sender, System::EventArgs^  
 				this->lblShowOp->Text = "";
 				this->ree->Text = "";
 			}
-			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			else if (this->display->Text->EndsWith("^"))
+			{
+				this->display->Text = this->display->Text + " 0";
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->display->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = "";
+				this->ree->Text = "";
+
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" ") )
 			{
 				this->display->Text = this->display->Text + "0";
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
@@ -2240,7 +2297,15 @@ private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  
 			{
 			
 			}
-			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			else if (this->display->Text->EndsWith("^"))
+			{
+				this->display->Text = this->display->Text + " 0";
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
+				this->display->Text = "0";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
 			{
 				this->display->Text = this->display->Text + "0";
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
@@ -2293,7 +2358,13 @@ private: System::Void plus_Click_1(System::Object^  sender, System::EventArgs^  
 
 				this->lblShowOp->Text = this->lblShowOp->Text + " + ";
 			}
-			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			else if (this->display->Text->EndsWith("^"))
+			{
+				this->display->Text = this->display->Text + " 0";
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
+				this->display->Text = "0";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
 			{
 				this->display->Text = this->display->Text + "0";
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " + ";
@@ -2350,7 +2421,15 @@ private: System::Void negative_Click_1(System::Object^  sender, System::EventArg
 			{
 
 			}
-			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			else if (this->display->Text->EndsWith("^"))
+			{
+				this->display->Text = this->display->Text + " 0";
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
+				this->display->Text = "0";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
 			{
 				this->display->Text = this->display->Text + "0";
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
@@ -2398,7 +2477,13 @@ private: System::Void negative_Click_1(System::Object^  sender, System::EventArg
 
 				this->lblShowOp->Text = this->lblShowOp->Text + " - ";
 			}
-			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			else if (this->display->Text->EndsWith("^"))
+			{
+				this->display->Text = this->display->Text + " 0";
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
+				this->display->Text = "0";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
 			{
 				this->display->Text = this->display->Text + "0";
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " - ";
@@ -2454,7 +2539,15 @@ private: System::Void multiply_Click_1(System::Object^  sender, System::EventArg
 			{
 
 			}
-			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			else if (this->display->Text->EndsWith("^"))
+			{
+				this->display->Text = this->display->Text + " 0";
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
+				this->display->Text = "0";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
 			{
 				this->display->Text = this->display->Text + "0";
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
@@ -2508,7 +2601,13 @@ private: System::Void multiply_Click_1(System::Object^  sender, System::EventArg
 
 				this->lblShowOp->Text = this->lblShowOp->Text + " * ";
 			}
-			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			else if (this->display->Text->EndsWith("^"))
+			{
+				this->display->Text = this->display->Text + "0";
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
+				this->display->Text = "0";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
 			{
 				this->display->Text = this->display->Text + "0";
 				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " * ";
@@ -2564,7 +2663,15 @@ private: System::Void divide_Click_1(System::Object^  sender, System::EventArgs^
 			{
 
 			}
-			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith("."))
+			else if (this->display->Text->EndsWith("^"))
+			{
+				this->display->Text = this->display->Text + " 0";
+				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
+				this->ree->Text = gcnew String(calculate(unmanaged).c_str());
+				this->lblShowOp->Text = this->lblShowOp->Text + this->display->Text + " / ";
+				this->display->Text = "0";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
 			{
 				this->display->Text = this->display->Text + "0";
 				std::string unmanaged = msclr::interop::marshal_as<std::string>(this->lblShowOp->Text + this->display->Text);
@@ -2642,11 +2749,12 @@ private: System::Void period_Click_1(System::Object^  sender, System::EventArgs^
 			{
 
 			}
-			else if (this->display->Text->EndsWith(") ") || this->display->Text->EndsWith("-"))
+			else if (this->display->Text->EndsWith("^"))
 			{
 
+				this->display->Text = this->display->Text + " 0.";
 			}
-			else if (this->display->Text->EndsWith("e+"))
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
 			{
 
 				this->display->Text = this->display->Text + "0.";
@@ -2676,6 +2784,14 @@ private: System::Void rightBrace_Click(System::Object^  sender, System::EventArg
 			if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
 			{
 
+			}
+			else if (this->display->Text->EndsWith("^"))
+			{
+				this->lblShowOp->Text = this->display->Text + " 0 ) ";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+			{
+				this->lblShowOp->Text = this->display->Text + "0 ) ";
 			}
 			else if (this->lblShowOp->Text->EndsWith(") ") && this->display->Text == ("0"))
 			{
@@ -2726,11 +2842,34 @@ private: System::Void xsquared_Click(System::Object^  sender, System::EventArgs^
 		}
 		else if (xsquared->Text == "x^2")
 		{
-			this->display->Text = this->display->Text + " ^ 2";
+		    if (this->display->Text->EndsWith("^"))
+		    {
+				this->display->Text = this->display->Text + " 0 ^ 2";
+		    }
+		    else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		    {
+		    	this->display->Text = this->display->Text + "0 ^ 2";
+		    }
+			else
+			{
+				this->display->Text = this->display->Text + " ^ 2";
+			}
+	          
 		}
 		else if (xsquared->Text == "x^3")
 		{
-			this->display->Text = this->display->Text + " ^ 3";
+			if (this->display->Text->EndsWith("^"))
+			{
+				this->display->Text = this->display->Text + " 0 ^ 3";
+			}
+			else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+			{
+				this->display->Text = this->display->Text + "0 ^ 3";
+			}
+			else
+			{
+				this->display->Text = this->display->Text + " ^ 3";
+			}
 		}
 		else
 		{
@@ -2908,57 +3047,192 @@ private: System::Void memorysubtract_Click(System::Object^  sender, System::Even
 	}
 	else if (curentMemory == "M1")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>( " - " + this->display->Text);
-		setMem1(calculate(getMem1() + unmanaged));
-		this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
+        if (this->display->Text->EndsWith("^"))
+        {
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + " 0");
+			setMem1(calculate(getMem1() + unmanaged));
+			this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
+        }
+        else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+        {
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text +  "0");
+			setMem1(calculate(getMem1() + unmanaged));
+			this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
+        }
+        else
+        {
+        	std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+        	setMem1(calculate(getMem1() + unmanaged));
+        	this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
+        }
 	}
 	else if (curentMemory == "M2")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
-		setMem2(calculate(getMem2() + unmanaged));
-		this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + " 0");
+			setMem2(calculate(getMem2() + unmanaged));
+			this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + "0");
+			setMem2(calculate(getMem2() + unmanaged));
+			this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+			setMem2(calculate(getMem2() + unmanaged));
+			this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
+		}
 	}
 	else if (curentMemory == "M3")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
-		setMem3(calculate(getMem3() + unmanaged));
-		this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + " 0");
+			setMem3(calculate(getMem3() + unmanaged));
+			this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + "0");
+			setMem3(calculate(getMem3() + unmanaged));
+			this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+			setMem3(calculate(getMem3() + unmanaged));
+			this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
+		}
 	}
 	else if (curentMemory == "M4")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
-		setMem4(calculate(getMem4() + unmanaged));
-		this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + " 0");
+			setMem4(calculate(getMem4() + unmanaged));
+			this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + "0");
+			setMem4(calculate(getMem4() + unmanaged));
+			this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+			setMem4(calculate(getMem4() + unmanaged));
+			this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
+		}
 	}
 	else if (curentMemory == "M5")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
-		setMem5(calculate(getMem5() + unmanaged));
-		this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + " 0");
+			setMem5(calculate(getMem5() + unmanaged));
+			this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + "0");
+			setMem5(calculate(getMem5() + unmanaged));
+			this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+			setMem5(calculate(getMem5() + unmanaged));
+			this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
+		}
 	}
 	else if (curentMemory == "M6")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
-		setMem6(calculate(getMem6() + unmanaged));
-		this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + " 0");
+			setMem6(calculate(getMem6() + unmanaged));
+			this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + "0");
+			setMem6(calculate(getMem6() + unmanaged));
+			this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+			setMem6(calculate(getMem6() + unmanaged));
+			this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
+		}
 	}
 	else if (curentMemory == "M7")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
-		setMem7(calculate(getMem7() + unmanaged));
-		this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + " 0");
+			setMem7(calculate(getMem7() + unmanaged));
+			this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + "0");
+			setMem7(calculate(getMem7() + unmanaged));
+			this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+			setMem7(calculate(getMem7() + unmanaged));
+			this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
+		}
 	}
 	else if (curentMemory == "M8")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
-		setMem8(calculate(getMem8() + unmanaged));
-		this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + " 0");
+			setMem8(calculate(getMem8() + unmanaged));
+			this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + "0");
+			setMem8(calculate(getMem8() + unmanaged));
+			this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+			setMem8(calculate(getMem8() + unmanaged));
+			this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
+		}
 	}
 	else
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
-		setMem9(calculate(getMem9() + unmanaged));
-		this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + " 0");
+			setMem9(calculate(getMem9() + unmanaged));
+			this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text + "0");
+			setMem9(calculate(getMem9() + unmanaged));
+			this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" - " + this->display->Text);
+			setMem9(calculate(getMem9() + unmanaged));
+			this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
+		}
 	}
 }
 private: System::Void memorystore_Click(System::Object^  sender, System::EventArgs^  e)
@@ -2969,48 +3243,166 @@ private: System::Void memorystore_Click(System::Object^  sender, System::EventAr
 	}
 	else if (curentMemory == "M1")
 	{
-		setMem1(msclr::interop::marshal_as<std::string>(this->display->Text));
-		this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			setMem1(msclr::interop::marshal_as<std::string>(this->display->Text + " 0"));
+			this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			setMem1(msclr::interop::marshal_as<std::string>(this->display->Text + "0"));
+			this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
+		}
+		else
+		{
+			setMem1(msclr::interop::marshal_as<std::string>(this->display->Text));
+			this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
+		}
+
 	}
 	else if (curentMemory == "M2")
 	{
-		setMem2(msclr::interop::marshal_as<std::string>(this->display->Text));
-		this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			setMem2(msclr::interop::marshal_as<std::string>(this->display->Text + " 0"));
+			this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			setMem2(msclr::interop::marshal_as<std::string>(this->display->Text + "0"));
+			this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
+		}
+		else
+		{
+			setMem2(msclr::interop::marshal_as<std::string>(this->display->Text));
+			this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem1().c_str());
+		}
 	}
 	else if (curentMemory == "M3")
 	{
-		setMem3(msclr::interop::marshal_as<std::string>(this->display->Text));
-		this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			setMem3(msclr::interop::marshal_as<std::string>(this->display->Text + " 0"));
+			this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			setMem3(msclr::interop::marshal_as<std::string>(this->display->Text + "0"));
+			this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
+		}
+		else
+		{
+			setMem3(msclr::interop::marshal_as<std::string>(this->display->Text));
+			this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
+		}
 	}
 	else if (curentMemory == "M4")
 	{
-		setMem4(msclr::interop::marshal_as<std::string>(this->display->Text));
-		this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			setMem4(msclr::interop::marshal_as<std::string>(this->display->Text + " 0"));
+			this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			setMem4(msclr::interop::marshal_as<std::string>(this->display->Text + "0"));
+			this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
+		}
+		else
+		{
+			setMem4(msclr::interop::marshal_as<std::string>(this->display->Text));
+			this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
+		}
 	}
 	else if (curentMemory == "M5")
 	{
-		setMem5(msclr::interop::marshal_as<std::string>(this->display->Text));
-		this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			setMem5(msclr::interop::marshal_as<std::string>(this->display->Text + " 0"));
+			this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			setMem5(msclr::interop::marshal_as<std::string>(this->display->Text + "0"));
+			this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
+		}
+		else
+		{
+			setMem5(msclr::interop::marshal_as<std::string>(this->display->Text));
+			this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
+		}
 	}
 	else if (curentMemory == "M6")
 	{
-		setMem6(msclr::interop::marshal_as<std::string>(this->display->Text));
-		this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			setMem6(msclr::interop::marshal_as<std::string>(this->display->Text + " 0"));
+			this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			setMem6(msclr::interop::marshal_as<std::string>(this->display->Text + "0"));
+			this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
+		}
+		else
+		{
+			setMem6(msclr::interop::marshal_as<std::string>(this->display->Text));
+			this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
+		}
 	}
 	else if (curentMemory == "M7")
 	{
-		setMem7(msclr::interop::marshal_as<std::string>(this->display->Text));
-		this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			setMem7(msclr::interop::marshal_as<std::string>(this->display->Text + " 0"));
+			this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			setMem7(msclr::interop::marshal_as<std::string>(this->display->Text + "0"));
+			this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
+		}
+		else
+		{
+			setMem7(msclr::interop::marshal_as<std::string>(this->display->Text));
+			this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
+		}
 	}
 	else if (curentMemory == "M8")
 	{
-		setMem8(msclr::interop::marshal_as<std::string>(this->display->Text));
-		this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			setMem8(msclr::interop::marshal_as<std::string>(this->display->Text + " 0"));
+			this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			setMem8(msclr::interop::marshal_as<std::string>(this->display->Text + "0"));
+			this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
+		}
+		else
+		{
+			setMem8(msclr::interop::marshal_as<std::string>(this->display->Text));
+			this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
+		}
 	}
 	else
 	{
-		setMem9(msclr::interop::marshal_as<std::string>(this->display->Text));
-		this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			setMem9(msclr::interop::marshal_as<std::string>(this->display->Text + " 0"));
+			this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			setMem9(msclr::interop::marshal_as<std::string>(this->display->Text + "0"));
+			this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
+		}
+		else
+		{
+			setMem9(msclr::interop::marshal_as<std::string>(this->display->Text));
+			this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
+		}
 	}
 }
 private: System::Void memoryadd_Click(System::Object^  sender, System::EventArgs^  e)
@@ -3021,57 +3413,192 @@ private: System::Void memoryadd_Click(System::Object^  sender, System::EventArgs
 	}
 	else if (curentMemory == "M1")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
-		setMem1(calculate(getMem1() + unmanaged));
-		this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
+        if (this->display->Text->EndsWith("^"))
+        {
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + " 0");
+			setMem1(calculate(getMem1() + unmanaged));
+			this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
+        }
+        else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+        {
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text +  "0");
+			setMem1(calculate(getMem1() + unmanaged));
+			this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
+        }
+        else
+        {
+        	std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+        	setMem1(calculate(getMem1() + unmanaged));
+        	this->memoryLabel->Text = "Memory 1: " + gcnew String(getMem1().c_str());
+        }
 	}
 	else if (curentMemory == "M2")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
-		setMem2(calculate(getMem2() + unmanaged));
-		this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + " 0");
+			setMem2(calculate(getMem2() + unmanaged));
+			this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + "0");
+			setMem2(calculate(getMem2() + unmanaged));
+			this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+			setMem2(calculate(getMem2() + unmanaged));
+			this->memoryLabel->Text = "Memory 2: " + gcnew String(getMem2().c_str());
+		}
 	}
 	else if (curentMemory == "M3")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
-		setMem3(calculate(getMem3() + unmanaged));
-		this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + " 0");
+			setMem3(calculate(getMem3() + unmanaged));
+			this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + "0");
+			setMem3(calculate(getMem3() + unmanaged));
+			this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+			setMem3(calculate(getMem3() + unmanaged));
+			this->memoryLabel->Text = "Memory 3: " + gcnew String(getMem3().c_str());
+		}
 	}
 	else if (curentMemory == "M4")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
-		setMem4(calculate(getMem4() + unmanaged));
-		this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + " 0");
+			setMem4(calculate(getMem4() + unmanaged));
+			this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + "0");
+			setMem4(calculate(getMem4() + unmanaged));
+			this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+			setMem4(calculate(getMem4() + unmanaged));
+			this->memoryLabel->Text = "Memory 4: " + gcnew String(getMem4().c_str());
+		}
 	}
 	else if (curentMemory == "M5")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
-		setMem5(calculate(getMem5() + unmanaged));
-		this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + " 0");
+			setMem5(calculate(getMem5() + unmanaged));
+			this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + "0");
+			setMem5(calculate(getMem5() + unmanaged));
+			this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+			setMem5(calculate(getMem5() + unmanaged));
+			this->memoryLabel->Text = "Memory 5: " + gcnew String(getMem5().c_str());
+		}
 	}
 	else if (curentMemory == "M6")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
-		setMem6(calculate(getMem6() + unmanaged));
-		this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + " 0");
+			setMem6(calculate(getMem6() + unmanaged));
+			this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + "0");
+			setMem6(calculate(getMem6() + unmanaged));
+			this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+			setMem6(calculate(getMem6() + unmanaged));
+			this->memoryLabel->Text = "Memory 6: " + gcnew String(getMem6().c_str());
+		}
 	}
 	else if (curentMemory == "M7")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
-		setMem7(calculate(getMem7() + unmanaged));
-		this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + " 0");
+			setMem7(calculate(getMem7() + unmanaged));
+			this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + "0");
+			setMem7(calculate(getMem7() + unmanaged));
+			this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+			setMem7(calculate(getMem7() + unmanaged));
+			this->memoryLabel->Text = "Memory 7: " + gcnew String(getMem7().c_str());
+		}
 	}
 	else if (curentMemory == "M8")
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
-		setMem8(calculate(getMem8() + unmanaged));
-		this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + " 0");
+			setMem8(calculate(getMem8() + unmanaged));
+			this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + "0");
+			setMem8(calculate(getMem8() + unmanaged));
+			this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+			setMem8(calculate(getMem8() + unmanaged));
+			this->memoryLabel->Text = "Memory 8: " + gcnew String(getMem8().c_str());
+		}
 	}
 	else
 	{
-		std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
-		setMem9(calculate(getMem9() + unmanaged));
-		this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
+		if (this->display->Text->EndsWith("^"))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + " 0");
+			setMem9(calculate(getMem9() + unmanaged));
+			this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
+		}
+		else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text + "0");
+			setMem9(calculate(getMem9() + unmanaged));
+			this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
+		}
+		else
+		{
+			std::string unmanaged = msclr::interop::marshal_as<std::string>(" + " + this->display->Text);
+			setMem9(calculate(getMem9() + unmanaged));
+			this->memoryLabel->Text = "Memory 9: " + gcnew String(getMem9().c_str());
+		}
 	}
 }
 private: System::Void plusminus_Click(System::Object^  sender, System::EventArgs^  e)
@@ -3080,13 +3607,29 @@ private: System::Void plusminus_Click(System::Object^  sender, System::EventArgs
 	{
 
 	}
-	else if (this->display->Text->EndsWith("."))
+	else if (this->display->Text->EndsWith("^"))
+	{
+		this->display->Text = this->display->Text + " 0";
+
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text + " * -1");
+
+		this->display->Text = gcnew String(calculate(unmanaged).c_str());
+	}
+	else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
 	{
 		this->display->Text = this->display->Text + "0";
-	}
-	std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text + " * -1");
 
-	this->display->Text = gcnew String(calculate(unmanaged).c_str());
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text + " * -1");
+
+		this->display->Text = gcnew String(calculate(unmanaged).c_str());
+	}
+	else
+	{
+
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text + " * -1");
+
+		this->display->Text = gcnew String(calculate(unmanaged).c_str());
+	}
 }
 int drg = 1;
 private: System::Void degrees_Click(System::Object^  sender, System::EventArgs^  e)
@@ -3224,6 +3767,23 @@ private: System::Void factorial_Click(System::Object^  sender, System::EventArgs
 	{
 
 	}
+	else if (this->display->Text->EndsWith("^"))
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text + " 0 * -1");
+
+		long double i = std::stold(unmanaged);
+
+		this->display->Text = gcnew String(std::to_string(std::tgamma(i + 1)).c_str());
+	}
+	else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+	{
+		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text + "0 * -1");
+
+		long double i = std::stold(unmanaged);
+
+		this->display->Text = gcnew String(std::to_string(std::tgamma(i + 1)).c_str());
+
+	}
 	else
 	{
 		std::string unmanaged = msclr::interop::marshal_as<std::string>(this->display->Text + " * -1");
@@ -3240,6 +3800,14 @@ private: System::Void pi_Click(System::Object^  sender, System::EventArgs^  e)
 
 private: System::Void tenpowerx_Click(System::Object^  sender, System::EventArgs^  e)
 {
+	if (this->display->Text->EndsWith("^"))
+	{
+		this->display->Text = this->display->Text + " 0";
+	}
+	else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+	{
+		this->display->Text = this->display->Text + "0";
+	}
 	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
 	{
 
@@ -3271,6 +3839,14 @@ private: System::Void tenpowerx_Click(System::Object^  sender, System::EventArgs
 }
 private: System::Void sin_Click(System::Object^  sender, System::EventArgs^  e)
 {
+	if (this->display->Text->EndsWith("^"))
+	{
+		this->display->Text = this->display->Text + " 0";
+	}
+	else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+	{
+		this->display->Text = this->display->Text + "0";
+	}
 	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
 	{
 
@@ -3391,6 +3967,14 @@ private: System::Void sin_Click(System::Object^  sender, System::EventArgs^  e)
 
 private: System::Void tan_Click(System::Object^  sender, System::EventArgs^  e)
 {
+	if (this->display->Text->EndsWith("^"))
+	{
+		this->display->Text = this->display->Text + " 0";
+	}
+	else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+	{
+		this->display->Text = this->display->Text + "0";
+	}
 	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
 	{
 
@@ -3535,6 +4119,14 @@ private: System::Void tan_Click(System::Object^  sender, System::EventArgs^  e)
 }
 private: System::Void squareroot_Click(System::Object^  sender, System::EventArgs^  e)
 {
+	if (this->display->Text->EndsWith("^"))
+	{
+		this->display->Text = this->display->Text + " 0";
+	}
+	else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+	{
+		this->display->Text = this->display->Text + "0";
+	}
 	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
 	{
 
@@ -3566,6 +4158,14 @@ private: System::Void squareroot_Click(System::Object^  sender, System::EventArg
 }
 private: System::Void log_Click(System::Object^  sender, System::EventArgs^  e)
 {
+	if (this->display->Text->EndsWith("^"))
+	{
+		this->display->Text = this->display->Text + " 0";
+	}
+	else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+	{
+		this->display->Text = this->display->Text + "0";
+	}
 	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
 	{
 
@@ -3597,7 +4197,14 @@ private: System::Void log_Click(System::Object^  sender, System::EventArgs^  e)
 }
 private: System::Void Exp_Click(System::Object^  sender, System::EventArgs^  e)
 {
-
+	if (this->display->Text->EndsWith("^"))
+	{
+		this->display->Text = this->display->Text + " 0";
+	}
+	else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+	{
+		this->display->Text = this->display->Text + "0";
+	}
 	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
 	{
 
@@ -3642,6 +4249,14 @@ private: System::Void Exp_Click(System::Object^  sender, System::EventArgs^  e)
 }
 private: System::Void cos_Click(System::Object^  sender, System::EventArgs^  e)
 {
+	if (this->display->Text->EndsWith("^"))
+	{
+		this->display->Text = this->display->Text + " 0";
+	}
+	else if (this->display->Text->EndsWith("e+") || this->display->Text->EndsWith(".") || this->display->Text->EndsWith("-") || this->display->Text->EndsWith(" "))
+	{
+		this->display->Text = this->display->Text + "0";
+	}
 	if (this->display->Text->Contains("I") || this->display->Text->Contains("n") || this->display->Text->Contains("f") || this->display->Text->Contains("a") || this->display->Text->Contains("d") || this->display->Text->Contains("r"))
 	{
 

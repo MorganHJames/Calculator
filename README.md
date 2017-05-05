@@ -7,3 +7,4 @@ Instructions for use:
 -Press the Deg button to switch from degrees to radians to gradians
 -Press the HYP to switch to alternative trigonometry functions
 -Press M1-M9 to switch to which memory space you want to call from
+-Use the arrow keys to select a button and enter to activate it

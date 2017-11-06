@@ -1,3 +1,6 @@
-﻿  CalculatorLib.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
-  Calculator.vcxproj -> D:\unistuff\CT4021 Introduction to Programming Fundamentals (Sem1-2 - 201617)\semester 2\Calculator\Calculator\Debug\Calculator.exe
-  Calculator.vcxproj -> D:\unistuff\CT4021 Introduction to Programming Fundamentals (Sem1-2 - 201617)\semester 2\Calculator\Calculator\Debug\Calculator.pdb (Partial PDB)
+﻿  CalculatorLib.cpp
+  MemoryFunctions.cpp
+  GraphicalUserInterface.cpp
+  Generating Code...
+  .NETFramework,Version=v4.5.2.AssemblyAttributes.cpp
+  Calculator.vcxproj -> D:\Documents\CodingWork\Year 1\CT4021 Introduction to Programming Fundamentals (Sem1-2 - 201617)\semester 2\Calculator\Calculator\Debug\Calculator.exe
